@@ -171,7 +171,7 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result, pair){
-bot.reply(pair, msg);
+bot.reply(pair, 'Собеседник найден! Устанавливаем соединение...');
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
