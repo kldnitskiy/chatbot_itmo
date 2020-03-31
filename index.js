@@ -117,7 +117,28 @@ CheckPair = function(callback, id, user_message) {
     });
   });
 };
-
+//SetPair
+SetPair = function(callback, id, pair_id) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "UPDATE chatbot_data SET pair_id = "+pair_id+" WHERE vk_id = "+id+";";
+      let sql = sql + "UPDATE chatbot_data SET pair_id = "+id+" WHERE vk_id = "+pair_id+";";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        //return results;
+      callback(false, results);
+    });
+  });
+};
 
 let users = getUsers(saveUsers);
 function saveUsers(status, result){
@@ -129,18 +150,30 @@ function saveUnpaired(status, result){
     unpaired = result;
     console.log('Без пары: ' + unpaired);
 }
-
+function savePaired(status, result){
+    
+}
 function checkifUnpaired(status, result,user_message){
     //DETECT PAIR
     if(Object.keys(result).length === 0){
         isUnpaired = true;
-        user_message.reply('Вижу, вы без пары)');
+        //Bot action
+        let paid_id;
+        user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
+        for(let i = 0; i < unpaired.length){
+            if([i]unpaired.vk_id !=== result_message_user_id){
+                paid_id = [i]unpaired.vk_id;
+                console.log(paid_id);
+                //delete [i].unpaired;
+                break;
+            }
+        }
+        //SetPair(savePaired, user_message.user_id, pair_id);
     }else{
         isUnpaired = false;
+        //Bot action
+        user_message.reply('Добро пожаловать в анонимную беседу. Напишите сообщение вашему собеседнику.');
     }
-    
-    //Bot action
-    
 }
 //BOT REPLIES
     bot.on(function (user_message){
