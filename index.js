@@ -23,10 +23,10 @@ server.post('/', bot.listen)
 server.get('/', (request, response) => {
     request.header('Content-Type', 'application/json')
     response.send('f5f07863')
-    
-    
 })
-console.log('running');
+externalip(function (err, ip) {
+  console.log(ip); // => 8.8.8.8
+});
 server.listen(PORT)
 
 //let con = mysql.createConnection({
