@@ -76,7 +76,7 @@ getUsers = function(callback) {
 
 let users = getUsers(calling);
 function calling(status, data){
-    console.log(status);
+    console.log(data);
 }
 
 //BOT REPLIES
