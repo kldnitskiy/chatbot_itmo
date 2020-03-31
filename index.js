@@ -36,7 +36,7 @@ function insert_vk_id(vk_id){
     let check_user = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+vk_id+" ";
   con.query(check_user, function (err, result) {
     if (err) throw err;
-    console.log(result);
+    console.log(typeof(result));
   });  
     con.end(function(err) {
   // The connection is terminated now
