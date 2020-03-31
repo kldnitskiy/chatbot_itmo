@@ -78,7 +78,7 @@ getUsers = function(callback) {
 
 
 let users = getUsers(function(status, data){return data});
-
+console.log(users);
 
 
 
