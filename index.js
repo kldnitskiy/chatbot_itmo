@@ -14,7 +14,7 @@ bot.on(function (user_message){
     user_message.reply('Привет')
 })
 bot.event('group_join', ({ reply }) => {
-  reply('Добро пожаловать в семью!\n\nТы сделал маленький, но весомый шаг к незабываемой студенческой жизни♥\n\nЭто особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌\n\nМы обещаем, будет интересно 😏 ')
+  reply('Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ')
 })
 server.use(bodyParser.json())
 
@@ -26,51 +26,23 @@ server.get('/', (request, response) => {
 })
 server.listen(PORT)
 
-//let con = mysql.createConnection({
-//  host: "us-cdbr-iron-east-01.cleardb.net",
-//  user: "b09805f711cdac",
-//  password: "c362ba82",
-//database: "heroku_2cf38b0299dd81c"
-//});
-//
-//con.connect(function(err) {
-//  if (err) throw err;
-//  console.log("Connected!");
-//});
+let con = mysql.createConnection({
+  host: "us-cdbr-iron-east-01.cleardb.net",
+  user: "b09805f711cdac",
+  password: "c362ba82",
+database: "heroku_2cf38b0299dd81c"
+});
 
-bot.command('start', (ctx) => {
-  // via shortcut from context
-  ctx.reply('Hi, this is start!')
-  // via shortcut with keyboard
-  ctx.reply('Yo, this is keyboard?', null, {
-    one_time: false,
-    buttons: [
-      [
-        {
-          action: {
-            type: 'text',
-            payload: {
-              button: 'Hello, world!'
-            },
-            label: 'Hello, world!'
-          },
-          color: 'primary'
-        }
-      ]
-    ]
-  })
-  // via function from context
-  ctx.sendMessage(ctx.user_id, 'Hi, this is start!')
-  // via function from instance
-  bot.reply(ctx.user_id, 'Hi, this is start!')
-  // to multiple users
-  bot.reply([ ctx.user_id, 1 ], 'Hi, this is start!')
-})
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
-//let sql = "INSERT INTO chatbot_data (vk_id, pair_id) VALUES (3, 4)";
-//  con.query(sql, function (err, result) {
-//    if (err) throw err;
-//    console.log("1 record inserted");
-//  });
+let sql = "INSERT INTO chatbot_data (vk_id, pair_id) VALUES (3, 4)";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
 
+console.log(sql);
 //mysql://b09805f711cdac:c362ba82@us-cdbr-iron-east-01.cleardb.net/heroku_2cf38b0299dd81c?reconnect=true
