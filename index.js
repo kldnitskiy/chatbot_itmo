@@ -91,6 +91,7 @@ getPair = function(callback, id) {
         return; 
       }
         //return results;
+        console.log("Пара");
         console.log(results);
       callback(false, results);
     });
