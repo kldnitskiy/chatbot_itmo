@@ -209,7 +209,7 @@ let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
     msg = user_message.body;
-    
+    console.log(msg);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
         let pair = getPair(savePair, user_message.user_id);
 })
