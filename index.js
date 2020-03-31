@@ -70,7 +70,7 @@ getUsers = function(callback) {
         callback(true); 
         return; 
       }
-        return results;
+        //return results;
       callback(false, results);
     });
   });
@@ -78,7 +78,7 @@ getUsers = function(callback) {
 
 
 
-console.log(getUsers(reply));
+getUsers(reply);
 function reply(status, result){
     console.log(result)
 }
