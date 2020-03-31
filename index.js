@@ -153,7 +153,7 @@ function savePaired(status, result,id){
     async reply (
   userId: id,
   message: 'Ваш собеседник найден!',      // required, if attachment not setten
-)        // Promise with response/error : Promise<any> 
+) : Promise<any>        // Promise with response/error : Promise<any> 
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
