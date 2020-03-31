@@ -80,12 +80,11 @@ getUsers = function(callback) {
 
 let users = getUsers(reply);
 function reply(status, result){
-    return result;
+    console.log(result)
 }
 //BOT REPLIES
 bot.on(function (user_message){
      user_message.reply('hey')
-    console.log(users)
     
 })
 //BOT BASIC EVENTS
