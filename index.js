@@ -69,15 +69,14 @@ getUsers = function(callback) {
         callback(true); 
         return; 
       }
-        console.log(results);
       callback(false, results);
     });
   });
 };
 
 getUsers(calling);
-function calling(){
-    
+function calling(status, result){
+    console.log(results);
 }
 //BOT REPLIES
 bot.on(function (user_message){
