@@ -74,8 +74,8 @@ getUsers = function(callback) {
   });
 };
 
-console.log(getUsers(getResult(result)));
-function getResult(result){
+console.log(getUsers(getResult()));
+function getResult(status, result){
     console.log(result);
 }
 //BOT REPLIES
