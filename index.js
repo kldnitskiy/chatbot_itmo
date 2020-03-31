@@ -150,7 +150,7 @@ function saveUnpaired(status, result){
     console.log('Без пары: ' + unpaired);
 }
 function savePaired(status, result,id){
-   bot.reply(id, 'Найден!');     // Promise with response/error : Promise<any> 
+   bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');     // Promise with response/error : Promise<any> 
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
@@ -171,7 +171,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
-        user_message.reply('Добро пожаловать в анонимную беседу. Напишите сообщение вашему собеседнику.');
+        bot.reply(pair_id, user_message);
     }
 }
 //BOT REPLIES
