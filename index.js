@@ -92,8 +92,8 @@ getPair = function(callback, id) {
       }
         //return results;
 //        console.log("Пара");
-//        console.log(results);
-        pair = results[0].vk_id;
+      console.log(results);
+        //pair = results[0].vk_id;
       callback(false, results);
         
     });
