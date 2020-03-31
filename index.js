@@ -75,7 +75,7 @@ getUsers = function(callback) {
     });
   });
 };
-getPair = function(callback, id) {
+getPair = function(callback, id, user_message) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -94,7 +94,7 @@ getPair = function(callback, id) {
 //        console.log("Пара");
       pair = results[0].vk_id;
         //pair = results[0].vk_id;
-      callback(false, results, pair);
+      callback(false, results, pair, user_message);
         
     });
   });
@@ -170,7 +170,7 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result, pair){
-bot.reply(pair, user_message);
+bot.reply(pair, user_message.body);
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
