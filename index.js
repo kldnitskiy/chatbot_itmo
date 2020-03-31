@@ -47,7 +47,7 @@ server.get('/', (request, response) => {
 //  });  
 //    
 //}
-var pool  = mysql.createPool({
+let pool  = mysql.createPool({
    host: "us-cdbr-iron-east-01.cleardb.net",
   user: "b09805f711cdac",
   password: "c362ba82",
@@ -74,7 +74,7 @@ exports.getUsers = function(callback) {
   });
 });
 
-console.log(getUsers)
+//console.log(getUsers)
 
 //BOT REPLIES
 bot.on(function (user_message){
