@@ -84,7 +84,8 @@ function reply(status, result){
 }
 //BOT REPLIES
 bot.on(function (user_message){
-     user_message.reply(users)
+     user_message.reply('hey')
+    console.log(users)
     
 })
 //BOT BASIC EVENTS
