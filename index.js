@@ -24,9 +24,6 @@ server.get('/', (request, response) => {
     request.header('Content-Type', 'application/json')
     response.send('f5f07863')
 })
-var os = require("os");
-var hostname = os.hostname();
-console.log(hostname);
 server.listen(PORT)
 
 //let con = mysql.createConnection({
