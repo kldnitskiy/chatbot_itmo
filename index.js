@@ -75,7 +75,7 @@ getUsers = function(callback) {
     });
   });
 };
-getPair = function(callback, id, user_message) {
+getPair = function(callback, id) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -94,7 +94,7 @@ getPair = function(callback, id, user_message) {
 //        console.log("Пара");
       pair = results[0].vk_id;
         //pair = results[0].vk_id;
-      callback(false, results, pair, user_message);
+      callback(false, results, pair);
         
     });
   });
@@ -169,8 +169,8 @@ function saveUsers(status, result){
     console.log('Все пользователи: ' + users);
 }
 let pair;
-function savePair(status, result, pair, user_message){
-bot.reply(pair, user_message.body);
+function savePair(status, result, pair){
+bot.reply(pair, current_message);
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
@@ -202,9 +202,12 @@ function checkifUnpaired(status, result, user_message){
         
     }
 }
+
+let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
-    let pair = getPair(savePair, user_message.user_id,user_message);
+        current_message = user_message.body;
+    let pair = getPair(savePair, user_message.user_id);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 })
 //BOT BASIC EVENTS
