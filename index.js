@@ -61,7 +61,7 @@ exports.getUsers = function(callback) {
       callback(true); 
       return; 
     }
-    var sql = "SELECT vk_id FROM chatbot_data";
+    let sql = "SELECT vk_id FROM chatbot_data";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -69,12 +69,12 @@ exports.getUsers = function(callback) {
         callback(true); 
         return; 
       }
-        console.log(results);
       callback(false, results);
     });
   });
 };
-
+module.exports = getUsers()
+getUsers()
 
 
 //BOT REPLIES
