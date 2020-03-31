@@ -151,7 +151,7 @@ function saveUnpaired(status, result){
     console.log('Без пары: ' + unpaired);
 }
 function savePaired(status, result, user_message){
-    user_message.reply('Нашли вам собеседника!');
+    //user_message.reply('Нашли вам собеседника!');
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
