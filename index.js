@@ -49,18 +49,18 @@ function insert_vk_id(vk_id){
     
 }
 
+
+//BOT REPLIES
+bot.on(function (user_message){
+    insert_vk_id(user_message.user_id)
+    user_message.reply('Привет')
+})
+
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
 bot.event('group_join', ({ reply }) => {
   reply(group_join_msg)
 })
-//BOT REPLIES
-bot.on(function (user_message){
-    insert_vk_id(user_message.vk_id)
-    user_message.reply('Привет')
-})
-
-
 
 
 
