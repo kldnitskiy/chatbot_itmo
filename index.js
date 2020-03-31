@@ -74,7 +74,7 @@ exports.getUsers = function(callback) {
   });
 });
 
-console.log(getUsers)l
+console.log(getUsers)
 
 //BOT REPLIES
 bot.on(function (user_message){
