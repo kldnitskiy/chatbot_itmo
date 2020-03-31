@@ -78,7 +78,7 @@ getUsers = function(callback) {
 
 
 
-getUsers(reply);
+console.log(getUsers(reply));
 function reply(status, result){
     console.log(result)
 }
