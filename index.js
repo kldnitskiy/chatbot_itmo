@@ -134,7 +134,7 @@ SetPair = function(callback, id, pair_id, user_message) {
         return; 
       }
         //return results;
-      callback(false, results, user_message);
+      callback(false, results, id);
     });
   });
 };
@@ -149,7 +149,11 @@ function saveUnpaired(status, result){
     unpaired = result;
     console.log('Без пары: ' + unpaired);
 }
-function savePaired(status, result, user_message){
+function savePaired(status, result,id){
+    async reply (
+  userId: id,
+  message: 'Ваш собеседник найден!',      // required, if attachment not setten
+)        // Promise with response/error : Promise<any> 
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
@@ -166,7 +170,7 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id, function(){user_message.reply('Нашли вам собеседника!')});
+        SetPair(savePaired, user_message.user_id, pair_id, savePaired);
     }else{
         isUnpaired = false;
         //Bot action
@@ -175,8 +179,7 @@ function checkifUnpaired(status, result, user_message){
 }
 //BOT REPLIES
     bot.on(function (user_message){
-    let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message);
-        
+    let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 })
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
