@@ -141,7 +141,7 @@ function checkifUnpaired(status, result){
 //BOT REPLIES
 bot.on(function (user_message){
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id);
-     user_message.reply(users)
+     user_message.reply(typeof(isUnpaired))
     
 })
 //BOT BASIC EVENTS
