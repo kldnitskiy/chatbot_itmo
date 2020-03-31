@@ -137,7 +137,7 @@ function checkifUnpaired(status, result){
     }else{
         isUnpaired = false;
     }
-    reply(isUnpaired);
+    bot.on.reply(isUnpaired);
     //Bot action
     
 }
