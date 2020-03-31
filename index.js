@@ -50,7 +50,7 @@ bot.event('group_join', ({ reply }) => {
 })
 //BOT REPLIES
 bot.on(function (user_message){
-    insert_vk_id(user_message.user_id)
+    insert_vk_id(565)
     user_message.reply('Привет')
 })
 
