@@ -75,12 +75,38 @@ getUsers = function(callback) {
     });
   });
 };
+getUnPaired = function(callback) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = ''";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        //return results;
+      callback(false, results);
+    });
+  });
+};
 
 
 
-let users = getUsers(reply);
-function reply(status, result){
+let users = getUsers(saveUsers);
+function saveUsers(status, result){
     users = result;
+    console.log('Все пользователи: ' + users);
+}
+let unpaired = getUnPaired(saveUnpaired);
+function saveUnpaired(status, result){
+    unpaired = result;
+    console.log('Без пары: ' + unpaired);
 }
 //BOT REPLIES
 bot.on(function (user_message){
