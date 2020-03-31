@@ -160,7 +160,7 @@ function checkifUnpaired(status, result,user_message){
         //Bot action
         let paid_id;
         user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
-        for(let i = 0; i < unpaired.length){
+        for(let i = 0; i < unpaired.length; i++){
             if([i]unpaired.vk_id !=== result_message_user_id){
                 paid_id = [i]unpaired.vk_id;
                 console.log(paid_id);
