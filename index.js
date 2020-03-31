@@ -75,7 +75,7 @@ getUsers = function(callback) {
   });
 };
 
-let a = getUsers();
+getUsers();
 //BOT REPLIES
 bot.on(function (user_message){
     user_message.reply('Привет')
