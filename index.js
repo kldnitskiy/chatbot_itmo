@@ -211,7 +211,7 @@ let current_message;
     msg = user_message.body;
     
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-        //let pair = getPair(savePair, user_message.user_id);
+        let pair = getPair(savePair, user_message.user_id);
 })
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
