@@ -207,7 +207,7 @@ function checkifUnpaired(status, result, user_message){
 let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
-        current_message = user_message.body;
+        console.log(user_message.body);
     let pair = getPair(savePair, user_message.user_id);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 })
