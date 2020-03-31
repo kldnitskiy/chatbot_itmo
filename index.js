@@ -168,7 +168,7 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result){
-console.log(result[0]);
+console.log(result.vk_id);
     //pair = result[0].vk_id;
 }
 let unpaired = getUnPaired(saveUnpaired);
