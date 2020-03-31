@@ -26,7 +26,7 @@ server.get('/', (request, response) => {
     
     
 })
-
+console.log('running');
 server.listen(PORT)
 
 //let con = mysql.createConnection({
