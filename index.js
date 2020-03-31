@@ -125,7 +125,7 @@ SetPair = function(callback, id, pair_id, user_message) {
       callback(true); 
       return; 
     }
-      let sql = "INSERT INTO chatbot_data (vk_id, pair_id) VALUES("+id+", "+pair_id+"),("+pair_id+", "+id+") ON DUPLICATE KEY UPDATE vk_id="+id+", vk_id="+pair_id+" ";
+      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then  "+pair_id+" when vk_id =  "+pair_id+" then  "+id+" end)";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
