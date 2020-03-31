@@ -75,6 +75,26 @@ getUsers = function(callback) {
     });
   });
 };
+getPairs = function(callback, id) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+id+"";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        //return results;
+      callback(false, results);
+    });
+  });
+};
 //getUnpaired
 getUnPaired = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -144,6 +164,10 @@ function saveUsers(status, result){
     users = result;
     console.log('Все пользователи: ' + users);
 }
+let pair = getPairs(savePair);
+function savePair(status, result){
+    pair = result[0].vk_id;
+}
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
     unpaired = result;
@@ -171,7 +195,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
-        bot.reply(pair_id, user_message);
+        bot.reply(pair, user_message);
     }
 }
 //BOT REPLIES
