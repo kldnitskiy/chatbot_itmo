@@ -51,7 +51,7 @@ var pool  = mysql.createPool({
    host: "us-cdbr-iron-east-01.cleardb.net",
   user: "b09805f711cdac",
   password: "c362ba82",
-    database: "heroku_2cf38b0299d
+    database: "heroku_2cf38b0299d"
 });
 
 exports.getUsers = function(callback) {
