@@ -150,7 +150,6 @@ function saveUnpaired(status, result){
     console.log('Без пары: ' + unpaired);
 }
 function savePaired(status, result, user_message){
-    //user_message.reply('Нашли вам собеседника!');
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
@@ -167,7 +166,7 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id, user_message);
+        SetPair(savePaired, user_message.user_id, pair_id, function(){user_message.reply('Нашли вам собеседника!')});
     }else{
         isUnpaired = false;
         //Bot action
