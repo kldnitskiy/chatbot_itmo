@@ -97,7 +97,7 @@ getUnPaired = function(callback) {
   });
 };
 //CheckPair
-CheckPair = function(callback, id) {
+CheckPair = function(callback, id, user_message) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -113,7 +113,7 @@ CheckPair = function(callback, id) {
         return; 
       }
         //return results;
-      callback(false, results);
+      callback(false, results, user_message);
     });
   });
 };
@@ -130,23 +130,21 @@ function saveUnpaired(status, result){
     console.log('Без пары: ' + unpaired);
 }
 
-function checkifUnpaired(status, result){
+function checkifUnpaired(status, result,user_message){
     //DETECT PAIR
     if(Object.keys(result).length === 0){
         isUnpaired = true;
     }else{
         isUnpaired = false;
     }
-    bot.on.reply(isUnpaired);
+    user_message.reply(1);
     //Bot action
     
 }
 //BOT REPLIES
     bot.on(function (user_message){
-    let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id);
-    function reply(){
-        user_message.reply('Привет');
-    }
+    let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message);
+        
 })
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
