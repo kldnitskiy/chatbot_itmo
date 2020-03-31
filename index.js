@@ -19,43 +19,67 @@ server.get('/', (request, response) => {
     response.send('f5f07863')
 })
 //MYSQL SETUP
-let con = mysql.createConnection({
-  host: "us-cdbr-iron-east-01.cleardb.net",
+//let con = mysql.createConnection({
+//  host: "us-cdbr-iron-east-01.cleardb.net",
+//  user: "b09805f711cdac",
+//  password: "c362ba82",
+//database: "heroku_2cf38b0299dd81c"
+//});
+//
+//con.connect(function(err) {
+//  if (err) throw err;
+//  console.log("Connected to MYSQL!");
+//});
+
+//Вставить id человека
+//function insert_vk_id(vk_id){
+//  let sql = "INSERT INTO chatbot_data (vk_id) VALUES ("+vk_id+")";
+//    let check_user = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+vk_id+" ";
+//  con.query(check_user, function (err, result) {
+//    if (err) throw err;
+//      if(typeof(result) === 'object' && Object.keys(result).length === 0){
+//          con.query(sql, function (err, result) {
+//    if (err) throw err;
+//              console.log('Inserted new vk_id');
+//              con.end(function(err) {});
+//  }); 
+//      }
+//  });  
+//    
+//}
+var pool  = mysql.createPool({
+   host: "us-cdbr-iron-east-01.cleardb.net",
   user: "b09805f711cdac",
   password: "c362ba82",
-database: "heroku_2cf38b0299dd81c"
+    database: "heroku_2cf38b0299d
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected to MYSQL!");
-});
-
-function insert_vk_id(vk_id){
-  let sql = "INSERT INTO chatbot_data (vk_id) VALUES ("+vk_id+")";
-    let check_user = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+vk_id+" ";
-  con.query(check_user, function (err, result) {
-    if (err) throw err;
-      if(typeof(result) === 'object' && Object.keys(result).length === 0){
-          con.query(sql, function (err, result) {
-    if (err) throw err;
-              console.log('Inserted new vk_id');
-              con.end(function(err) {
-  // The connection is terminated now
-});
-  }); 
+exports.getUsers = function(callback) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    var sql = "SELECT vk_id FROM chatbot_data";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
       }
-  });  
-    
-}
+      callback(false, results);
+    });
+  });
+});
 
+console.log(getUsers)l
 
 //BOT REPLIES
 bot.on(function (user_message){
-    insert_vk_id(user_message.user_id)
     user_message.reply('Привет')
 })
-
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
 bot.event('group_join', ({ reply }) => {
