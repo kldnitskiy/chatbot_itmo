@@ -169,7 +169,7 @@ function saveUsers(status, result){
     console.log('Все пользователи: ' + users);
 }
 let pair;
-function savePair(status, result, pair){
+function savePair(status, result, pair, user_message){
 bot.reply(pair, user_message.body);
 }
 let unpaired = getUnPaired(saveUnpaired);
