@@ -166,10 +166,10 @@ function saveUsers(status, result){
     users = result;
     console.log('Все пользователи: ' + users);
 }
-
+let pair;
 function savePair(status, result){
-    console.log(result);
-    //pair = result[0].vk_id;
+
+    pair = result[0].vk_id;
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
