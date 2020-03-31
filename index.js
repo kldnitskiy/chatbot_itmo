@@ -134,10 +134,11 @@ function checkifUnpaired(status, result,user_message){
     //DETECT PAIR
     if(Object.keys(result).length === 0){
         isUnpaired = true;
+        user_message.reply('Вижу, вы без пары)');
     }else{
         isUnpaired = false;
     }
-    user_message.reply(1);
+    
     //Bot action
     
 }
