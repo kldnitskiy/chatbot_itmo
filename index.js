@@ -161,8 +161,8 @@ function checkifUnpaired(status, result, user_message){
         let paid_id;
         user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
         for(let i = 0; i < unpaired.length; i++){
-            if([i]unpaired.vk_id !=== result_message_user_id){
-                pair_id = [i]unpaired.vk_id;
+            if(unpaired[i].vk_id !=== result_message_user_id){
+                pair_id = unpaired[i].vk_id;
                 delete unpaired[i];
                 break;
             }
