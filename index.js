@@ -40,12 +40,13 @@ function insert_vk_id(vk_id){
           con.query(check_user, function (err, result) {
     if (err) throw err;
               console.log('Inserted new vk_id');
+              con.end(function(err) {
+  // The connection is terminated now
+});
   }); 
       }
   });  
-    con.end(function(err) {
-  // The connection is terminated now
-});
+    
 }
 
 //BOT BASIC EVENTS
