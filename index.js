@@ -125,7 +125,7 @@ SetPair = function(callback, id, pair_id, user_message) {
       callback(true); 
       return; 
     }
-      let sql = "UPDATE chatbot_data SET pair_id = "+pair_id+" WHERE vk_id = "+id+"; UPDATE chatbot_data SET pair_id = "+id+" WHERE vk_id = "+pair_id+";
+      let sql = "UPDATE chatbot_data SET pair_id = "+pair_id+" WHERE vk_id = "+id+"; UPDATE chatbot_data SET pair_id = "+id+" WHERE vk_id = "+pair_id+" ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
