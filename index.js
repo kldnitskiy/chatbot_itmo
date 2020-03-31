@@ -69,12 +69,12 @@ exports.getUsers = function(callback) {
         callback(true); 
         return; 
       }
+        console.log(results);
       callback(false, results);
     });
   });
 };
 
-console.log(getUsers);
 
 
 //BOT REPLIES
