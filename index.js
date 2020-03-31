@@ -170,7 +170,8 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result, pair){
-bot.reply(pair, current_message);
+    console.log(pair);
+//bot.reply(pair, current_message);
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
