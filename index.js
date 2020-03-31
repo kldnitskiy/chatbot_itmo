@@ -3,7 +3,7 @@ const {Botact} = require('botact')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const server = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 80
 const bot = new Botact({
     token: '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2',
     confirmation: 'f5f07863'
@@ -20,7 +20,7 @@ server.use(bodyParser.json())
 
 server.post('/', bot.listen)
 
-server.get('/', (request, response) => {
+server.get('/api', (request, response) => {
     request.header('Content-Type', 'application/json')
     response.send('f5f07863')
 })
