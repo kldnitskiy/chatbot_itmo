@@ -29,17 +29,17 @@ server.get('/', (request, response) => {
 
 server.listen(PORT)
 
-let con = mysql.createConnection({
-  host: "us-cdbr-iron-east-01.cleardb.net",
-  user: "b09805f711cdac",
-  password: "c362ba82",
-database: "heroku_2cf38b0299dd81c"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+//let con = mysql.createConnection({
+//  host: "us-cdbr-iron-east-01.cleardb.net",
+//  user: "b09805f711cdac",
+//  password: "c362ba82",
+//database: "heroku_2cf38b0299dd81c"
+//});
+//
+//con.connect(function(err) {
+//  if (err) throw err;
+//  console.log("Connected!");
+//});
 
 bot.command('start', (ctx) => {
   // via shortcut from context
@@ -70,10 +70,10 @@ bot.command('start', (ctx) => {
   bot.reply([ ctx.user_id, 1 ], 'Hi, this is start!')
 })
 
-let sql = "INSERT INTO chatbot_data (vk_id, pair_id) VALUES (3, 4)";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });
+//let sql = "INSERT INTO chatbot_data (vk_id, pair_id) VALUES (3, 4)";
+//  con.query(sql, function (err, result) {
+//    if (err) throw err;
+//    console.log("1 record inserted");
+//  });
 
 //mysql://b09805f711cdac:c362ba82@us-cdbr-iron-east-01.cleardb.net/heroku_2cf38b0299dd81c?reconnect=true
