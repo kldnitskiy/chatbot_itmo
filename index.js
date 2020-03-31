@@ -200,7 +200,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
-        bot.reply(pair, user_message);
+        //bot.reply(pair, user_message);
     }
 }
 //BOT REPLIES
