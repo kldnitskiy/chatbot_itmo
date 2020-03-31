@@ -154,6 +154,7 @@ function savePaired(status, result, user_message){
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
+    console.log(result);
     if(Object.keys(result).length === 0){
         isUnpaired = true;
         //Bot action
