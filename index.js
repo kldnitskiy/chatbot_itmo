@@ -75,7 +75,10 @@ getUsers = function(callback) {
   });
 };
 
-getUsers();
+getUsers(calling);
+function calling(){
+    
+}
 //BOT REPLIES
 bot.on(function (user_message){
     user_message.reply('Привет')
