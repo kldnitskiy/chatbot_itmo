@@ -30,15 +30,13 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected to MYSQL!");
 });
-function mysql_connect(){
-    
-}
 
 function insert_vk_id(vk_id){
   let sql = "INSERT INTO chatbot_data (vk_id) VALUES ("+vk_id+")";
-  con.query(sql, function (err, result) {
+    let check_user = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+vk_id+" ";
+  con.query(check_user, function (err, result) {
     if (err) throw err;
-    console.log("vk_id inserted");
+    console.log(result);
   });  
     con.end(function(err) {
   // The connection is terminated now
