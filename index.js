@@ -72,7 +72,7 @@ exports.getUsers = function(callback) {
       callback(false, results);
     });
   });
-});
+};
 
 
 //BOT REPLIES
