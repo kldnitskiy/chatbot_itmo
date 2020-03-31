@@ -19,8 +19,7 @@ server.get('/', (request, response) => {
     response.send('f5f07863')
 })
 //MYSQL SETUP
-function mysql_connect(){
-    let con = mysql.createConnection({
+let con = mysql.createConnection({
   host: "us-cdbr-iron-east-01.cleardb.net",
   user: "b09805f711cdac",
   password: "c362ba82",
@@ -31,10 +30,11 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected to MYSQL!");
 });
+function mysql_connect(){
+    
 }
 
 function insert_vk_id(vk_id){
-    mysql_connect();
   let sql = "INSERT INTO chatbot_data (vk_id) VALUES ("+vk_id+")";
   con.query(sql, function (err, result) {
     if (err) throw err;
