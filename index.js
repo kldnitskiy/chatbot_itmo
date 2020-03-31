@@ -91,6 +91,7 @@ getPairs = function(callback, id) {
         return; 
       }
         //return results;
+        console.log(results);
       callback(false, results);
     });
   });
@@ -164,7 +165,7 @@ function saveUsers(status, result){
     users = result;
     console.log('Все пользователи: ' + users);
 }
-let pair = getPairs(savePair);
+let pair;
 function savePair(status, result){
     pair = result[0].vk_id;
 }
@@ -200,6 +201,7 @@ function checkifUnpaired(status, result, user_message){
 }
 //BOT REPLIES
     bot.on(function (user_message){
+    pair = getPairs(savePair, user_message.user_id);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 })
 //BOT BASIC EVENTS
