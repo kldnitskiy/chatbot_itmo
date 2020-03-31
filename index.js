@@ -75,7 +75,7 @@ getUsers = function(callback) {
 };
 
 let users = getUsers(calling);
-function calling(this){
+function calling(){
     console.log(this);
 }
 
