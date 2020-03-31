@@ -10,7 +10,7 @@ const bot = new Botact({
 })
 
 bot.on(function (user_message){
-    console.log(user_message.userId)
+    console.log(user_message.user_id)
     user_message.reply('Привет')
 })
 bot.event('group_join', ({ reply }) => {
