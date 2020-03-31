@@ -37,7 +37,7 @@ function insert_vk_id(vk_id){
   con.query(check_user, function (err, result) {
     if (err) throw err;
       if(typeof(result) === 'object' && Object.keys(result).length === 0){
-          con.query(check_user, function (err, result) {
+          con.query(sql, function (err, result) {
     if (err) throw err;
               console.log('Inserted new vk_id');
               con.end(function(err) {
