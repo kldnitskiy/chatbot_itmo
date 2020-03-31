@@ -159,6 +159,7 @@ SetPair = function(callback, id, pair_id, user_message) {
         return; 
       }
         //return results;
+        bot.reply(pair, msg);
       callback(false, results, id);
     });
   });
@@ -171,7 +172,7 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result, pair){
-bot.reply(pair, 'Собеседник найден! Устанавливаем соединение...');
+
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
