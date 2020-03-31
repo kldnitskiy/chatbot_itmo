@@ -77,7 +77,7 @@ getUsers = function(callback) {
 };
 
 
-let users = getUsers(getAllUsers, return results);
+let users = getUsers(getAllUsers, function(status, data){return data});
 
 
 
