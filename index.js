@@ -93,7 +93,9 @@ getPair = function(callback, id) {
         //return results;
 //        console.log("Пара");
 //        console.log(results);
+        pair = results[0].vk_id;
       callback(false, results);
+        
     });
   });
 };
@@ -168,7 +170,7 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result){
-console.log(result);
+//console.log(result);
     //pair = result[0].vk_id;
 }
 let unpaired = getUnPaired(saveUnpaired);
