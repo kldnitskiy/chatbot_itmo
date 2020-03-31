@@ -20,7 +20,7 @@ server.use(bodyParser.json())
 
 server.post('/', bot.listen)
 
-server.get('/api', (request, response) => {
+server.get('/', (request, response) => {
     request.header('Content-Type', 'application/json')
     response.send('f5f07863')
 })
