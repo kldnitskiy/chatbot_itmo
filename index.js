@@ -54,7 +54,7 @@ password: "c362ba82",
 database: "heroku_2cf38b0299dd81c"
 });
 
-exports.getUsers = function(callback) {
+getUsers = function(callback) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -73,8 +73,6 @@ exports.getUsers = function(callback) {
     });
   });
 };
-module.exports = getUsers()
-getUsers()
 
 
 //BOT REPLIES
