@@ -150,7 +150,7 @@ function saveUnpaired(status, result){
     console.log('Без пары: ' + unpaired);
 }
 function savePaired(status, result,id){
-   bot.reply('Найден!');     // Promise with response/error : Promise<any> 
+   bot.reply(id, 'Найден!');     // Promise with response/error : Promise<any> 
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
