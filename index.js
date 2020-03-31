@@ -139,9 +139,7 @@ function checkifUnpaired(status, result){
     }
     //Bot action
         bot.on(function (user_message){
-            if(isUnpaired){
-                user_message.reply('О, я вижу, вы без пары?)');
-            }
+        user_message.reply('О, я вижу, вы без пары?)');
     
 })
     
