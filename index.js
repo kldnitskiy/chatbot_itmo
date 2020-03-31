@@ -183,7 +183,7 @@ function savePaired(status, result,id){
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
-    console.log(result);
+    //console.log(result);
     if(Object.keys(result).length === 0){
         isUnpaired = true;
         //Bot action
@@ -200,7 +200,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
-        //bot.reply(pair, user_message);
+        bot.reply(pair, user_message);
     }
 }
 //BOT REPLIES
