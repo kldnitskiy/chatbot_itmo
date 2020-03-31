@@ -118,7 +118,7 @@ CheckPair = function(callback, id, user_message) {
   });
 };
 //SetPair
-SetPair = function(callback, id, pair_id) {
+SetPair = function(callback, id, pair_id, user_message) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -135,7 +135,7 @@ SetPair = function(callback, id, pair_id) {
         return; 
       }
         //return results;
-      callback(false, results);
+      callback(false, results, user_message);
     });
   });
 };
@@ -150,10 +150,10 @@ function saveUnpaired(status, result){
     unpaired = result;
     console.log('Без пары: ' + unpaired);
 }
-function savePaired(status, result){
-    
+function savePaired(status, result, user_message){
+    user_message.reply('Нашли вам собеседника!');
 }
-function checkifUnpaired(status, result,user_message){
+function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
     if(Object.keys(result).length === 0){
         isUnpaired = true;
@@ -167,7 +167,7 @@ function checkifUnpaired(status, result,user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id);
+        SetPair(savePaired, user_message.user_id, pair_id, user_message);
     }else{
         isUnpaired = false;
         //Bot action
