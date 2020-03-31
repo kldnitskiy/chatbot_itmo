@@ -69,15 +69,13 @@ getUsers = function(callback) {
         callback(true); 
         return; 
       }
+        console.log(results);
       callback(false, results);
     });
   });
 };
 
-console.log(getUsers(getResult()));
-function getResult(status, result){
-    console.log(result);
-}
+let a = getUsers();
 //BOT REPLIES
 bot.on(function (user_message){
     user_message.reply('Привет')
