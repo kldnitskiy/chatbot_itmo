@@ -133,15 +133,16 @@ function saveUnpaired(status, result){
 function checkifUnpaired(status, result){
     if(Object.keys(result).length === 0){
         isUnpaired = true;
+        user_message.reply('О, я вижу, у вас нет пары.')
     }else{
         isUnpaired = false;
     }
-    console.log('Без пары? ' + isUnpaired);
+    
 }
 //BOT REPLIES
 bot.on(function (user_message){
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id);
-     user_message.reply(typeof(isUnpaired))
+     
     
 })
 //BOT BASIC EVENTS
