@@ -54,6 +54,7 @@ password: "c362ba82",
 database: "heroku_2cf38b0299dd81c"
 });
 
+let msg;
 //getUsers
 getUsers = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -207,7 +208,7 @@ function checkifUnpaired(status, result, user_message){
 let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
-    let msg = user_message.body;
+    msg = user_message.body;
     let pair = getPair(savePair, user_message.user_id);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 })
