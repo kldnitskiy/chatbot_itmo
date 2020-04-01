@@ -362,7 +362,7 @@ loginUser = function(callback) {
         callback(true); 
         return; 
       }
-        //return results;
+        console.log(1)
       callback(false, results);
     });
   });
