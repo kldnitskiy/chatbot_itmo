@@ -307,6 +307,7 @@ bot.event('group_leave', ({ reply }) => {
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
     //saveNewMember(saveMember, parseInt(ctx.user_id));
+    ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
 })
 //начать беседу
