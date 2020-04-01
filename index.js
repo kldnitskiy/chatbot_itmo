@@ -249,7 +249,7 @@ let current_message;
 })
 
 function bot_respond(status, result, id, msg){
-    bot.reply(parseInt(id), msg);
+    bot.reply(parseInt(id), 'Собеседник: ' +msg);
 }
 
 function botSay(id,msg){
