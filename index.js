@@ -215,11 +215,9 @@ let current_message;
     bot.on(function (user_message){
         bot_control = user_message;
     msg = user_message.body;
-    console.log(msg);
+    console.log(user_message.vk_id + ':'+msg);
         let isUnpaired;
-        if(isUnpaired){
-            isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-        }
+            let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
     
         if(!isUnpaired){
             bot.reply(parseInt(pair), msg);
