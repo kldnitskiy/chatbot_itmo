@@ -193,6 +193,7 @@ function savePaired(status, result, id, pair_id){
     let pair = getPair(savePair, id);
 }
 function checkifUnpaired(status, result, user_message){
+    console.log(result);
     //DETECT PAIR
     //console.log(result);
     if(Object.keys(result).length === 0){
@@ -215,7 +216,6 @@ function checkifUnpaired(status, result, user_message){
         connected = true;
         //Bot action
         partner_id = pair;
-        console.log('Пара есть' + result[0].vk_id);
         pair = getPair(savePair, user_message.user_id);
         
     }
