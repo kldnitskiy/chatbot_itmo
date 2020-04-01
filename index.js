@@ -130,7 +130,7 @@ function startChat(){
 
 //Закрыть чат
 function closeChat(){
-    closeSession(noticeCloseSession())
+    closeSession(noticeCloseSession)
 }
 //Зарегать пользователя
 function regUser(){
