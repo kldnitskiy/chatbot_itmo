@@ -358,7 +358,12 @@ getPairbyId = function(callback, id) {
   });
 };
 function UpdateCurrentPair(pair){
-    console.log(pair);
+    if(!pair){
+        current_pair_id = pair[0].vk_id;
+    }else{
+        bot.reply(user_id,'У вас нет в данный момент активных частов');
+    }
+    
     //current_pair_id = pair[0].vk_id;
 }
 
