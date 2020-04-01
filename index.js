@@ -144,7 +144,7 @@ CheckPair = function(callback, id, user_message) {
   });
 };
 //SetPair
-SetPair = function(callback, id, pair_id, user_message) {
+SetPair = function(callback, id, pair_id) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -183,7 +183,7 @@ function saveUnpaired(status, result){
 }
 function savePaired(status, result,id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
-    let pair = getPair(savePair, user_message.user_id, savePair);
+    let pair = getPair(savePair, user_message.user_id);
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
@@ -200,7 +200,7 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id, savePaired);
+        SetPair(savePaired, user_message.user_id, pair_id);
     }else{
         isUnpaired = false;
         //Bot action
