@@ -214,6 +214,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         connected = true;
         //Bot action
+        partner_id = pair;
         pair = getPair(savePair, user_message.user_id);
         
     }
@@ -232,7 +233,7 @@ let current_message;
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 }
             
-        if(connected){
+        if(connected && parseInt(partner_id)!==0){
             bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
         }
    
