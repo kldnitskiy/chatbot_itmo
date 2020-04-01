@@ -47,6 +47,7 @@ server.get('/', (request, response) => {
 //  });  
 //    
 //}
+let bot_control;
 var pool  = mysql.createPool({
 host: "us-cdbr-iron-east-01.cleardb.net",
 user: "b09805f711cdac",
@@ -95,7 +96,7 @@ getPair = function(callback, id) {
 
       pair = results[0].vk_id;
          console.log("Пара");
-        console.log(pair);
+        bot_control.reply(pair, 'Привет');
       callback(false, results, pair);
         
     });
@@ -204,8 +205,6 @@ function checkifUnpaired(status, result, user_message){
         isUnpaired = false;
         //Bot action
         pair = getPair(savePair, user_message.user_id);
-        console.log(pair);
-       user_message.reply(pair,'Отправляю ваше сообщение собеседнику');
         
     }
 }
@@ -213,6 +212,7 @@ function checkifUnpaired(status, result, user_message){
 let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
+        bot_control = user_message;
     msg = user_message.body;
     console.log(msg);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
