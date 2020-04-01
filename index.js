@@ -230,15 +230,14 @@ let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
         
-        bot_control = user_message;
     msg = user_message.body;
-        console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
+    console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
-        let isUnpaired;
+        //NO commands
+        if(msg!=='start'){
             if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-}
-            
+}     
         if(connected && parseInt(partner_id)!==0){
             if(parseInt(partner_id) !== user_message.user_id){
                 bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
@@ -247,6 +246,9 @@ let current_message;
             }
             
         }
+        }
+        let isUnpaired;
+            
    
         
 })
