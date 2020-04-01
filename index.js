@@ -213,13 +213,11 @@ function checkifUnpaired(status, result, user_message){
         }
         SetPair(savePaired, user_message.user_id, pair_id);
     }else{
-        if(partner_id===0){
-            
-        }
-        bot.reply(parseInt(pair),user_message.body);
+        
         connected = true;
         //Bot action
         partner_id = pair;
+        bot.reply(parseInt(partner_id),user_message.body);
         pair = getPair(savePair, user_message.user_id);
         
     }
