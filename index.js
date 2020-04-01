@@ -176,7 +176,6 @@ function saveUsers(status, result){
 }
 let pair;
 function savePair(status, result, pair){
-    console.log(pair);
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
@@ -220,6 +219,9 @@ let current_message;
     msg = user_message.body;
     console.log(msg);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
+        if(!isUnpaired){
+            bot.reply(pair, msg);
+        }
         
 })
 
