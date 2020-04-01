@@ -336,11 +336,17 @@ function UpdateLoginStatus(status, id){
         startChat()
     }else{
         bot.reply(user_id, 'Вы ещё не зарегистрированы');
+        regUser()
     }
 }
 //Начать чат
 function startChat(){
     getPairbyId(UpdateCurrentPair, user_id);
+}
+
+//Зарегать пользователя
+function regUser(){
+    createNewUser(InsertUser, user_id);
 }
 
 //Найти пару
@@ -393,6 +399,28 @@ getPairbyId = function(callback, id) {
   });
 };
 
+//Внести пользователя в БД
+getPairbyId = function(callback, id) {
+    console.log('Регаю пользователя#' + id)
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "INSERT INTO chatbot_data (vk_id) VALUES("+id+")";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+      callback(results);
+    });
+  });
+};
+
 //Найти пару
 getFreePairbyId = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -425,6 +453,7 @@ function UpdateCurrentPair(status, data){
     }
 }
 
+//Создать чат
 function CreateChat(data){
     if(Object.keys(data).length !== 0){
         bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
@@ -433,6 +462,12 @@ function CreateChat(data){
     }else{
         bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
     }
+}
+
+//Внести пользователя
+function InsertUser(data){
+    bot.reply(user_id, 'Вы были зарегистрированы в чат-боте. Пробуем найти вам собеседника...');
+    findPair()
 }
 
 
