@@ -491,8 +491,7 @@ function checkAccess(){
 
 bot.on(function (res){
     if(current_pair_id === 0 || user_id === 0){
-        user_id = res.user_id;
-        loginUser(UpdateLoginStatus);
+        res.reply('Напишите команду start, чтобы войти в чат-рулетку.');
     }
 })
 
