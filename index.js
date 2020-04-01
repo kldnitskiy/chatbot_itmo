@@ -432,7 +432,7 @@ SetPair = function(callback, id, pair_id) {
       callback(true); 
       return; 
     }
-      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+pair_id+" then  "+id+" when vk_id =  "+id+" then  "+par_id+" end)";
+      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+pair_id+" then  "+id+" when vk_id =  "+id+" then  "+pair_id+" end)";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
