@@ -331,12 +331,11 @@ bot.command('exit', (ctx) => {
 
 //START
 function UpdateLoginStatus(status, id){
-    console.log(id);
-    if(!status){
+    if(Object.keys(id).length!==0){
         //id = parseInt(id[0].vk_id)
-        bot.reply(id, 'Выполнен вход в чат')
+        bot.reply(user_id, 'Выполнен вход в чат')
     }else{
-        bot.reply(id, 'Вы ещё не зарегистрированы');
+        bot.reply(user_id, 'Вы ещё не зарегистрированы');
     }
 }
 function startChat(){
@@ -362,7 +361,6 @@ loginUser = function(callback) {
         callback(true); 
         return; 
       }
-        console.log(1)
       callback(false, results);
     });
   });
