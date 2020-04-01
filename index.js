@@ -311,10 +311,9 @@ bot.event('group_leave', ({ reply }) => {
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
     user_id = ctx.user_id;
-    //saveNewMember(saveMember, parseInt(ctx.user_id));
-    startChat();
     ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
+    loginUser(UpdateLoginStatus);
 })
 //начать беседу
 bot.command('go', (ctx) => {
@@ -328,8 +327,17 @@ bot.command('exit', (ctx) => {
     //closeSession(Session, parseInt(ctx.user_id));
 })
 
+//loginUser
 
 //START
+function UpdateLoginStatus(status, id){
+    id = parseInt(id[0].vk_id)
+    if(!status){
+        bot.reply(id, 'Выполнен вход в чат')
+    }else{
+        bot.reply(id, 'Вы ещё не зарегистрированы');
+    }
+}
 function startChat(){
     getPairbyId(UpdateCurrentPair, user_id);
     
@@ -337,6 +345,29 @@ function startChat(){
 
 
 //SQL API
+//Логин
+loginUser = function(callback) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+user_id+" ";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        //return results;
+      callback(false, results);
+    });
+  });
+};
+
+//Найти собеседника
 getPairbyId = function(callback, id) {
     console.log('Ищем пару для пользователя#' + id)
   pool.getConnection(function(err, connection) {
