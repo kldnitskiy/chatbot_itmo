@@ -195,12 +195,12 @@ function checkifUnpaired(status, result, user_message){
     if(Object.keys(result).length === 0){
         isUnpaired = true;
         //Bot action
-        let paid_id;
         user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
         for(let i = 0; i < unpaired.length; i++){
-            if(unpaired[i].vk_id !== user_message.user_id){
+            if(parseInt(unpaired[i].vk_id) !== parseInt(user_message.user_id)){
                 pair_id = unpaired[i].vk_id;
                 delete unpaired[i];
+                console.log(pair_id);
                 break;
             }
         }
