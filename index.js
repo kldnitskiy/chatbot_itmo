@@ -234,7 +234,7 @@ let current_message;
     console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
         //NO commands
-        if(msg!=='start' && msg!=='/start'){
+        if(msg!=='start' && msg!=='/start' && sg!=='go' && msg!=='/go'){
             if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 }     
@@ -309,6 +309,15 @@ bot.command('/start', (ctx) => {
     saveNewMember(saveMember, parseInt(ctx.user_id));
     //console.log(ctx.user_id);
 })
+bot.command('go', (ctx) => {
+    ctx.reply('Вы подключены к чату');
+    //console.log(ctx.user_id);
+})
+bot.command('/go', (ctx) => {
+    ctx.reply('Вы подключены к чату');
+    //console.log(ctx.user_id);
+})
+
 
 
 
