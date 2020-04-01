@@ -201,6 +201,7 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
+        console.log(pair);
        user_message.reply('Отправляю ваше сообщение собеседнику');
         
     }
