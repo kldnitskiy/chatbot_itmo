@@ -332,7 +332,7 @@ bot.command('exit', (ctx) => {
 //START
 function UpdateLoginStatus(status, id){
     if(!status){
-        id = parseInt(id[0].vk_id)
+        //id = parseInt(id[0].vk_id)
         bot.reply(id, 'Выполнен вход в чат')
     }else{
         bot.reply(id, 'Вы ещё не зарегистрированы');
