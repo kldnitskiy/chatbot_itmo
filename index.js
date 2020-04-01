@@ -338,9 +338,14 @@ function UpdateLoginStatus(status, id){
         bot.reply(user_id, 'Вы ещё не зарегистрированы');
     }
 }
+//Начать чат
 function startChat(){
     getPairbyId(UpdateCurrentPair, user_id);
-    
+}
+
+//Найти пару
+function findPair(){
+    getFreePairbyId(CreateChat, user_id);
 }
 
 
@@ -366,7 +371,7 @@ loginUser = function(callback) {
   });
 };
 
-//Найти собеседника
+//Найти существующего собеседника
 getPairbyId = function(callback, id) {
     console.log('Ищем пару для пользователя#' + id)
   pool.getConnection(function(err, connection) {
@@ -387,15 +392,52 @@ getPairbyId = function(callback, id) {
     });
   });
 };
-function UpdateCurrentPair(status, pair){
+
+//Найти пару
+getFreePairbyId = function(callback) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = '' ";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+      callback(results);
+    });
+  });
+};
+
+//Обновить текущую пару
+function UpdateCurrentPair(status, data){
     if(!status){
-        current_pair_id = parseInt(pair[0].pair_id);
+        current_pair_id = parseInt(data[0].pair_id);
         console.log('Пользователь#'+user_id + ' нашёл активный чат с пользователем #'+current_pair_id);
         SendMessage();
     }else{
         bot.reply(user_id,'У вас нет в данный момент активных чатов');
     }
 }
+
+function CreateChat(data){
+    if(Object.keys(data).length !== 0){
+        bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
+        bot.reply(parseInt(data[0].vk_id), 'Найден собеседник! Напишите сообщение...');
+        SendMessage();
+    }else{
+        bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
+    }
+}
+
+
+
+//Отправить сообщение
 function SendMessage(){
     bot.on(function (res){
         bot.reply(current_pair_id, 'Собеседник: '+res.body);
