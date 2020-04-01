@@ -174,7 +174,7 @@ function saveUsers(status, result){
 let pair;
 function savePair(status, result, pair){
     console.log(pair);
-    let data = await bot.api('messages_send',{
+    let data = bot.api('messages_send',{
         user_aids: pair,
         message: 'Hello'
     });
