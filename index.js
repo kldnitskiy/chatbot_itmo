@@ -332,8 +332,8 @@ bot.command('exit', (ctx) => {
 //START
 function UpdateLoginStatus(status, id){
     if(Object.keys(id).length!==0){
-        //id = parseInt(id[0].vk_id)
         bot.reply(user_id, 'Выполнен вход в чат')
+        startChat()
     }else{
         bot.reply(user_id, 'Вы ещё не зарегистрированы');
     }
