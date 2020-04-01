@@ -199,7 +199,7 @@ closeSession = function() {
   });
 };
 //Уведомить пользователя о том, что сессия была закрыта
-noticeCloseSession function(callback) {
+noticeCloseSession = function(callback) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
