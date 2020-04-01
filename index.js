@@ -169,7 +169,22 @@ closeSession = function() {
       console.log(err); 
       return; 
     }
-    let sql = "UPDATE chatbot_data WHERE pair_id = "+user_id+";DELETE FROM chatbot_data WHERE vk_id = "+user_id+" ";
+    let sql = "UPDATE chatbot_data WHERE pair_id = "+user_id+"";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        return; 
+      }
+        console.log(results)
+    });
+  });
+    pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      return; 
+    }
+    let sql = "DELETE FROM chatbot_data WHERE vk_id = "+user_id+"";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
