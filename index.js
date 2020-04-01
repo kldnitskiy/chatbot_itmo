@@ -181,11 +181,10 @@ function saveUnpaired(status, result){
     unpaired = result;
     console.log('Без пары: ' + unpaired);
 }
-function savePaired(status, result,id,user_message){
+function savePaired(status, result,id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
     
-    let pair = getPair(savePair, user_message.user_id, savePair);
-    bot.reply(pair, 'Собеседник найден! Устанавливаем соединение...');  
+    let pair = getPair(savePair, id, savePair);
 }
 function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
