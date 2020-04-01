@@ -234,7 +234,7 @@ let current_message;
     console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
         //NO commands
-        if(msg!=='start' && msg!=='/start' && sg!=='go' && msg!=='/go'){
+        if(msg!=='start' && msg!=='/start' && msg!=='go' && msg!=='/go'){
             if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 }     
