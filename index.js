@@ -65,15 +65,25 @@ bot.event('group_leave', ({ reply }) => {
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Ищем собеседника...');
+    if(!chatting){
+        ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
     loginUser(UpdateLoginStatus);
+    }else{
+        ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
+    }
+    
 })
 bot.command('Start', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Ищем собеседника...');
+    if(!chatting){
+        ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
     loginUser(UpdateLoginStatus);
+    }else{
+        ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
+    }
+    
 })
 //начать беседу
 bot.command('go', (ctx) => {
@@ -82,9 +92,18 @@ bot.command('go', (ctx) => {
 })
 //выйти из беседы
 bot.command('exit', (ctx) => {
-    ctx.reply('Завершаем сеанс. Напишите команду /start, чтобы найти нового собеседника.');
+    ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
-    //closeSession(Session, parseInt(ctx.user_id));
+    user_id = 0;
+    current_pair_id = 0;
+    chatting = false;
+})
+bot.command('Exit', (ctx) => {
+    ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
+    console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
+    user_id = 0;
+    current_pair_id = 0;
+    chatting = false;
 })
 
 //loginUser
@@ -289,14 +308,10 @@ function InsertUser(data){
     findPair()
 }
 
-
 //Проверить доступ
 function checkAccess(){
     getPairbyId(UpdateCurrentPair, user_id);
 }
-
-
-
 
 let connection_problems = false;
 //Отправить сообщение
@@ -309,43 +324,8 @@ function SendMessage(){
             //if(user_id === current_pair_id){
                 getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
             console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
-                connection_problems = true;
-            //}
-//        if(!connection_problems){
-//            bot.reply(current_pair_id, 'Собеседник: '+res.body);
-//        console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
-//        }
-       
-        
-})
-    
+                connection_problems = true; 
+}) 
 }
-    
-
-//BOT REPLIES
-/*
-    bot.on(function (user_message){
-    msg = user_message.body;
-    console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
-    console.log(user_message.user_id + ':'+msg);
-        //NO commands
-        if(msg!=='start' && msg!=='/start'){
-            if(partner_id===0){
-                isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-}     
-        if(connected && parseInt(partner_id)!==0){
-            if(parseInt(partner_id) !== user_message.user_id){
-                bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
-            }else{
-                getPair(bot_respond, user_message.user_id, user_message.body);
-            }
-            
-        }
-        }
-        let isUnpaired;
-})
-
-*/
-
 
 //mysql://b09805f711cdac:c362ba82@us-cdbr-iron-east-01.cleardb.net/heroku_2cf38b0299dd81c?reconnect=true
