@@ -282,6 +282,30 @@ saveNewMember = function(callback, id) {
     });
   });
 };
+closeSession = function(callback, id) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then "" when pair_id =  "+id+" then  "" end)";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        console.log(results);
+      callback(false, results);
+        
+    });
+  });
+};
+function Session(status, results){
+    
+}
 
 function saveMember(status, results, id){
     console.log(id);
@@ -316,6 +340,14 @@ bot.command('go', (ctx) => {
 bot.command('/go', (ctx) => {
     ctx.reply('Вы подключены к чату');
     //console.log(ctx.user_id);
+})
+bot.command('/exit', (ctx) => {
+    ctx.reply('Завершаем сеанс');
+    closeSession(Session, parseInt(ctx.user_id));
+})
+bot.command('exit', (ctx) => {
+    ctx.reply('Завершаем сеанс');
+    closeSession(Session, parseInt(ctx.user_id));
 })
 
 
