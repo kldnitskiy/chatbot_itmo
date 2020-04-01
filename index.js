@@ -353,7 +353,7 @@ getPairbyId = function(callback, id) {
         callback(true); 
         return; 
       }
-      callback(results);
+      callback(false, results);
     });
   });
 };
