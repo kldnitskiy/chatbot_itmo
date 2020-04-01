@@ -209,6 +209,9 @@ function checkifUnpaired(status, result, user_message){
     }else{
         isUnpaired = false;
         //Bot action
+        if(connected === false){
+        connected = true;
+    }
         pair = getPair(savePair, user_message.user_id);
         
     }
