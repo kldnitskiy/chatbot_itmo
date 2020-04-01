@@ -97,6 +97,7 @@ bot.command('exit', (ctx) => {
     user_id = 0;
     current_pair_id = 0;
     chatting = false;
+    closeChat()
 })
 bot.command('Exit', (ctx) => {
     ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
@@ -104,6 +105,7 @@ bot.command('Exit', (ctx) => {
     user_id = 0;
     current_pair_id = 0;
     chatting = false;
+    closeChat()
 })
 
 //loginUser
