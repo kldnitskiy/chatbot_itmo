@@ -289,7 +289,7 @@ closeSession = function(callback, id) {
       callback(true); 
       return; 
     }
-    let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then "" when pair_id =  "+id+" then  "" end)";
+    let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then '' when pair_id =  "+id+" then  '' end)";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
