@@ -432,7 +432,7 @@ getFreePairbyId = function(callback) {
       callback(true); 
       return; 
     }
-    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = '' ";
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = '' AND vk_id != "+user_id+" ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -469,7 +469,7 @@ function CreateChat(data){
     if(Object.keys(data).length !== 0){
         bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
         bot.reply(current_pair_id, 'Найден собеседник!');
-        SetPair(SendMessage, user_id, current_pair_id);
+        SetPair(SendMessage, current_pair_id);
         //SendMessage();
     }else{
         bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
