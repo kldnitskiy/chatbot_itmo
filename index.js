@@ -162,7 +162,7 @@ SetPair = function(callback, id, pair_id) {
       }
         //return results;
         
-      callback(false, results, id, pair_id);
+      callback(false, results, id, parseInt(pair_id));
     });
   });
 };
@@ -183,8 +183,8 @@ function saveUnpaired(status, result){
 }
 function savePaired(status, result, id, pair_id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
+    bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...');  
     //bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...'); 
-    console.log(typeof(pair_id));
     let pair = getPair(savePair, id);
 }
 function checkifUnpaired(status, result, user_message){
