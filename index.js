@@ -194,7 +194,10 @@ function checkifUnpaired(status, result, user_message){
     //DETECT PAIR
     //console.log(result);
     if(Object.keys(result).length === 0){
-        connected = false;
+        if(connected !== true){
+            connected = false;
+        }
+        
         //Bot action
         user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
         for(let i = 0; i < unpaired.length; i++){
