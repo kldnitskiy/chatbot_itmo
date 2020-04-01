@@ -369,6 +369,7 @@ function UpdateCurrentPair(status, pair){
 function SendMessage(){
     bot.on(function (res){
         bot.reply(current_pair_id, res.body);
+        console.log('Пользователь#'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id);
 })
 }
     
