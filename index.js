@@ -79,7 +79,7 @@ getUsers = function(callback) {
     });
   });
 };
-getPair = function(callback, id) {
+getPair = function(callback, id, msg) {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -98,7 +98,7 @@ getPair = function(callback, id) {
 
       pair = results[0].vk_id;  
         partner_id = pair;
-      callback(false, results, pair);
+      callback(false, results, pair, msg);
         
     });
   });
@@ -237,11 +237,20 @@ let current_message;
 }
             
         if(connected && parseInt(partner_id)!==0){
-            bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
+            if(parseInt(partner_id) !== user_message.user_id){
+                bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
+            }else{
+                getPair(bot_respond, user_message.user_id, user_message.body);
+            }
+            
         }
    
         
 })
+
+function bot_respond(status, result, id, msg){
+    bot.reply(id, msg);
+}
 
 function botSay(id,msg){
     bot.reply(id,msg);
