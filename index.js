@@ -173,7 +173,7 @@ SetPair = function(callback, id, pair_id) {
 let users = getUsers(saveUsers);
 function saveUsers(status, result){
     users = result;
-    console.log('Все пользователи: ' + users);
+    console.log(users);
 }
 let pair;
 function savePair(status, result, pair){
@@ -181,7 +181,7 @@ function savePair(status, result, pair){
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
     unpaired = result;
-    console.log('Без пары: ' + unpaired);
+    console.log(unpaired);
 }
 function savePaired(status, result, id, pair_id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
