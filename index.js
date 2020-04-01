@@ -307,12 +307,12 @@ bot.event('group_leave', ({ reply }) => {
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
     //saveNewMember(saveMember, parseInt(ctx.user_id));
-    //console.log(ctx.user_id);
+    console.log(ctx.user_id);
 })
 //начать беседу
 bot.command('go', (ctx) => {
     ctx.reply('Вы подключены к чату');
-    //console.log(ctx.user_id);
+    console.log(ctx.user_id);
 })
 //выйти из беседы
 bot.command('exit', (ctx) => {
