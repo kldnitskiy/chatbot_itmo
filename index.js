@@ -357,8 +357,8 @@ getPairbyId = function(callback, id) {
     });
   });
 };
-function UpdateCurrentPair(pair){
-    if(!pair){
+function UpdateCurrentPair(status, pair){
+    if(!status){
         current_pair_id = parseInt(pair[0].pair_id);
         console.log('Пользователь #'+id + ' нашёл активный чат с пользователем#'+current_pair_id);
     }else{
