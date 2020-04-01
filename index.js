@@ -234,6 +234,7 @@ let current_message;
 }
             
         if(connected && parseInt(partner_id)!==0){
+            console.log(pair);
             bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
         }
    
