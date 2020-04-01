@@ -41,7 +41,7 @@ let pair; //Id текущей пары
 
 //GLOBAL VARS
 let user_id;
-let current_pair_id;
+let current_pair_id = 0;
 
 //getUsers
 getUsers = function(callback) {
@@ -483,13 +483,22 @@ function InsertUser(data){
 }
 
 
+//Проверить доступ
+function checkAccess(){
+    getPairbyId(UpdateCurrentPair, user_id);
+}
 
 //Отправить сообщение
 function SendMessage(){
-    bot.on(function (res){
+    if(current_pair_id===0){
+        checkAccess()
+    }else{
+        bot.on(function (res){
         bot.reply(current_pair_id, 'Собеседник: '+res.body);
         console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id);
 })
+    }
+    
 }
     
 
