@@ -393,7 +393,8 @@ getPairbyIdFix = function(callback, id, msg) {
         callback(true); 
         return; 
       }
-        bot.reply(parseInt(results[0].pair_id), msg);
+        connection_problems = false;
+        bot.reply(parseInt(results[0].pair_id), "Собеседник: "+msg);
       callback(false, results);
     });
   });
@@ -512,6 +513,7 @@ function checkAccess(){
 
 
 
+let connection_problems = false;
 //Отправить сообщение
 function SendMessage(){
         console.log('От кого: ' + user_id);
@@ -520,10 +522,13 @@ function SendMessage(){
         user_id = parseInt(res.user_id);
             if(user_id === current_pair_id){
                 getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
+                connection_problems = true;
             }
-        
-       bot.reply(current_pair_id, 'Собеседник: '+res.body);
+        if(!connection_problems){
+            bot.reply(current_pair_id, 'Собеседник: '+res.body);
         console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
+        }
+       
         
 })
     
