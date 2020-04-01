@@ -161,7 +161,7 @@ SetPair = function(callback, id, pair_id) {
         return; 
       }
         //return results;
-        
+        console.log(pair_id);
       callback(false, results, id, parseInt(pair_id));
     });
   });
