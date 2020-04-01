@@ -39,6 +39,10 @@ let connected = false; //Находится в чате
 let partner_id = 0; //Id текущей пары
 let pair; //Id текущей пары
 
+//GLOBAL VARS
+let user_id;
+let current_pair_id;
+
 //getUsers
 getUsers = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -161,7 +165,7 @@ SetPair = function(callback, id, pair_id) {
 
 
 //CALLBACKS
-let users = getUsers(saveUsers);
+//let users = getUsers(saveUsers);
 function saveUsers(status, result){
     users = result;
     console.log('Всего пользователей');
@@ -170,7 +174,7 @@ function saveUsers(status, result){
 
 function savePair(status, result, pair){
 }
-let unpaired = getUnPaired(saveUnpaired);
+//let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
     unpaired = result;
     console.log('Всего без пары');
@@ -306,7 +310,9 @@ bot.event('group_leave', ({ reply }) => {
 
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
+    user_id = ctx.user_id;
     //saveNewMember(saveMember, parseInt(ctx.user_id));
+    startChat();
     ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
 })
@@ -321,6 +327,40 @@ bot.command('exit', (ctx) => {
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //closeSession(Session, parseInt(ctx.user_id));
 })
+
+
+//START
+function startChat(){
+    //If has pair
+    
+}
+
+
+//SQL API
+getPairbyId = function(callback, id) {
+    console.log('Ищем пару для пользователя#' + id)
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT pair_id FROM chatbot_data WHERE vk_id = "+id+"'";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+      callback(results);
+    });
+  });
+};
+function UpdateCurrentPair(pair){
+    console.log(pair);
+    //current_pair_id = pair[0].vk_id;
+}
 
 //BOT REPLIES
 /*
