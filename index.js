@@ -280,6 +280,7 @@ saveNewMember = function(callback, id) {
         callback(true); 
         return; 
       }
+        console.log(results);
       callback(false, results, parseInt(id));
         
     });
