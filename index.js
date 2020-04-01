@@ -400,7 +400,7 @@ getPairbyId = function(callback, id) {
 };
 
 //Внести пользователя в БД
-getPairbyId = function(callback, id) {
+createNewUser = function(callback, id) {
     console.log('Регаю пользователя#' + id)
   pool.getConnection(function(err, connection) {
     if(err) { 
