@@ -274,7 +274,7 @@ closeSession = function(callback, id) {
         callback(true); 
         return; 
       }
-        bot.reply(parseInt(partner_id), 'Ваш собеседник покинул чат. Напишите команду /start, чтобы начать новую беседу.')
+        bot.reply(parseInt(pair), 'Ваш собеседник покинул чат. Напишите команду /start, чтобы начать новую беседу.')
       callback(false, results);
         
     });
