@@ -331,7 +331,7 @@ bot.command('exit', (ctx) => {
 
 //START
 function startChat(){
-    //If has pair
+    getPairbyId(UpdateCurrentPair, user_id);
     
 }
 
