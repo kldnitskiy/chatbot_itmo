@@ -493,7 +493,7 @@ bot.on(function (res){
     if(current_pair_id === 0 || user_id === 0){
         res.reply('Напишите команду start, чтобы войти в чат-рулетку.');
     }
-    if(parseInt(res.user_id)) !== parseInt(user_id){
+    if(parseInt(res.user_id) !== parseInt(user_id)){
         user_id = parseInt(res.user_id);
     }
 })
