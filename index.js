@@ -300,7 +300,7 @@ SetPair = function(callback, id, pair_id) {
       callback(true); 
       return; 
     }
-      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+pair_id+" then  "+id+" when vk_id =  "+id+" then  "+pair_id+" end)";
+      let sql = "UPDATE chatbot_data SET pair_id = "+pair_id+" WHERE vk_id = "+user_id+" ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -308,7 +308,22 @@ SetPair = function(callback, id, pair_id) {
         callback(true); 
         return; 
       }
-        //return results;
+    });
+  });
+    pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+     let sql = "UPDATE chatbot_data SET pair_id = "+user_id+" WHERE vk_id = "+pair_id+" ";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
       callback(results);
     });
   });
