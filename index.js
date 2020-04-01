@@ -462,8 +462,11 @@ getFreePairbyId = function(callback) {
         callback(true); 
         return; 
       }
-    current_pair_id = parseInt(results[0].vk_id);
-    console.log('id'+current_pair_id)
+        if(Object.keys(results)).length > 0){
+            current_pair_id = parseInt(results[0].vk_id);
+            console.log('id'+current_pair_id)
+        }
+    
       callback(results);
     });
   });
