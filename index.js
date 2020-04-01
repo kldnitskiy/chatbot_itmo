@@ -57,6 +57,7 @@ database: "heroku_2cf38b0299dd81c"
 
 let msg;
 let connected = false;
+let partner_id = 0;
 //getUsers
 getUsers = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -225,6 +226,7 @@ let current_message;
     msg = user_message.body;
         console.log(user_message.user_id + 'Отправлено: ' +connected);
     console.log(user_message.user_id + ':'+msg);
+        
             let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
         if(connected){
             bot.reply(parseInt(pair), 'Собеседник: ' +msg);
