@@ -94,6 +94,7 @@ getPair = function(callback, id) {
         //return results;
 //        console.log("Пара");
       pair = results[0].vk_id;
+        botSay(vk_id, 'test');
       callback(false, results, pair);
         
     });
@@ -213,6 +214,10 @@ let current_message;
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
         
 })
+
+function botSay(id,msg){
+    bot.reply(id,msg);
+}
 //BOT BASIC EVENTS
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏 ';
 bot.event('group_join', ({ reply }) => {
