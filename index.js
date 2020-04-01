@@ -359,7 +359,7 @@ getPairbyId = function(callback, id) {
 };
 function UpdateCurrentPair(pair){
     if(!pair){
-        current_pair_id = parseInt(pair[0].vk_id);
+        current_pair_id = parseInt(pair[0].pair_id);
         console.log('Пользователь #'+id + ' нашёл активный чат с пользователем#'+current_pair_id);
     }else{
         bot.reply(user_id,'У вас нет в данный момент активных чатов');
