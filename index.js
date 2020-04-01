@@ -222,7 +222,7 @@ let current_message;
     console.log(user_message.user_id + ':'+msg);
             let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
     
-        if(!isUnpaired){
+        if(connected){
             bot.reply(parseInt(pair), 'Собеседник: ' +msg);
         }
         
