@@ -139,29 +139,7 @@ CheckPair = function(callback, id, user_message) {
 
 
 //SetPair
-SetPair = function(callback, id, pair_id) {
-    console.log('SetPair');
-    console.log(pair_id);
-    console.log(id);
-  pool.getConnection(function(err, connection) {
-    if(err) { 
-      console.log(err); 
-      callback(true); 
-      return; 
-    }
-      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then  "+pair_id+" when vk_id =  "+pair_id+" then  "+id+" end)";
-    connection.query(sql, [], function(err, results) {
-      connection.release(); // always put connection back in pool after last query
-      if(err) { 
-        console.log(err); 
-        callback(true); 
-        return; 
-      }
-        //return results;
-      callback(false, results, id, parseInt(pair_id));
-    });
-  });
-};
+
 
 
 //CALLBACKS
@@ -421,6 +399,31 @@ createNewUser = function(callback, id) {
   });
 };
 
+//Сохранить пару
+SetPair = function(callback, id, pair_id) {
+    console.log('SetPair');
+    console.log(pair_id);
+    console.log(id);
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then  "+pair_id+" when vk_id =  "+pair_id+" then  "+id+" end)";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        //return results;
+      callback(results);
+    });
+  });
+};
+
 //Найти пару
 getFreePairbyId = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -438,10 +441,16 @@ getFreePairbyId = function(callback) {
         return; 
       }
     current_pair_id = parseInt(results[0].vk_id);
+    
       callback(results);
     });
   });
 };
+
+//Сохранить пару
+
+
+//Update Pairs
 
 //Обновить текущую пару
 function UpdateCurrentPair(status, data){
@@ -459,8 +468,9 @@ function UpdateCurrentPair(status, data){
 function CreateChat(data){
     if(Object.keys(data).length !== 0){
         bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
-        bot.reply(current_pair_id, 'Найден собеседник! Напишите сообщение...');
-        SendMessage();
+        bot.reply(current_pair_id, 'Найден собеседник!');
+        setPair(SendMessage, user_id, current_pair_id);
+        //SendMessage();
     }else{
         bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
     }
