@@ -174,11 +174,6 @@ function saveUsers(status, result){
 let pair;
 function savePair(status, result, pair){
     console.log(pair);
-    let data = bot.api('messages_send',{
-        user_aids: pair,
-        message: 'Hello'
-    });
-
 }
 let unpaired = getUnPaired(saveUnpaired);
 function saveUnpaired(status, result){
