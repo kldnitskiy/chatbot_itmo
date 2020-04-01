@@ -96,7 +96,8 @@ getPair = function(callback, id) {
       }
         //return results;
 
-      pair = results[0].vk_id;      
+      pair = results[0].vk_id;  
+        partner_id = pair;
       callback(false, results, pair);
         
     });
@@ -226,10 +227,13 @@ let current_message;
     msg = user_message.body;
         console.log(user_message.user_id + 'Отправлено: ' +connected);
     console.log(user_message.user_id + ':'+msg);
-        
-            let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
+        let isUnpaired;
+            if(partner_id===0){
+                isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
+}
+            
         if(connected){
-            bot.reply(parseInt(pair), 'Собеседник: ' +msg);
+            bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
         }
    
         
