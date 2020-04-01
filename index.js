@@ -87,11 +87,13 @@ bot.command('Start', (ctx) => {
 })
 //начать беседу
 bot.command('go', (ctx) => {
+    user_id = ctx.user_id;
     ctx.reply('Вы подключены к чату');
     console.log("Пользователь #"+ctx.user_id+" подключился к чату с пользователем #000000");
 })
 //выйти из беседы
 bot.command('exit', (ctx) => {
+    user_id = ctx.user_id;
     ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     user_id = 0;
@@ -100,6 +102,7 @@ bot.command('exit', (ctx) => {
     closeChat()
 })
 bot.command('Exit', (ctx) => {
+    user_id = ctx.user_id;
     ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     user_id = 0;
