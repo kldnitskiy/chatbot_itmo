@@ -262,8 +262,34 @@ function botSay(id,msg){
 let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏. \nНапиши любое сообщение, чтобы начать анонимную беседу с другим подписчиком данной беседы.';
 bot.event('group_join', ({ reply }) => {
   reply(group_join_msg)
+    saveNewMember(SaveMember, reply.vk_id);
 })
 
+saveNewMember = function(callback, id) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "INSERT INTO chatbot_data (vk_id) VALUES("+id+")";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+      callback(false, results, parseInt(id));
+        
+    });
+  });
+};
+
+function saveMember(results, id){
+    bot.reply(id, 'Поздравляем! Вы зарегистрированы в чат-боте!\n Напишите что-нибудь, чтобы начать анонимную переписку.')
+    
+}
 
 
 
