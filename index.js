@@ -451,6 +451,7 @@ function UpdateCurrentPair(status, data){
         SendMessage();
     }else{
         bot.reply(user_id,'У вас нет в данный момент активных чатов');
+        findPair()
     }
 }
 
