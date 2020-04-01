@@ -220,7 +220,7 @@ let current_message;
     console.log(msg);
     let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
         if(!isUnpaired){
-            bot.reply(pair, msg);
+            bot.reply(parseInt(pair), msg);
         }
         
 })
