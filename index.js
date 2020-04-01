@@ -445,7 +445,7 @@ getFreePairbyId = function(callback) {
 
 //Обновить текущую пару
 function UpdateCurrentPair(status, data){
-    if(!status){
+    if(!status && data[0].pair_id !== ''){
         current_pair_id = parseInt(data[0].pair_id);
         console.log('Пользователь#'+user_id + ' нашёл активный чат с пользователем #'+current_pair_id);
         SendMessage();
