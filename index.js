@@ -462,7 +462,7 @@ getFreePairbyId = function(callback) {
         callback(true); 
         return; 
       }
-        if(Object.keys(results)).length > 0){
+        if(Object.keys(results).length > 0){
             current_pair_id = parseInt(results[0].vk_id);
             console.log('id'+current_pair_id)
         }
