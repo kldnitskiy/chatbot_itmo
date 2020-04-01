@@ -184,7 +184,7 @@ function saveUnpaired(status, result){
 function savePaired(status, result, id, pair_id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
     //bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...'); 
-    console.log('pair_id: ' + pair_id);
+    console.log(typeof(pair_id));
     let pair = getPair(savePair, id);
 }
 function checkifUnpaired(status, result, user_message){
