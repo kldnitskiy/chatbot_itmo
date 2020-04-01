@@ -219,7 +219,7 @@ let current_message;
             let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
     
         if(!isUnpaired){
-            bot.reply(parseInt(pair), msg);
+            bot.reply(parseInt(pair), 'Собеседник: ' +msg);
         }
         
 })
