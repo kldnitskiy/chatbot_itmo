@@ -275,6 +275,8 @@ closeSession = function(callback, id) {
         return; 
       }
         bot.reply(parseInt(pair), 'Ваш собеседник покинул чат. Напишите команду /start, чтобы начать новую беседу.')
+        connected = false;
+        partner_id = 0;
       callback(false, results);
         
     });
@@ -319,11 +321,11 @@ bot.command('/go', (ctx) => {
     //console.log(ctx.user_id);
 })
 bot.command('/exit', (ctx) => {
-    ctx.reply('Завершаем сеанс');
+    ctx.reply('Завершаем сеанс. Напишите команду /start, чтобы начать новую беседу.');
     closeSession(Session, parseInt(ctx.user_id));
 })
 bot.command('exit', (ctx) => {
-    ctx.reply('Завершаем сеанс');
+    ctx.reply('Завершаем сеанс. Напишите команду /start, чтобы начать новую беседу.');
     closeSession(Session, parseInt(ctx.user_id));
 })
 
