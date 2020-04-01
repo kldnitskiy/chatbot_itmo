@@ -146,6 +146,9 @@ CheckPair = function(callback, id, user_message) {
 };
 //SetPair
 SetPair = function(callback, id, pair_id) {
+    console.log('SetPair');
+    console.log(pair_id);
+    console.log(id);
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -161,7 +164,6 @@ SetPair = function(callback, id, pair_id) {
         return; 
       }
         //return results;
-        console.log(pair_id);
       callback(false, results, id, parseInt(pair_id));
     });
   });
