@@ -202,7 +202,7 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id, savePaired);
+        SetPair(savePaired, user_message.user_id, pair_id);
     }else{
         isUnpaired = false;
         //Bot action
