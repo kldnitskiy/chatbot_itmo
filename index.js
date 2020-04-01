@@ -227,31 +227,7 @@ function checkifUnpaired(status, result, user_message){
 }
 
 let current_message;
-//BOT REPLIES
-    bot.on(function (user_message){
-        
-    msg = user_message.body;
-    console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
-    console.log(user_message.user_id + ':'+msg);
-        //NO commands
-        if(msg!=='start' && msg!=='/start'){
-            if(partner_id===0){
-                isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-}     
-        if(connected && parseInt(partner_id)!==0){
-            if(parseInt(partner_id) !== user_message.user_id){
-                bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
-            }else{
-                getPair(bot_respond, user_message.user_id, user_message.body);
-            }
-            
-        }
-        }
-        let isUnpaired;
-            
-   
-        
-})
+
 
 function bot_respond(status, result, id, msg){
     bot.reply(parseInt(id), 'Собеседник: ' + msg);
@@ -350,6 +326,31 @@ bot.command('exit', (ctx) => {
     closeSession(Session, parseInt(ctx.user_id));
 })
 
+//BOT REPLIES
+    bot.on(function (user_message){
+        
+    msg = user_message.body;
+    console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
+    console.log(user_message.user_id + ':'+msg);
+        //NO commands
+        if(msg!=='start' && msg!=='/start'){
+            if(partner_id===0){
+                isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
+}     
+        if(connected && parseInt(partner_id)!==0){
+            if(parseInt(partner_id) !== user_message.user_id){
+                bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
+            }else{
+                getPair(bot_respond, user_message.user_id, user_message.body);
+            }
+            
+        }
+        }
+        let isUnpaired;
+            
+   
+        
+})
 
 
 
