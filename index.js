@@ -496,6 +496,9 @@ bot.on(function (res){
     if(parseInt(res.user_id) !== parseInt(user_id)){
         user_id = parseInt(res.user_id);
     }
+    if(parseInt(res.user_id) === parseInt(current_pair_id)){
+        getPairbyId(UpdateCurrentPair, user_id);
+    }
 })
 
 //Отправить сообщение
