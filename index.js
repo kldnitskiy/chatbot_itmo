@@ -56,6 +56,7 @@ database: "heroku_2cf38b0299dd81c"
 });
 
 let msg;
+let connected = false;
 //getUsers
 getUsers = function(callback) {
   pool.getConnection(function(err, connection) {
@@ -183,6 +184,9 @@ function saveUnpaired(status, result){
 function savePaired(status, result, id, pair_id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
     bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...');  
+    if(connected === false){
+        connected = true;
+    }
     //bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...'); 
     let pair = getPair(savePair, id);
 }
