@@ -217,9 +217,10 @@ function checkifUnpaired(status, result, user_message){
 let current_message;
 //BOT REPLIES
     bot.on(function (user_message){
-        console.log(connected);
+        
         bot_control = user_message;
     msg = user_message.body;
+        console.log(user_message.user_id + 'Отправлено: ' +connected);
     console.log(user_message.user_id + ':'+msg);
             let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
    // bot.reply(parseInt(pair), 'Собеседник: ' +msg);
