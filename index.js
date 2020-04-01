@@ -290,7 +290,7 @@ let group_join_msg = 'Добро пожаловать в семью!Ты сде�
 bot.event('group_join', ({ reply }) => {
   reply(group_join_msg)
     console.log(reply);
-    saveNewMember(saveMember, reply.vk_id);
+    //saveNewMember(saveMember, reply.vk_id);
 })
 
 
