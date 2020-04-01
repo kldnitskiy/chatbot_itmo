@@ -94,7 +94,6 @@ getPair = function(callback, id) {
         //return results;
 //        console.log("Пара");
       pair = results[0].vk_id;
-        console.log(pair);
       callback(false, results, pair);
         
     });
@@ -198,8 +197,9 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        SetPair(savePaired, user_message.user_id, pair_id, savePaired);
+        
     }else{
+        SetPair(savePaired, user_message.user_id, pair_id, savePaired);
         isUnpaired = false;
         //Bot action
         
