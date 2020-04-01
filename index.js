@@ -130,7 +130,7 @@ function startChat(){
 
 //Закрыть чат
 function closeChat(){
-    noticeCloseSession(closeSession())
+    closeSession(noticeCloseSession())
 }
 //Зарегать пользователя
 function regUser(){
@@ -166,7 +166,7 @@ loginUser = function(callback) {
 };
 
 //Закрыть сессию
-closeSession = function() {
+closeSession = function(callback) {
     console.log(2)
   pool.getConnection(function(err, connection) {
     if(err) { 
@@ -180,6 +180,7 @@ closeSession = function() {
         console.log(err); 
         return; 
       }
+        callback()
         console.log(results)
     });
   });
