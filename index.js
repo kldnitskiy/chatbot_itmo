@@ -307,16 +307,17 @@ bot.event('group_leave', ({ reply }) => {
 //Начать беседу + найти пару
 bot.command('start', (ctx) => {
     //saveNewMember(saveMember, parseInt(ctx.user_id));
-    console.log(ctx.user_id);
+    console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
 })
 //начать беседу
 bot.command('go', (ctx) => {
     ctx.reply('Вы подключены к чату');
-    console.log(ctx.user_id);
+    console.log("Пользователь #"+ctx.user_id+" подключился к чату с пользователем #000000");
 })
 //выйти из беседы
 bot.command('exit', (ctx) => {
     ctx.reply('Завершаем сеанс. Напишите команду /start, чтобы найти нового собеседника.');
+    console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //closeSession(Session, parseInt(ctx.user_id));
 })
 
