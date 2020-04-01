@@ -202,7 +202,6 @@ closeSession = function(callback) {
 };
 //Уведомить пользователя о том, что сессия была закрыта
 noticeCloseSession = function(callback) {
-    console.log(1)
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -218,6 +217,8 @@ noticeCloseSession = function(callback) {
         console.log(results);
         if(Object.keys(results).length>0){
             bot.reply(parseInt(results[0].vk_id), 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
+        }else if(partner_id!==0){
+            bot.reply(partner_id, 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
         }
         
     });
