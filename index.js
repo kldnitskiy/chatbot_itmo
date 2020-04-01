@@ -205,7 +205,7 @@ function checkifUnpaired(status, result, user_message){
         //Bot action
         pair = getPair(savePair, user_message.user_id);
         console.log(pair);
-       user_message.reply('Отправляю ваше сообщение собеседнику');
+       user_message.reply(pair,'Отправляю ваше сообщение собеседнику');
         
     }
 }
