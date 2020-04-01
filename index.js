@@ -437,6 +437,7 @@ getFreePairbyId = function(callback) {
         callback(true); 
         return; 
       }
+    current_pair_id = parseInt(results[0].vk_id);
       callback(results);
     });
   });
@@ -457,7 +458,7 @@ function UpdateCurrentPair(status, data){
 function CreateChat(data){
     if(Object.keys(data).length !== 0){
         bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
-        bot.reply(parseInt(data[0].vk_id), 'Найден собеседник! Напишите сообщение...');
+        bot.reply(current_pair_id, 'Найден собеседник! Напишите сообщение...');
         SendMessage();
     }else{
         bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
