@@ -331,6 +331,7 @@ bot.command('exit', (ctx) => {
 
 //START
 function UpdateLoginStatus(status, id){
+    console.log(id);
     if(!status){
         //id = parseInt(id[0].vk_id)
         bot.reply(id, 'Выполнен вход в чат')
