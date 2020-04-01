@@ -130,7 +130,7 @@ function startChat(){
 
 //Закрыть чат
 function closeChat(){
-    closeSession();
+    noticeCloseSession(closeSession())
 }
 //Зарегать пользователя
 function regUser(){
@@ -195,6 +195,25 @@ closeSession = function() {
         return; 
       }
         console.log(results)
+    });
+  });
+};
+//Уведомить пользователя о том, что сессия была закрыта
+noticeCloseSession function(callback) {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = "+user_id+"";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        return; 
+      }
+        bot.reply(parseInt(results[0].vk_id), 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
+        callback()
     });
   });
 };
