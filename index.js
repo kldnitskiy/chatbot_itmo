@@ -469,7 +469,7 @@ function CreateChat(data){
     if(Object.keys(data).length !== 0){
         bot.reply(user_id, 'Найден собеседник! Напишите сообщение...');
         bot.reply(current_pair_id, 'Найден собеседник!');
-        SetPair(SendMessage, current_pair_id);
+        SetPair(SendMessage, user_id, current_pair_id);
         //SendMessage();
     }else{
         bot.reply(user_id, 'К сожалению, свободных собеседников нет.');
