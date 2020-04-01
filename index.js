@@ -410,7 +410,7 @@ SetPair = function(callback, id, pair_id) {
       callback(true); 
       return; 
     }
-      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+id+" then  "+pair_id+" when vk_id =  "+pair_id+" then  "+id+" end)";
+      let sql = "UPDATE chatbot_data SET pair_id = (case when vk_id = "+user_id+" then  "+id+" when vk_id =  "+pair_id+" then  "+id+" end)";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -441,7 +441,7 @@ getFreePairbyId = function(callback) {
         return; 
       }
     current_pair_id = parseInt(results[0].vk_id);
-    
+    console.log('id'+current_pair_id)
       callback(results);
     });
   });
