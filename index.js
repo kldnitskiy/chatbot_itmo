@@ -282,7 +282,8 @@ saveNewMember = function(callback, id) {
 };
 
 function saveMember(results, id){
-    bot.reply(id, 'Поздравляем! Вы зарегистрированы в чат-боте!\n Напишите что-нибудь, чтобы начать анонимную переписку.')
+    console.log(id);
+    bot.reply(parseInt(id), 'Поздравляем! Вы зарегистрированы в чат-боте!\n Напишите что-нибудь, чтобы начать анонимную переписку.')
     
 }
 //saveNewMember(saveMember, reply.vk_id);
@@ -295,7 +296,7 @@ bot.event('group_join', ({ reply }) => {
 
 bot.command('start', (ctx) => {
     saveNewMember(saveMember, parseInt(ctx.user_id));
-    console.log(ctx.user_id);
+    //console.log(ctx.user_id);
 })
 
 
