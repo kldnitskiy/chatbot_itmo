@@ -167,6 +167,7 @@ loginUser = function(callback) {
 
 //Закрыть сессию
 closeSession = function() {
+    console.log(2)
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -200,6 +201,7 @@ closeSession = function() {
 };
 //Уведомить пользователя о том, что сессия была закрыта
 noticeCloseSession = function(callback) {
+    console.log(1)
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
