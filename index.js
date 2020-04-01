@@ -97,7 +97,6 @@ bot.command('exit', (ctx) => {
     ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
-    current_pair_id = 0;
     chatting = false;
     closeChat()
 })
@@ -106,7 +105,6 @@ bot.command('Exit', (ctx) => {
     ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
-    current_pair_id = 0;
     chatting = false;
     closeChat()
 })
@@ -218,8 +216,9 @@ noticeCloseSession = function(callback) {
         if(Object.keys(results).length>0){
             bot.reply(parseInt(results[0].vk_id), 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
         }else if(partner_id!==0){
-            bot.reply(partner_id, 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
+            bot.reply(current_partner_id, 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
         }
+         current_pair_id = 0;
         
     });
   });
