@@ -215,7 +215,7 @@ noticeCloseSession = function(callback) {
         console.log(results);
         if(Object.keys(results).length>0){
             bot.reply(parseInt(results[0].vk_id), 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
-        }else if(partner_id!==0){
+        }else if(current_pair_id!==0){
             bot.reply(current_partner_id, 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
         }
          current_pair_id = 0;
