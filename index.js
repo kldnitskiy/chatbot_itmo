@@ -295,7 +295,7 @@ bot.event('group_join', ({ reply }) => {
 
 bot.command('start', (ctx) => {
     saveNewMember(saveMember, ctx.user_id);
-    console.log(1);
+    console.log(ctx.user_id);
 })
 
 
