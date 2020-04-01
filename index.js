@@ -225,7 +225,7 @@ let current_message;
         
         bot_control = user_message;
     msg = user_message.body;
-        console.log(user_message.user_id + 'Отправлено: ' +connected);
+        console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
         let isUnpaired;
             if(partner_id===0){
