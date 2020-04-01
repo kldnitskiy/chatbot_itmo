@@ -377,6 +377,27 @@ getPairbyId = function(callback, id) {
   });
 };
 
+getPairbyIdFix = function(callback, id, msg) {
+    console.log('Ищем пару для пользователя#' + id)
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      callback(true); 
+      return; 
+    }
+    let sql = "SELECT pair_id FROM chatbot_data WHERE vk_id = "+id+"";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        callback(true); 
+        return; 
+      }
+        bot.reply(parseInt(results[0].pair_id), msg);
+      callback(false, results);
+    });
+  });
+};
 //Внести пользователя в БД
 createNewUser = function(callback, id) {
     console.log('Регаю пользователя#' + id)
@@ -497,7 +518,7 @@ function SendMessage(){
     console.log('Кому: ' + current_pair_id);
         bot.on(function (res){
         user_id = parseInt(res.user_id);
-        getPairbyId(UpdateCurrentPair, user_id);
+        getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
        bot.reply(current_pair_id, 'Собеседник: '+res.body);
         console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
         
