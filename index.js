@@ -258,6 +258,7 @@ saveNewMember = function(callback, id) {
     });
   });
 };
+//CLOSE SESSION
 closeSession = function(callback, id) {
   pool.getConnection(function(err, connection) {
     if(err) { 
@@ -273,7 +274,7 @@ closeSession = function(callback, id) {
         callback(true); 
         return; 
       }
-        console.log(results);
+        bot.reply(parseInt(partner_id), 'Ваш собеседник покинул чат. Напишите команду /start, чтобы начать новую беседу.')
       callback(false, results);
         
     });
