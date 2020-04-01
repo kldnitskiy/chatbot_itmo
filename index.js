@@ -293,6 +293,12 @@ bot.command('start', (ctx) => {
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
     loginUser(UpdateLoginStatus);
 })
+bot.command('Start', (ctx) => {
+    user_id = ctx.user_id;
+    ctx.reply('Ищем собеседника...');
+    console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
+    loginUser(UpdateLoginStatus);
+})
 //начать беседу
 bot.command('go', (ctx) => {
     ctx.reply('Вы подключены к чату');
