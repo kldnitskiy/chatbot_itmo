@@ -197,11 +197,11 @@ function checkifUnpaired(status, result, user_message){
                 break;
             }
         }
-        
-    }else{
         SetPair(savePaired, user_message.user_id, pair_id, savePaired);
+    }else{
         isUnpaired = false;
         //Bot action
+       user_message.reply('Отправляю ваше сообщение собеседнику');
         
     }
 }
