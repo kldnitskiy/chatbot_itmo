@@ -496,18 +496,10 @@ function SendMessage(){
         console.log('От кого: ' + user_id);
     console.log('Кому: ' + current_pair_id);
         bot.on(function (res){
-            if(current_pair_id === 0 || user_id === 0){
-        res.reply('Напишите команду start, чтобы войти в чат-рулетку.');
-    }
-    else if(parseInt(res.user_id) !== parseInt(user_id)){
         user_id = parseInt(res.user_id);
-    }
-    else if(parseInt(res.user_id) === parseInt(current_pair_id)){
         getPairbyId(UpdateCurrentPair, user_id);
-    }else{
        bot.reply(current_pair_id, 'Собеседник: '+res.body);
         console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
-    }
         
 })
     
