@@ -126,6 +126,7 @@ getUnPaired = function(callback) {
 };
 //CheckPair
 CheckPair = function(callback, id, user_message) {
+    console.log('Запрос от ' + id)
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
@@ -193,7 +194,6 @@ function savePaired(status, result, id, pair_id){
     let pair = getPair(savePair, id);
 }
 function checkifUnpaired(status, result, user_message){
-    console.log(result);
     //DETECT PAIR
     //console.log(result);
     if(Object.keys(result).length === 0){
@@ -234,11 +234,9 @@ let current_message;
         let isUnpaired;
             if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
-                console.log(partner_id);
 }
             
         if(connected && parseInt(partner_id)!==0){
-            
             bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
         }
    
