@@ -216,7 +216,6 @@ let current_message;
         bot_control = user_message;
     msg = user_message.body;
     console.log(user_message.vk_id + ':'+msg);
-        let isUnpaired;
             let isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
     
         if(!isUnpaired){
