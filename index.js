@@ -523,14 +523,15 @@ function SendMessage(){
     console.log('Кому: ' + current_pair_id);
         bot.on(function (res){
         user_id = parseInt(res.user_id);
-            if(user_id === current_pair_id){
+            //if(user_id === current_pair_id){
                 getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
+            console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
                 connection_problems = true;
-            }
-        if(!connection_problems){
-            bot.reply(current_pair_id, 'Собеседник: '+res.body);
-        console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
-        }
+            //}
+//        if(!connection_problems){
+//            bot.reply(current_pair_id, 'Собеседник: '+res.body);
+//        console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
+//        }
        
         
 })
