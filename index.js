@@ -234,7 +234,7 @@ let current_message;
     console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
         //NO commands
-        if(msg!=='start'){
+        if(msg!=='start' && msg!=='/start'){
             if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 }     
@@ -290,7 +290,7 @@ function saveMember(status, results, id){
 }
 //saveNewMember(saveMember, reply.vk_id);
 //BOT BASIC EVENTS
-let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏. \nНапишите команду /start, чтобы присоединиться к анонимной беседе студентов.';
+let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏. \nНапишите команду start, чтобы присоединиться к анонимной беседе студентов.';
 let group_leave_msg = 'Жаль, что покидаете Нас((';
 bot.event('group_join', ({ reply }) => {
   reply(group_join_msg)
@@ -305,7 +305,10 @@ bot.command('start', (ctx) => {
     saveNewMember(saveMember, parseInt(ctx.user_id));
     //console.log(ctx.user_id);
 })
-
+bot.command('/start', (ctx) => {
+    saveNewMember(saveMember, parseInt(ctx.user_id));
+    //console.log(ctx.user_id);
+})
 
 
 
