@@ -491,6 +491,7 @@ function checkAccess(){
 
 bot.on(function (res){
     if(current_pair_id === 0 || user_id === 0){
+        user_id = res.user_id;
         loginUser(UpdateLoginStatus);
     }
 })
