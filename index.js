@@ -40,7 +40,7 @@ let partner_id = 0; //Id текущей пары
 let pair; //Id текущей пары
 
 //GLOBAL VARS
-let user_id;
+let user_id = 0;
 let current_pair_id = 0;
 
 //getUsers
@@ -488,19 +488,21 @@ function checkAccess(){
     getPairbyId(UpdateCurrentPair, user_id);
 }
 
+
+bot.on(function (res){
+    if(current_pair_id === 0 || user_id === 0){
+        loginUser(UpdateLoginStatus);
+    }
+})
+
 //Отправить сообщение
 function SendMessage(){
-    
-    if(current_pair_id===0){
-        checkAccess()
-    }else{
         console.log('От кого: ' + user_id);
     console.log('Кому: ' + current_pair_id);
         bot.on(function (res){
         bot.reply(current_pair_id, 'Собеседник: '+res.body);
         console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id);
 })
-    }
     
 }
     
