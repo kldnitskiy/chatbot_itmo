@@ -96,7 +96,6 @@ getPair = function(callback, id) {
 
       pair = results[0].vk_id;
          console.log("Пара");
-        bot.reply(pair, 'Привет');
       callback(false, results, pair);
         
     });
