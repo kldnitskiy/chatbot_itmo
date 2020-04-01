@@ -187,6 +187,7 @@ function saveUnpaired(status, result){
 function savePaired(status, result, id, pair_id){
    bot.reply(id, 'Собеседник найден! Устанавливаем соединение...');  
     bot.reply(pair_id, 'Собеседник найден! Устанавливаем соединение...');  
+    bot.reply(id, 'Напишите команду /start, чтобы подключиться к чату, а затем начните беседу'); 
     bot.reply(pair_id, 'Напишите команду /start, чтобы подключиться к чату, а затем начните беседу');  
     if(connected === false){
         connected = true;
@@ -204,6 +205,7 @@ function checkifUnpaired(status, result, user_message){
         
         //Bot action
         user_message.reply('Вижу, вам пока не был назначен собеседник. Начинаю поиск пары...');
+        
         for(let i = 0; i < unpaired.length; i++){
             if(parseInt(unpaired[i].vk_id) !== parseInt(user_message.user_id)){
                 pair_id = unpaired[i].vk_id;
