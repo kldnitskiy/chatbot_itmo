@@ -232,11 +232,11 @@ let current_message;
         console.log(user_message.user_id + 'Отправлено к: ' +partner_id);
     console.log(user_message.user_id + ':'+msg);
         let isUnpaired;
-            if(partner_id===0 || partner_id !== user_message.user_id){
+            if(partner_id===0){
                 isUnpaired = CheckPair(checkifUnpaired, user_message.user_id,user_message); 
 }
             
-        if(connected){
+        if(connected && parseInt(partner_id)!==0){
             bot.reply(parseInt(partner_id), 'Собеседник: ' +msg);
         }
    
