@@ -110,9 +110,48 @@ bot.command('Exit', (ctx) => {
     chatting = false;
     closeChat()
 })
+})
+bot.command('info', (ctx) => {
+    user_id = ctx.user_id;
+    ctx.reply('Информация о боте:');
+    info()
+})
 
 //Ловить сообщения без всякой цели
 bot.on(function(res){
+    if(res.user_id===215059409){
+        res.reply('Добрый день, админ. ', null, {
+    one_time: false,
+    buttons: [
+      [
+        {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"start\"}",
+                    "label": "start"
+                },
+                "color": "positive"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"exit\"}",
+                    "label": "exit"
+                },
+                "color": "negative"
+            },
+          {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"info\"}",
+                    "label": "info"
+                },
+                "color": "primary"
+            }
+      ]
+    ]
+  })
+    }
     if(user_id ===0){
         res.reply('Введите команду start, чтобы найти собеседника. ', null, {
     one_time: false,
@@ -170,7 +209,33 @@ function regUser(){
 function findPair(){
     getFreePairbyId(CreateChat, user_id);
 }
+function info(){
+    getAllStats();
+}
 
+//Вся информация
+getAllStats = function() {
+  pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE ";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        return; 
+      }
+        
+        bot.reply('Активные пользователи:');
+        for(let i = 0; i < Object.keys(results), i++){
+            bot.reply(user_id, results[i].vk_id);
+        }
+        
+    });
+  });
+};
 
 //SQL API
 //Логин
