@@ -119,18 +119,37 @@ bot.on(function(res){
     buttons: [
       [
         {
-          action: {
-            type: 'text',
-            payload: {
-              button: 'start',
-            button: 'exit'
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"1\"}",
+                    "label": "Negative"
+                },
+                "color": "negative"
             },
-            label: 'start',
-              label: 'exit'
-          },
-          color: 'positive',
-            color: 'negative'
-        }
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Positive"
+                },
+                "color": "positive"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Primary"
+                },
+                "color": "primary"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Secondary"
+                },
+                "color": "secondary"
+            }
       ]
     ]
   })
