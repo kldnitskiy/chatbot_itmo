@@ -438,6 +438,8 @@ function SendMessage(){
             if(res.body!==''){
                 getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
                 connection_problems = true; 
+            }else{
+                res.reply('К сожалению, стикеры, или что вы там отправили, не поддерживаются.');
             }
                 
             console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
