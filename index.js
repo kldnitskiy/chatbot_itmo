@@ -114,7 +114,7 @@ bot.command('Exit', (ctx) => {
 //Ловить сообщения без всякой цели
 bot.on(function(res){
     if(user_id ===0){
-        res.reply('Начните работу с ботом: ', null, {
+        res.reply('Введите команду start, чтобы найти собеседника. ', null, {
     one_time: false,
     buttons: [
       [
