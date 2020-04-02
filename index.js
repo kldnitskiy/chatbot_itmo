@@ -228,7 +228,7 @@ getAllStats = function() {
       }
         
         bot.reply('Активные пользователи:');
-        for(let i = 0; i < Object.keys(results), i++){
+        for(let i = 0; i < Object.keys(results).length; i++){
             bot.reply(user_id, results[i].vk_id);
         }
         
