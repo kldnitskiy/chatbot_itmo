@@ -109,6 +109,13 @@ bot.command('Exit', (ctx) => {
     closeChat()
 })
 
+//Ловить сообщения без всякой цели
+bot.on(function(res){
+    if(user_id ===0){
+        res.reply('Напишите команду start, чтобы войти в чат рулетку.');
+    }
+});
+
 //loginUser
 
 //START
