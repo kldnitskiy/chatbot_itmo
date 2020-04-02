@@ -144,7 +144,7 @@ bot.on(function(res){
     ]
   })
     }
-    if(res.user_id===215059409){
+    if(res.user_id===2150594090){
         res.reply('Добрый день, админ. ', null, {
     one_time: false,
     buttons: [
