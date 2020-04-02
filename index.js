@@ -228,9 +228,8 @@ getAllStats = function() {
         return; 
       }
         
-        bot.reply(parseInt(user_id), 'Активные пользователи:');
         for(let i = 0; i < Object.keys(results).length; i++){
-            bot.reply(parseInt(user_id), 'https://vk.com/id'+results[i].vk_id);
+            bot.reply(parseInt(user_id), 'Активный пользователь: '+'https://vk.com/id'+results[i].vk_id);
         }
         
     });
@@ -248,10 +247,9 @@ pool.getConnection(function(err, connection) {
         return; 
       }
         
-        bot.reply(parseInt(user_id), 'Пользователи без пары:');
         if(Object.keys(results).length > 0){
             for(let i = 0; i < Object.keys(results).length; i++){
-            bot.reply(parseInt(user_id), 'https://vk.com/id'+results[i].vk_id);
+            bot.reply(parseInt(user_id), 'Пользователь без пары: '+'https://vk.com/id'+results[i].vk_id);
         }
         }
         
