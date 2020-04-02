@@ -220,7 +220,7 @@ getAllStats = function() {
       console.log(err); 
       return; 
     }
-    let sql = "SELECT vk_id FROM chatbot_data WHERE ";
+    let sql = "SELECT vk_id FROM chatbot_data";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
