@@ -117,29 +117,6 @@ bot.command('exit', (ctx) => {
     //user_id = 0;
     chatting = false;
     setTimeout(exitTimer, 1000);
-    res.reply('Введите команду start, чтобы найти собеседника. ', null, {
-    one_time: false,
-    buttons: [
-      [
-        {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"start\"}",
-                    "label": "start"
-                },
-                "color": "positive"
-            },
-            {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"exit\"}",
-                    "label": "exit"
-                },
-                "color": "negative"
-            }
-      ]
-    ]
-  })
 })
 bot.command('Exit', (ctx) => {
     user_id = ctx.user_id;
@@ -150,7 +127,11 @@ bot.command('Exit', (ctx) => {
     chatting = false;
     //closeChat()
     setTimeout(exitTimer, 1000);
-    res.reply('Введите команду start, чтобы найти собеседника. ', null, {
+    
+})
+function exitTimer(){
+    closeChat()
+    bot.reply(user_id, 'Введите команду start, чтобы найти собеседника. ', null, {
     one_time: false,
     buttons: [
       [
@@ -173,9 +154,6 @@ bot.command('Exit', (ctx) => {
       ]
     ]
   })
-})
-function exitTimer(){
-    closeChat()
 }
 bot.command('info', (ctx) => {
     user_id = ctx.user_id;
