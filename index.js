@@ -122,11 +122,14 @@ bot.on(function(res){
           action: {
             type: 'text',
             payload: {
-              button: 'start'
+              button: 'start',
+            button: 'exit'
             },
-            label: 'start'
+            label: 'start',
+              label: 'exit'
           },
-          color: 'primary'
+          color: 'positive',
+            color: 'negative'
         }
       ]
     ]
