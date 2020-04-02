@@ -271,7 +271,7 @@ pool.getConnection(function(err, connection) {
         
         if(Object.keys(results).length > 0){
             for(let i = 0; i < Object.keys(results).length; i++){
-            bot.reply(parseInt(user_id), 'Активный чат:%0A' + 'https://vk.com/id'+results[i].vk_id + '/ '  + 'Общается с https://vk.com/id'+results[i].vk_id);
+            bot.reply(parseInt(user_id), "Активный чат:\n" + "https://vk.com/id"+results[i].vk_id + "/ "  + "Общается с https://vk.com/id"+results[i].vk_id);
         }
         }
         
