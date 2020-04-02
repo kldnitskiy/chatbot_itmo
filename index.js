@@ -208,7 +208,8 @@ function startChat(){
 
 //Закрыть чат
 function closeChat(){
-    closeSession(noticeCloseSession)
+    noticeCloseSession()
+    closeSession()
 }
 //Зарегать пользователя
 function regUser(){
@@ -313,7 +314,7 @@ loginUser = function(callback) {
 };
 
 //Закрыть сессию
-closeSession = function(callback) {
+closeSession = function() {
     console.log(2)
   pool.getConnection(function(err, connection) {
     if(err) { 
@@ -327,7 +328,6 @@ closeSession = function(callback) {
         console.log(err); 
         return; 
       }
-        callback()
         console.log(results)
     });
   });
@@ -348,7 +348,7 @@ closeSession = function(callback) {
   });
 };
 //Уведомить пользователя о том, что сессия была закрыта
-noticeCloseSession = function(callback) {
+noticeCloseSession = function() {
   pool.getConnection(function(err, connection) {
     if(err) { 
       console.log(err); 
