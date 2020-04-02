@@ -230,7 +230,7 @@ getAllStats = function() {
         
         bot.reply(parseInt(user_id), 'Активные пользователи:');
         for(let i = 0; i < Object.keys(results).length; i++){
-            bot.reply(parseInt(user_id), 'https://vk.com/'+results[i].vk_id);
+            bot.reply(parseInt(user_id), 'https://vk.com/id'+results[i].vk_id);
         }
         
     });
