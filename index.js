@@ -411,11 +411,13 @@ getPairbyIdFix = function(callback, id, msg) {
         return; 
       }
         connection_problems = false;
-        if(Object.keys(results).length > 0){
+        if(Object.keys(results).length > 0 && parseInt(results[0].pair_id) == 0){
+            bot.reply(user_id, 'Упс! Произошла ошибка. Попробуйте снова отправить сообщение. ');
+        }else if(Object.keys(results).length > 0){
            bot.reply(parseInt(results[0].pair_id), "Собеседник: "+msg);
       callback(false, results);
            }else{
-               bot.reply(user_id, 'Соединение потеряно. ');
+               bot.reply(user_id, 'Соединение потеряно. Выхожу из чата. Введите команду start, чтобы найти нового собеседника.');
                closeChat();
            }
         
