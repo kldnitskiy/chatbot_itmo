@@ -411,8 +411,14 @@ getPairbyIdFix = function(callback, id, msg) {
         return; 
       }
         connection_problems = false;
-        bot.reply(parseInt(results[0].pair_id), "Собеседник: "+msg);
+        if(Object.keys(results).length > 0){
+           bot.reply(parseInt(results[0].pair_id), "Собеседник: "+msg);
       callback(false, results);
+           }else{
+               bot.reply(user_id, 'Соединение потеряно. ');
+               closeChat();
+           }
+        
     });
   });
 };
