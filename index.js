@@ -80,7 +80,7 @@ bot.command('start', (ctx) => {
     if(!chatting){
         ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
-        setTimeout(loginTimer, 5000);
+        setTimeout(loginTimer, 3000);
     //loginUser(UpdateLoginStatus);
     }else{
         ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
@@ -92,7 +92,7 @@ bot.command('Start', (ctx) => {
     if(!chatting){
         ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
-        setTimeout(loginTimer, 5000);
+        setTimeout(loginTimer, 3000);
     //loginUser(UpdateLoginStatus);
     }else{
         ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
@@ -111,20 +111,56 @@ bot.command('go', (ctx) => {
 //выйти из беседы
 bot.command('exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс. Введите команду start, чтобы найти нового собеседника.');
+    ctx.reply('Завершаем сеанс...', null, {
+    one_time: false,
+    buttons: [
+      [
+        {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"\"}",
+                    "label": "Завершаем сеанс"
+                },
+                "color": "negative"
+            }
+      ]
+    ]
+  }));
+     
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
     chatting = false;
-    closeChat()
+    setTimeout(exitTimer, 1000);
+    ctx.reply('Введите команду start, чтобы найти нового собеседника.');
 })
 bot.command('Exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс. Введите команду start, чтобы найти нового собеседника.');
+    ctx.reply('Завершаем сеанс...', null, {
+    one_time: false,
+    buttons: [
+      [
+        {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"\"}",
+                    "label": "Завершаем сеанс"
+                },
+                "color": "negative"
+            }
+      ]
+    ]
+  }));
+     
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
     chatting = false;
-    closeChat()
+    //closeChat()
+    setTimeout(exitTimer, 1000);
+    ctx.reply('Введите команду start, чтобы найти нового собеседника.');
 })
+function exitTimer(){
+    closeChat()
+}
 bot.command('info', (ctx) => {
     user_id = ctx.user_id;
     ctx.reply('Информация о боте:');
