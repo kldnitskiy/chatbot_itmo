@@ -96,7 +96,7 @@ bot.command('go', (ctx) => {
 //выйти из беседы
 bot.command('exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
+    ctx.reply('Завершаем сеанс. Введите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
     chatting = false;
@@ -104,7 +104,7 @@ bot.command('exit', (ctx) => {
 })
 bot.command('Exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс. Напишите команду start, чтобы найти нового собеседника.');
+    ctx.reply('Завершаем сеанс. Введите команду start, чтобы найти нового собеседника.');
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
     chatting = false;
@@ -435,9 +435,14 @@ function SendMessage(){
         bot.on(function (res){
         user_id = parseInt(res.user_id);
             //if(user_id === current_pair_id){
+            if(res.body!==''){
                 getPairbyIdFix(UpdateCurrentPair, user_id, res.body);
-            console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
                 connection_problems = true; 
+            }
+                
+            console.log('Пользователь #'+user_id + ' отправил сообщение ('+res.body+') пользователю #'+current_pair_id); 
+                
+            
 }) 
 }
 
