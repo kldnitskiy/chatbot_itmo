@@ -124,7 +124,7 @@ bot.on(function(res){
             payload: {
               button: 'start'
             },
-            label: 'Hello, world!'
+            label: 'start'
           },
           color: 'primary'
         }
