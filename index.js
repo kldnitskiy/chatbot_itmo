@@ -361,10 +361,10 @@ noticeCloseSession = function() {
         console.log(err); 
         return; 
       }
-        if(Object.keys(results).length>0){
+        if(Object.keys(results).length>0 && (parseInt(results[0].vk_id) !== user_id)){
             bot.reply(parseInt(results[0].vk_id), 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
         
-        }else if(current_pair_id !== 0){
+        }if(current_pair_id !== 0 && current_pair_id !== user_id ){
            bot.reply(current_pair_id, 'Ваш собеседник вышел из чата. Напишите команду start, чтобы начать новую беседу')
        }
          current_pair_id = 0;
