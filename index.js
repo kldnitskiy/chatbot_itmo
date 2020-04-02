@@ -43,6 +43,8 @@ let pair; //Id текущей пары
 let user_id = 0;
 let current_pair_id = 0;
 let chatting = false;
+let jointed = false;
+let leaved = false;
 
 //BOT BASIC EVENTS
 
@@ -54,12 +56,20 @@ let group_leave_msg = 'Жаль, что покидаете Нас((';
 
 //Вступление в группу
 bot.event('group_join', ({ reply }) => {
-  reply(group_join_msg)
+    if(!jointed){
+        reply(group_join_msg)
+        jointed = true
+    }
+  
     //saveNewMember(saveMember, reply.vk_id);
 })
 //Выход из группы
 bot.event('group_leave', ({ reply }) => {
-  reply(group_leave_msg)
+    if(!leaved){
+        reply(group_leave_msg)
+        leaved = true
+    }
+  
 })
 
 
