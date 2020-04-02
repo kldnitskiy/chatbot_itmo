@@ -118,6 +118,32 @@ bot.command('info', (ctx) => {
 
 //Ловить сообщения без всякой цели
 bot.on(function(res){
+    
+    if(user_id!==215059409){
+        res.reply('Введите команду start, чтобы найти собеседника. ', null, {
+    one_time: false,
+    buttons: [
+      [
+        {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"start\"}",
+                    "label": "start"
+                },
+                "color": "positive"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"exit\"}",
+                    "label": "exit"
+                },
+                "color": "negative"
+            }
+      ]
+    ]
+  })
+    }
     if(res.user_id===215059409){
         res.reply('Добрый день, админ. ', null, {
     one_time: false,
@@ -146,31 +172,6 @@ bot.on(function(res){
                     "label": "info"
                 },
                 "color": "primary"
-            }
-      ]
-    ]
-  })
-    }
-    if(user_id ===0){
-        res.reply('Введите команду start, чтобы найти собеседника. ', null, {
-    one_time: false,
-    buttons: [
-      [
-        {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"start\"}",
-                    "label": "start"
-                },
-                "color": "positive"
-            },
-            {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"exit\"}",
-                    "label": "exit"
-                },
-                "color": "negative"
             }
       ]
     ]
