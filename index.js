@@ -111,21 +111,7 @@ bot.command('go', (ctx) => {
 //выйти из беседы
 bot.command('exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс...', null, {
-    one_time: false,
-    buttons: [
-      [
-        {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"\"}",
-                    "label": "Завершаем сеанс"
-                },
-                "color": "negative"
-            }
-      ]
-    ]
-  });
+    ctx.reply('Завершаем сеанс...');
      
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
@@ -157,21 +143,7 @@ bot.command('exit', (ctx) => {
 })
 bot.command('Exit', (ctx) => {
     user_id = ctx.user_id;
-    ctx.reply('Завершаем сеанс...', null, {
-    one_time: false,
-    buttons: [
-      [
-        {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"\"}",
-                    "label": "Завершаем сеанс"
-                },
-                "color": "negative"
-            }
-      ]
-    ]
-  });
+    ctx.reply('Завершаем сеанс...');
      
     console.log("Пользователь #"+ctx.user_id+" завершил сеанс с пользователем #000000");
     //user_id = 0;
