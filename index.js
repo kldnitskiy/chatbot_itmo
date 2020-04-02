@@ -110,7 +110,6 @@ bot.command('Exit', (ctx) => {
     chatting = false;
     closeChat()
 })
-})
 bot.command('info', (ctx) => {
     user_id = ctx.user_id;
     ctx.reply('Информация о боте:');
