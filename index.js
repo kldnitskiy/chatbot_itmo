@@ -121,34 +121,18 @@ bot.on(function(res){
         {
                 "action": {
                     "type": "text",
-                    "payload": "{\"button\": \"1\"}",
-                    "label": "Negative"
-                },
-                "color": "negative"
-            },
-            {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"2\"}",
-                    "label": "Positive"
+                    "payload": "{\"button\": \"start\"}",
+                    "label": "start"
                 },
                 "color": "positive"
             },
             {
                 "action": {
                     "type": "text",
-                    "payload": "{\"button\": \"2\"}",
-                    "label": "Primary"
+                    "payload": "{\"button\": \"exit\"}",
+                    "label": "exit"
                 },
-                "color": "primary"
-            },
-            {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"2\"}",
-                    "label": "Secondary"
-                },
-                "color": "secondary"
+                "color": "negative"
             }
       ]
     ]
