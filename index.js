@@ -80,7 +80,8 @@ bot.command('start', (ctx) => {
     if(!chatting){
         ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
-    loginUser(UpdateLoginStatus);
+        setTimeout(loginUser(UpdateLoginStatus), 1000);
+    //loginUser(UpdateLoginStatus);
     }else{
         ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
     }
@@ -91,7 +92,8 @@ bot.command('Start', (ctx) => {
     if(!chatting){
         ctx.reply('Ищем собеседника...');
     console.log("Пользователь #"+ctx.user_id+" ввёл команду start");
-    loginUser(UpdateLoginStatus);
+        setTimeout(loginUser(UpdateLoginStatus), 1000);
+    //loginUser(UpdateLoginStatus);
     }else{
         ctx.reply('Бот: В данный момент вы находитесь в активном чате. Если хотите покинуть беседу, напишите команду exit');
     }
