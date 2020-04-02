@@ -235,6 +235,29 @@ getAllStats = function() {
         
     });
   });
+pool.getConnection(function(err, connection) {
+    if(err) { 
+      console.log(err); 
+      return; 
+    }
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id ='' ";
+    connection.query(sql, [], function(err, results) {
+      connection.release(); // always put connection back in pool after last query
+      if(err) { 
+        console.log(err); 
+        return; 
+      }
+        
+        bot.reply(parseInt(user_id), 'Пользователи без пары:');
+        if(Object.keys(results).length > 0){
+            for(let i = 0; i < Object.keys(results).length; i++){
+            bot.reply(parseInt(user_id), 'https://vk.com/id'+results[i].vk_id);
+        }
+        }
+        
+        
+    });
+  });
 };
 
 //SQL API
