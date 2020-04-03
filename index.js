@@ -311,7 +311,7 @@ pool.getConnection(function(err, connection) {
       console.log(err); 
       return; 
     }
-    let sql = "SELECT vk_id, pair_id FROM chatbot_data WHERE pair_id != NULL ";
+    let sql = "SELECT vk_id, pair_id FROM chatbot_data WHERE pair_id != 'NULL' ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -360,7 +360,7 @@ closeSession = function() {
       console.log(err); 
       return; 
     }
-    let sql = "UPDATE chatbot_data SET pair_id = NULL WHERE pair_id = "+user_id+" ";
+    let sql = "UPDATE chatbot_data SET pair_id = 'NULL' WHERE pair_id = "+user_id+" ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
@@ -533,7 +533,7 @@ getFreePairbyId = function(callback) {
       callback(true); 
       return; 
     }
-    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = NULL AND vk_id != "+user_id+"  AND vk_id != '' ";
+    let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = 'NULL' AND vk_id != "+user_id+"  AND vk_id != '' ";
     connection.query(sql, [], function(err, results) {
       connection.release(); // always put connection back in pool after last query
       if(err) { 
