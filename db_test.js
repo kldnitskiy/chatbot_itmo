@@ -5,7 +5,7 @@ var express    = require("express");
    user     : 'root',
    password : '1812danil',
    database : 'chatbot_data',
-     port: '3306'
+     port: '8888'
  });
  var app = express();
  
