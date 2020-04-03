@@ -32,7 +32,7 @@ tableHasData = function(client)
             console.log("Got "+results.length+" Rows:");
             for(var i in results){
 			 
-				console.log(results[i].[column name]); 
+				//console.log(results[i].[column name]); 
 				console.log('\n');
 				
             //console.log("The meta data about the columns:");
