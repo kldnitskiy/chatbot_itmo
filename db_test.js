@@ -1,6 +1,6 @@
 var express    = require("express");
  var mysql      = require('mysql');
- var connection = mysql.createConnection({
+ var pool = mysql.createPool({
    host     : 'localhost',
    user     : 'root',
    password : '1812danil',
@@ -8,7 +8,7 @@ var express    = require("express");
  });
  var app = express();
  
- connection.connect(function(err){
+pool.getConnection(function(err){
  if(!err) {
      console.log("Database is connected ... \n\n");  
  } else {
