@@ -26,11 +26,15 @@ server.listen(PORT)
 
 //MYSQL SETUP
 let pool  = mysql.createPool({
-host: "us-cdbr-iron-east-01.cleardb.net",
-user: "b09805f711cdac",
-password: "c362ba82",
-database: "heroku_2cf38b0299dd81c"
+   host     : "localhost",
+   user     : "root",
+   password : "1812danil",
+   database : "chatbot_data"
 });
+//host: "us-cdbr-iron-east-01.cleardb.net",
+//user: "b09805f711cdac",
+//password: "c362ba82",
+//database: "heroku_2cf38b0299dd81c"
 
 
 //API
