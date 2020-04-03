@@ -1,7 +1,7 @@
 var express    = require("express");
  var mysql      = require('mysql');
  var connection = mysql.createConnection({
-   host     : '127.0.0.1',
+   host     : 'localhost',
    user     : 'root',
    password : '1812danil',
    database : 'chatbot_data'
@@ -15,4 +15,4 @@ var express    = require("express");
      console.log("Error connecting database ... \n\n");  
  }
  });
-app.listen(3000);
+app.listen(3306);
