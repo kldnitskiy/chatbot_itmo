@@ -15,4 +15,4 @@ var express    = require("express");
      console.log("Error connecting database ... \n\n");  
  }
  });
-app.listen(3306);
+app.listen(3000);
