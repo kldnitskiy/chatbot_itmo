@@ -29,7 +29,7 @@ let pool  = mysql.createPool({
    host     : "localhost",
    user     : "root",
    password : "1812danil",
-   database : "chatbot_data"
+   database : "chatbot_itmo"
 });
 //host: "us-cdbr-iron-east-01.cleardb.net",
 //user: "b09805f711cdac",
