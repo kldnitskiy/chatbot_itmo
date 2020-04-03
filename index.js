@@ -24,21 +24,6 @@ server.get('/', (request, response) => {
 server.listen(PORT)
 
 
- var connection = mysql.createConnection({
-   host     : 'localhost',
-   user     : 'root',
-   password : '1812danil',
-   database : 'chatbot_data'
- });
- 
- connection.connect(function(err){
- if(!err) {
-     console.log("Database is connected ... \n\n");  
- } else {
-     console.log("Error connecting database ... \n\n");  
- }
- });
-
 //MYSQL SETUP
 let pool  = mysql.createPool({
 host: "us-cdbr-iron-east-01.cleardb.net",
