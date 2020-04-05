@@ -37,6 +37,7 @@ let pool  = mysql.createPool({
 let user_id = 0;
 let pair_id = null;
 
+console.log('running')
 
 bot.on(function (res){
     user_id = res.user_id;
