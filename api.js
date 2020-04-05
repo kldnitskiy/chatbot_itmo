@@ -1,5 +1,8 @@
 module.exports = {
-function test(){
-    console.log(1);
-}
-}
+  test: function () {
+    // whatever
+  },
+  bar: function () {
+    // whatever
+  }
+};
