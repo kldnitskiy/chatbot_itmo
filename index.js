@@ -33,38 +33,9 @@ let pool  = mysql.createPool({
 });
 
 
-
-
-//GLOBAL VARS
-
-//BOT BASIC EVENTS
-
-console.log('running')
-
-//Стандартные сообщения
-let group_join_msg = 'Добро пожаловать в семью!Ты сделал маленький, но весомый шаг к незабываемой студенческой жизни♥Это особенное место с неповторимыми людьми✨ А ты уже - наша часть 😌Мы обещаем, будет интересно 😏. \nНапишите команду start, чтобы присоединиться к анонимной беседе студентов. Команда exit - завершить чат.';
-let group_leave_msg = 'Жаль, что покидаете Нас((';
-
-//Вступление в группу
-bot.event('group_join', ({ reply }) => {
-    if(!jointed){
-        reply(group_join_msg)
-        jointed = true
-    }
-  
-    //saveNewMember(saveMember, reply.vk_id);
-})
-//Выход из группы
-bot.event('group_leave', ({ reply }) => {
-    if(!leaved){
-        reply(group_leave_msg)
-        leaved = true
-    }
-  
-})
-
-
-
+//Global vars
+let user_id = 0;
+let pair_id = 0;
 
 bot.on(function (res){
     api.getCurrentUser(callback.updateUserInfo, res.user_id);
