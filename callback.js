@@ -10,22 +10,62 @@ let btnSearch = {
     "one_time": false,
     "buttons": [
         [{
+            "action": {
+                "type": "location",
+                "payload": "{\"button\": \"1\"}"
+            }
+        }],
+        [{
+            "action": {
+                "type": "open_app",
+                "app_id": 6979558,
+                "owner_id": -181108510,
+                "hash": "sendKeyboard",
+                "label": "Отправить клавиатуру"
+            }
+        }],
+        [{
+            "action": {
+                "type": "vkpay",
+                "hash": "action=transfer-to-group&group_id=181108510&aid=10"
+            }
+        }],
+        [{
                 "action": {
                     "type": "text",
-                    "label": "Search"
+                    "payload": "{\"button\": \"1\"}",
+                    "label": "Negative"
+                },
+                "color": "negative"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Positive"
+                },
+                "color": "positive"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Primary"
                 },
                 "color": "primary"
             },
-         {
+            {
                 "action": {
                     "type": "text",
-                    "label": "Join"
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Secondary"
                 },
-                "color": "primary"
+                "color": "secondary"
             }
         ]
     ]
 }
+
 let btnJoin = {
     "one_time": true,
     "buttons": [
@@ -64,7 +104,7 @@ module.exports = {
         bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.', btnSearch);
     }else if(status){
         pair_id = result[0].pair_id;
-        bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', null, btnJoin);
+        bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', btnJoin);
     }
   }
 };
