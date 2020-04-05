@@ -82,5 +82,6 @@ module.exports = {
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.', btnJoin);
     }
+        is_search_busy = false;
 }
 };

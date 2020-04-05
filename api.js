@@ -43,6 +43,7 @@ module.exports = {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
+                is_search_busy = false;
                 callback(false);
                 return;
             }
@@ -51,6 +52,7 @@ module.exports = {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
                     console.log(err);
+                    is_search_busy = false;
                     callback(false);
                     return;
                 }

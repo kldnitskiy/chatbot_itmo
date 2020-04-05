@@ -42,7 +42,10 @@ console.log('running')
 
 bot.command('search', (res) => {
     if(!is_search_busy){
+        is_search_busy = true;
         api.searchFreeChat(callback.createChat, user_id)
+    }else{
+         bot.reply(res.user_id, 'В данный момент этот запрос используется кем-то другим. Подождите немного.')
     }
     
 })
