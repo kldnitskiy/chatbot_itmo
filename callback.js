@@ -7,7 +7,7 @@ const bot = new Botact({
     confirmation: 'f5f07863'
 })
 let btnSearch = {
-    "one_time": false,
+    "one_time": true,
     "buttons": [
         [{
                 "action": {
