@@ -6,6 +6,7 @@ const mysql = require('mysql')
 const server = express()
 const PORT = process.env.PORT || 80
 const api = require('./api')
+const callback = require('./callback')
 
 //BOT SETUP
 const bot = new Botact({
@@ -13,7 +14,6 @@ const bot = new Botact({
     confirmation: 'f5f07863'
 })
 
-api.test();
 //SERVER SETUP
 server.use(bodyParser.json())
 server.post('/', bot.listen)
@@ -31,11 +31,8 @@ let pool  = mysql.createPool({
    password : "1812danil",
    database : "chatbot_itmo"
 });
-//host: "us-cdbr-iron-east-01.cleardb.net",
-//user: "b09805f711cdac",
-//password: "c362ba82",
-//database: "heroku_2cf38b0299dd81c"
 
+api.getCurrentUser(updateUserInfo);
 
 //API
 let msg; //Текущее сообщение
@@ -78,7 +75,10 @@ bot.event('group_leave', ({ reply }) => {
 
 
 
+
+
 //Начать беседу + найти пару
+/*
 bot.command('start', (ctx) => {
     user_id = ctx.user_id;
     if(!chatting){
@@ -133,6 +133,7 @@ bot.command('Exit', (ctx) => {
     exitTimer()
     
 })
+*/
 function exitTimer(){
     closeChat()
     bot.reply(user_id, 'Введите команду start, чтобы найти собеседника. ', null, {
