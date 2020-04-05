@@ -8,7 +8,7 @@ const bot = new Botact({
 })
 module.exports = {
 
-  updateUserInfo: function (status, resultm user_id) {
+  updateUserInfo: function (status, result, user_id) {
       //Проверяем статус запроса
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
