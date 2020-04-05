@@ -46,7 +46,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = IS NULL";
+            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id IS NULL";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
