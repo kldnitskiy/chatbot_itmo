@@ -21,7 +21,6 @@ let btnSearch = {
     ]
 }
 module.exports = {
-
   updateUserInfo: function (status, result, user_id) {
       //Проверяем статус запроса
       if(!status){
