@@ -2,6 +2,10 @@ const express = require('express')
 const {Botact} = require('botact')
 const bodyParser = require('body-parser')
 const server = express()
+const bot = new Botact({
+    token: '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2',
+    confirmation: 'f5f07863'
+})
 module.exports = {
 
   updateUserInfo: function (status, result) {
