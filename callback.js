@@ -1,3 +1,4 @@
+const mysql = require('mysql')
 module.exports = {
 
   updateUserInfo: function (status, result) {
