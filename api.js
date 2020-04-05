@@ -6,7 +6,7 @@ let pool = mysql.createPool({
     database: "chatbot_itmo"
 })
 module.exports = {
-    getCurrentUser: function (callback, id) {
+    getCurrentUser: function (callback, user_id) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -21,7 +21,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback(true, result);
+                callback(true, result, user_id);
             });
         });
     },
