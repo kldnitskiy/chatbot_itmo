@@ -41,6 +41,7 @@ console.log('running')
 
 bot.on(function (res){
     user_id = res.user_id;
+    console.log(res.reply)
     api.getCurrentUser(callback.updateUserInfo, user_id);
 })
 //Начать беседу + найти пару
