@@ -43,7 +43,7 @@ bot.on(function (res){
     user_id = res.user_id;
     console.log(user_id + ' Написал: ' + res.body)
     //Убираем клавиатуру
-    res.reply('',{"buttons":[],"one_time":true});
+    bot.reply(user_id, '',{"buttons":[],"one_time":true});
     api.getCurrentUser(callback.updateUserInfo, user_id);
 })
 //Начать беседу + найти пару
