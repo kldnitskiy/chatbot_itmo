@@ -36,9 +36,16 @@ let pool  = mysql.createPool({
 //Global vars
 let user_id = 0;
 let pair_id = null;
-
+let is_search_busy = false;
 console.log('running')
 
+
+bot.command('search', (res) => {
+    if(!is_search_busy){
+        api.searchFreeChat(callback.createChat, user_id)
+    }
+    
+})
 bot.on(function (res){
     user_id = res.user_id;
     console.log(user_id + ' Написал: ' + res.body)

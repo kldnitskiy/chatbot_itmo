@@ -7,22 +7,27 @@ const bot = new Botact({
     confirmation: '9ebed8d2'
 })
 let btnSearch = {
-    one_time: false,
-    buttons: [
-      [
-        {
-          action: {
-            type: 'text',
-            payload: {
-              button: 'Hello, world!'
-            },
-            label: 'Hello, world!'
-          },
-          color: 'primary'
-        }
+   "one_time": false,
+   "buttons": [
+     [{
+       "action": {
+         "type": "text",
+         "payload": "{\"button\": \"1\"}",
+         "label": "Red"
+       },
+       "color": "negative"
+     },
+    {
+       "action": {
+         "type": "text",
+         "payload": "{\"button\": \"2\"}",
+         "label": "Green"
+       },
+       "color": "positive"
+    }
       ]
-    ]
-  }
+      ]
+}
 
 let btnJoin = {
     "one_time": true,
@@ -60,26 +65,22 @@ module.exports = {
       }
     if(Object.keys(result).length === 0){
         bot.reply(user_id, '',{"buttons":[],"one_time":true});
-        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.', {
-    one_time: false,
-    buttons: [
-      [
-        {
-          action: {
-            type: 'text',
-            payload: {
-              button: 'Hello, world!'
-            },
-            label: 'Hello, world!'
-          },
-          color: 'primary'
-        }
-      ]
-    ]
-  });
+        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.');
     }else if(status){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', btnJoin);
     }
-  }
+  },
+    createChat: function (status, result, user_id){
+      //Проверяем статус запроса
+      if(!status){
+          bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
+      }
+    if(Object.keys(result).length === 0){
+        bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
+    }else if(status){
+        pair_id = result[0].pair_id;
+        bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.', btnJoin);
+    }
+}
 };
