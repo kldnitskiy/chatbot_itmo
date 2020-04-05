@@ -101,7 +101,8 @@ module.exports = {
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
       }
     if(Object.keys(result).length === 0){
-        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.', null, btnSearch);
+        bot.reply(user_id, '',{"buttons":[],"one_time":true});
+        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.', btnSearch);
     }else if(status){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', btnJoin);
