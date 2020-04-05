@@ -43,7 +43,7 @@ bot.command('search', (res) => {
     let is_search_busy = false;
     if(!is_search_busy){
         is_search_busy = true;
-        api.searchFreeChat(callback.createChat, user_id)
+        api.searchFreeChat(callback.createChat, res.user_id)
     }else{
          bot.reply(res.user_id, 'В данный момент этот запрос используется кем-то другим. Подождите немного.')
     }
@@ -54,7 +54,7 @@ bot.on(function (res){
     console.log(user_id + ' Написал: ' + res.body)
     //Убираем клавиатуру
     
-    api.getCurrentUser(callback.updateUserInfo, user_id);
+    api.getCurrentUser(callback.updateUserInfo, res.user_id);
 })
 //Начать беседу + найти пару
 /*
