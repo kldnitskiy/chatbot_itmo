@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const server = express()
 const PORT = process.env.PORT || 80
-const api = require('api')
+const api = require('./api')
 
 //BOT SETUP
 const bot = new Botact({
