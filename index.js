@@ -38,7 +38,8 @@ let user_id = 0;
 let pair_id = null;
 
 bot.on(function (res){
-    api.getCurrentUser(callback.updateUserInfo, res.user_id);
+    user_id = res.user_id;
+    api.getCurrentUser(callback.updateUserInfo, user_id);
 })
 //Начать беседу + найти пару
 /*
