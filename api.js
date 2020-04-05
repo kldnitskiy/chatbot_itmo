@@ -1,3 +1,10 @@
+const mysql = require('mysql')
+let pool  = mysql.createPool({
+   host     : "localhost",
+   user     : "root",
+   password : "1812danil",
+   database : "chatbot_itmo"
+})
 module.exports = {
   getCurrentUser: function (callback, id) {
     pool.getConnection(function(err, connection) {

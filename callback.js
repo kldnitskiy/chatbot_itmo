@@ -1,17 +1,14 @@
-const mysql = require('mysql')
-let pool  = mysql.createPool({
-   host     : "localhost",
-   user     : "root",
-   password : "1812danil",
-   database : "chatbot_itmo"
-});
+const express = require('express')
+const {Botact} = require('botact')
+const bodyParser = require('body-parser')
+const server = express()
 module.exports = {
 
   updateUserInfo: function (status, result) {
     if(status){
         
     }else{
-        console.log('Произошла ошибка при обновлении данных');
+        console.log('Произошла ошибка при обновлении данных')
     }
   }
 };

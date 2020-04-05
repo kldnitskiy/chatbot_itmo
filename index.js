@@ -2,6 +2,7 @@
 const express = require('express')
 const {Botact} = require('botact')
 const bodyParser = require('body-parser')
+const mysql = require('mysql')
 const server = express()
 const PORT = process.env.PORT || 80
 const api = require('./api')
@@ -24,7 +25,12 @@ server.listen(PORT)
 
 
 //MYSQL SETUP
-
+let pool  = mysql.createPool({
+   host     : "localhost",
+   user     : "root",
+   password : "1812danil",
+   database : "chatbot_itmo"
+});
 
 api.getCurrentUser(callback.updateUserInfo);
 
