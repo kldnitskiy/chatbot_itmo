@@ -32,7 +32,7 @@ let pool  = mysql.createPool({
    database : "chatbot_itmo"
 });
 
-api.getCurrentUser(updateUserInfo);
+api.getCurrentUser(callback.updateUserInfo);
 
 //API
 let msg; //Текущее сообщение
