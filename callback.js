@@ -22,6 +22,7 @@ let btnSearch = {
 }
 module.exports = {
   updateUserInfo: function (status, result, user_id) {
+      console.log(result);
       //Проверяем статус запроса
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
