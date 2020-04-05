@@ -7,24 +7,22 @@ const bot = new Botact({
     confirmation: '9ebed8d2'
 })
 let btnSearch = {
-   "one_time": false,
-   "buttons": [
-     [{
-       "action": {
-         "type": "text",
-         "payload": "{\"button\": \"1\"}",
-         "label": "Red"
-       },
-       "color": "negative"
-     },
-    {
-       "action": {
-         "type": "text",
-         "payload": "{\"button\": \"2\"}",
-         "label": "Green"
-       },
-       "color": "positive"
-
+    one_time: false,
+    buttons: [
+      [
+        {
+          action: {
+            type: 'text',
+            payload: {
+              button: 'Hello, world!'
+            },
+            label: 'Hello, world!'
+          },
+          color: 'primary'
+        }
+      ]
+    ]
+  }
 
 let btnJoin = {
     "one_time": true,
