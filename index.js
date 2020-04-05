@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const server = express()
 const PORT = process.env.PORT || 80
-
+const api = require('./api')
 
 //BOT SETUP
 const bot = new Botact({
@@ -13,7 +13,7 @@ const bot = new Botact({
     confirmation: 'f5f07863'
 })
 
-
+api.test();
 //SERVER SETUP
 server.use(bodyParser.json())
 server.post('/', bot.listen)
