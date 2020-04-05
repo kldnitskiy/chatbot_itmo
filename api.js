@@ -5,6 +5,20 @@ let pool = mysql.createPool({
     password: "1812danil",
     database: "chatbot_itmo"
 })
+let buttons = {
+    "one_time": false,
+    "buttons": [
+        [{
+                "action": {
+                    "type": "text",
+                    "payload": "{\"button\": \"search\"}",
+                    "label": "Primary"
+                },
+                "color": "negative"
+            }
+        ]
+    ]
+}
 module.exports = {
     getCurrentUser: function (callback, user_id) {
         pool.getConnection(function (err, connection) {

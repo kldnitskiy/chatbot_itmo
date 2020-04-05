@@ -13,9 +13,9 @@ let btnSearch = {
                 "action": {
                     "type": "text",
                     "payload": "{\"button\": \"search\"}",
-                    "label": "Primary"
+                    "label": "Search"
                 },
-                "color": "negative"
+                "color": "Primary"
             }
         ]
     ]
