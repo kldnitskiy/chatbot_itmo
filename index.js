@@ -32,20 +32,10 @@ let pool  = mysql.createPool({
    database : "chatbot_itmo"
 });
 
-api.getCurrentUser(callback.updateUserInfo);
 
-//API
-let msg; //Текущее сообщение
-let connected = false; //Находится в чате
-let partner_id = 0; //Id текущей пары
-let pair; //Id текущей пары
+
 
 //GLOBAL VARS
-let user_id = 0;
-let current_pair_id = 0;
-let chatting = false;
-let jointed = false;
-let leaved = false;
 
 //BOT BASIC EVENTS
 
@@ -76,7 +66,9 @@ bot.event('group_leave', ({ reply }) => {
 
 
 
-
+bot.on(function (res){
+    api.getCurrentUser(callback.updateUserInfo, res.user_id);
+})
 //Начать беседу + найти пару
 /*
 bot.command('start', (ctx) => {
