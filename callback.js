@@ -14,7 +14,14 @@ let btnSearch = {
                     "type": "text",
                     "label": "Search"
                 },
-                "color": "Primary"
+                "color": "primary"
+            },
+         {
+                "action": {
+                    "type": "text",
+                    "label": "Join"
+                },
+                "color": "primary"
             }
         ]
     ]
