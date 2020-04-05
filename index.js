@@ -35,7 +35,7 @@ let pool  = mysql.createPool({
 
 //Global vars
 let user_id = 0;
-let pair_id = 0;
+let pair_id = null;
 
 bot.on(function (res){
     api.getCurrentUser(callback.updateUserInfo, res.user_id);

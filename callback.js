@@ -8,11 +8,8 @@ module.exports = {
     if(status){
         user_id = result[0].vk_id;
         pair_id = result[0].pair_id;
-        console.log(typeof(user_id))
-        console.log(typeof(pair_id))
-        console.log('Пользователь: ' + user_id + '/ Его пара: ' + pair_id);
     }else{
-        
+        bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
     }
   }
 };
