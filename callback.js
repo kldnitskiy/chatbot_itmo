@@ -77,5 +77,8 @@ module.exports = {
             bot.reply(user_id, 'Произошла ошибка при выходе из чата.')
         }
         
+    },
+    renderUsers: function (data, user_id){
+        bot.reply(user_id, 'Всего пользователей: ' + Object.keys(data).length)
     }
 };
