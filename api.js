@@ -54,7 +54,6 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                console.log(result)
                 if(Object.keys(result).length === 0){
                    callback(true, false, user_id);
                 }else if(Object.keys(result).length !== 0){
