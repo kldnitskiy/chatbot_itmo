@@ -53,8 +53,9 @@ bot.command('Search', (res) => {
 })
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(user_id)
-    api.getCurrentUser(callback.joinChat, res.user_id)
+    api.checkIfJoined(callback.joinChat, res.user_id, callback.noticeUser)
+//    api.checkIfJoined(user_id)
+//    api.getCurrentUser(callback.joinChat, res.user_id)
     
 })
 bot.on(function (res){
