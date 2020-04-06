@@ -1,5 +1,4 @@
 const mysql = require('mysql')
-const callback = require('./callback')
 let pool = mysql.createPool({
     host: "localhost",
     user: "root",
@@ -217,7 +216,7 @@ module.exports = {
             });
         });
     },
-    checkIfJoined: function (callback, callbackOfCallback, user_id, noticeUser) {
+    checkIfJoined: function (callback, callbackOfCallback, user_id, noticeUser,noticeChat) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -234,7 +233,7 @@ module.exports = {
                 }
                 if(callback.name === 'destroyUser'){
                     if(Object.keys(result).length === 0){
-                    callback.noticeChat(user_id)                   
+                    noticeChat(user_id)                   
                 }else{
                     callback(callbackOfCallback, user_id)
                 }
