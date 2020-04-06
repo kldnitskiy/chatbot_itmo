@@ -35,7 +35,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                module.exports.joinPair(callback, user_id)
+                module.exports.joinPair(callback, user_id, result)
             });
         });
     },
