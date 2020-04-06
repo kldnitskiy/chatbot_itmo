@@ -234,7 +234,7 @@ module.exports = {
                 if(Object.keys(result).length === 0){
                     callback()
                 }else{
-                    noticeUser()
+                    noticeUser(user_id)
                 }
                 
             });
