@@ -70,7 +70,7 @@ module.exports = {
                 return;
             }
             let sql = "UPDATE chatbot_data SET pair_id = "+user_id+" WHERE vk_id = "+result[0].vk_id+"";
-            connection.query(sql, [], function (err, result) {
+            connection.query(sql, [], function (err, output) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
                     console.log(err);
@@ -90,7 +90,7 @@ module.exports = {
                 return;
             }
             let sql = "UPDATE chatbot_data SET pair_id = "+result[0].vk_id+" WHERE vk_id = "+user_id+"";
-            connection.query(sql, [], function (err, result) {
+            connection.query(sql, [], function (err, output) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
                     console.log(err);
