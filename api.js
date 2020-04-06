@@ -283,7 +283,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                module.exports.destroyPair(true, user_id, result[0].vk_id)
+                module.exports.destroyPair(callback, user_id, result[0].vk_id)
                 
             });
         });
