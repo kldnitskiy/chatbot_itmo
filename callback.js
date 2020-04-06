@@ -67,9 +67,10 @@ module.exports = {
     noticeChat: function (user_id){
         bot.reply(user_id, 'Вы пока не находитесь ни в одном чате, так что нет смысла использовать команду Exit.')
     },
-    removeUser: function (status, user_id){
+    removeUser: function (status, user_id, pair_id){
         if(status){
             bot.reply(user_id, 'Вы покинули чат.')
+            bot.reply(pair_id, 'Собеседник покинул чат.')
         }else{
             bot.reply(user_id, 'Произошла ошибка при выходе из чата.')
         }
