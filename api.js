@@ -95,7 +95,7 @@ module.exports = {
                 if(Object.keys(result).length === 0){
                     createUser(callback, user_id)
                 }else{
-                    callback(true, false);
+                    callback(true, false, user_id);
                 }
                 
             });
