@@ -54,8 +54,8 @@ module.exports = {
     }else if(result[0].pair_id === null){
         bot.reply(user_id, 'Вы пока что не состоите ни в одном чате. Введите команду Search, чтобы найти собеседника.');
     }else if(result[0].pair_id !== null){
-        bot.reply(user_id, 'Соединение установлено.');
-        bot.reply(result[0].pair_id, 'Соединение установлено.');
+        bot.reply(user_id, 'Соединение установлено. Напишите что-нибудь своему собеседнику.');
+        bot.reply(result[0].pair_id, 'Соединение установлено. Напишите что-нибудь своему собеседнику.');
     }
     }
 };

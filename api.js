@@ -35,7 +35,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback(true, result, user_id);
+                module.exports.joinPair(callback, user_id)
             });
         });
     },
@@ -168,7 +168,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                    callback(true, true, user_id);
+                    callback(true, result, user_id);
                 
             });
         });
