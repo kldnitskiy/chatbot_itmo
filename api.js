@@ -144,7 +144,7 @@ module.exports = {
                     return;
                 }
                 console.log(callback.name)
-                if(callback.name === 'loginChat'){
+                if(callback.name === 'loginChat' || callback.name === 'createChat'){
                     callback(true, result, user_id);
                 }else if(callback.name === 'joinChat'){
                     module.exports.joinPair(callback, user_id, result);
