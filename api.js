@@ -20,7 +20,7 @@ let buttons = {
     ]
 }
 module.exports = {
-    getCurrentUser: function (callback, user_id) {
+    getCurrentUser: function (callback, user_id, message) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -35,7 +35,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                module.exports.joinPair(callback, user_id, result)
+                module.exports.joinPair(callback, user_id, result, message)
             });
         });
     },
@@ -153,7 +153,7 @@ module.exports = {
             });
         });
     },
-    joinPair: function (callback, user_id, result) {
+    joinPair: function (callback, user_id, result, message) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -168,7 +168,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                    callback(true, result, user_id);
+                    callback(true, result, user_id, message);
                 
             });
         });

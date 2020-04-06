@@ -55,7 +55,7 @@ bot.on(function (res){
     console.log(user_id + ' Написал: ' + res.body)
     //Убираем клавиатуру
     
-    api.getCurrentUser(callback.updateUserInfo, res.user_id);
+    api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
 })
 //Начать беседу + найти пару
 /*
