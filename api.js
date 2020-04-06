@@ -192,7 +192,7 @@ module.exports = {
             });
         });
     },
-    checkIfRegistered: function (executor, callback, user_id) {
+    checkIfRegistered: function (callback, user_id, notice, executor) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -207,6 +207,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
+                executor(user_id)
                 if(Object.keys(result).length === 0){
                     module.exports.createUser(callback, user_id)
                 }else{

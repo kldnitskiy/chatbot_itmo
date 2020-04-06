@@ -36,8 +36,8 @@ let pool  = mysql.createPool({
 let user_id = 0;
 let pair_id = null;
 
-function taskPool(task, ...input){
-    task(executor, ...input)
+function taskPool( api, callback, data, notice, executor){
+    task(callback, data, notice, executor)
 }
 function executor(...output){
     console.log(output)
@@ -47,7 +47,7 @@ bot.command('Login', (res) => {
     data.users.user_id = res.user_id;
     console.log(data)
     console.log(res.user_id + ' написал: ' + res.body)
-     taskPool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
+     taskPool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser, executor)
     //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
 })
