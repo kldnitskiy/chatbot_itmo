@@ -237,12 +237,14 @@ module.exports = {
                 }else{
                     callback(callbackOfCallback, user_id)
                 }
-                }
-                if(Object.keys(result).length === 0){
+                }else{
+                    if(Object.keys(result).length === 0){
                     callback(callbackOfCallback, user_id)
                 }else{
                     noticeUser(user_id)
                 }
+                }
+                
                 
             });
         });
