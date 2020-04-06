@@ -208,11 +208,10 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    //module.exports.createUser(callback, user_id)
+                    module.exports.createUser(callback, user_id)
                 }else{
-                    //callback(true, false, user_id);
+                    callback(true, false, user_id);
                 }
-                executor(user_id)
                 
             });
         });
