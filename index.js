@@ -44,7 +44,6 @@ function executor(...output){
 }
 
 bot.command('Login', (res) => {
-    console.log(data)
     console.log(res.user_id + ' написал: ' + res.body)
      taskPool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser, executor)
     //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
