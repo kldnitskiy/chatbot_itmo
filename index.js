@@ -36,6 +36,7 @@ let users_data = {
   {"id":"John", "pair_id":"Doe", "status": ""},
 ]
 }
+console.log('running')
 
 bot.on(function (res){
     user_id = res.user_id;
