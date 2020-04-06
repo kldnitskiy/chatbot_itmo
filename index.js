@@ -44,7 +44,7 @@ bot.command('search', (res) => {
     
 })
 bot.command('login', (res) => {
-    api.createUser(callback.loginChat, res.user_id)
+    api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
 bot.on(function (res){

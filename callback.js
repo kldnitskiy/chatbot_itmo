@@ -89,8 +89,10 @@ module.exports = {
         //Проверяем статус запроса
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
-      }else if(status){
-        bot.reply(user_id, 'Вы были зарегистрированы в чат-рулетке!');
+      }else if(status && result === false){
+        bot.reply(user_id, 'Вы уже были зарегистрированы в рулетке!');
+    }else if(status && result !== false){
+        bot.reply(user_id, 'Вы были зарегистрированы в рулетке!');
     }
     }
 };
