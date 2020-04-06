@@ -39,11 +39,11 @@ let pair_id = null;
 console.log('running')
 
 
-bot.command('search', (res) => {
+bot.command('Search', (res) => {
     api.searchFreeChat(callback.createChat, res.user_id)
     
 })
-bot.command('login', (res) => {
+bot.command('Login', (res) => {
     api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
