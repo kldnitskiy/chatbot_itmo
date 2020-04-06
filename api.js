@@ -59,5 +59,26 @@ module.exports = {
                 callback(true, result, user_id);
             });
         });
+    },
+    createUser: function (callback, user_id) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                is_login_busy = false;
+                callback(false);
+                return;
+            }
+            let sql = "INSERT INTO chatbot_data (vk_id) VALUES("+user_id+")";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    is_login_busy = false;
+                    callback(false);
+                    return;
+                }
+                callback(true, result, user_id);
+            });
+        });
     }
 };

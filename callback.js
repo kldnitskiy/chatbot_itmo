@@ -65,7 +65,7 @@ module.exports = {
       }
     if(Object.keys(result).length === 0){
         bot.reply(user_id, '',{"buttons":[],"one_time":true});
-        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду search, чтобы найти собеседника.');
+        bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду login чтобы зарегистрироваться в чат-рулетке.');
     }else if(status){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', btnJoin);
