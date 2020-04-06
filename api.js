@@ -216,7 +216,7 @@ module.exports = {
             });
         });
     },
-    checkIfJoined: function (user_id) {
+    checkIfJoined: function (callback, user_id) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -232,9 +232,9 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    
+                    callback()
                 }else{
-                    bot.reply(user_id, 'Команды Login, Join и Search недоступны в чате с собеседником.');
+                    console.log('Команды Login, Join и Search недоступны в чате с собеседником.');
                 }
                 
             });
