@@ -143,7 +143,31 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback(true, result, user_id);
+                if(callback.name==='loginChat'){
+                    callback(true, result, user_id);
+                }else if(callback.name === 'joinChat'){
+                    module.exports.joinPair(callback, user_id, result);
+                }
+                
+            });
+        });
+    },
+    joinPair: function (callback, user_id, result) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "UPDATE chatbot_data SET joined = 1 WHERE vk_id = "+user_id+" OR pair_id = "+user_id+"";
+            connection.query(sql, [], function (err, output) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                    callback(true, true, user_id);
                 
             });
         });
@@ -163,7 +187,6 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                console.log(callback.name);
                 callback(true, result, user_id);
             });
         });
