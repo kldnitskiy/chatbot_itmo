@@ -87,7 +87,7 @@ module.exports = {
         //Проверяем статус запроса
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
-      }}else if(status){
+      }else if(status){
         bot.reply(user_id, 'Вы были зарегистрированы в чат-рулетке!');
     }
     }
