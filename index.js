@@ -35,13 +35,6 @@ let pool  = mysql.createPool({
 //Global vars
 let user_id = 0;
 let pair_id = null;
-let global.data = {
-  "all_users":0,
-  "pairs":0,
-  "users": {
-    "user_id":"Ford",
-  }
- }
 
 
 bot.command('Login', (res) => {
