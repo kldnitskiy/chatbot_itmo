@@ -54,7 +54,6 @@ bot.command('Join', (res) => {
     
 })
 bot.on(function (res){
-    console.log(res.user_id + ' написал: ' + res.body)
     api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
 })
 //Начать беседу + найти пару
