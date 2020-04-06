@@ -47,7 +47,7 @@ bot.command('Search', (res) => {
     
 })
 bot.command('Join', (res) => {
-    api.searchFreeChat(callback.joinChat, res.user_id)
+    api.getCurrentUser(callback.joinChat, res.user_id)
     
 })
 bot.on(function (res){
