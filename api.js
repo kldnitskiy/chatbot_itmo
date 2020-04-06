@@ -212,7 +212,7 @@ module.exports = {
                 }else{
                     //callback(true, false, user_id);
                 }
-                executor()
+                executor(user_id)
                 
             });
         });

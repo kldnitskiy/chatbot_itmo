@@ -40,7 +40,7 @@ function taskPool(task, ...input){
     task(executor, ...arguments)
 }
 function executor(...output){
-    
+    console.log(output)
 }
 
 bot.command('Login', (res) => {
