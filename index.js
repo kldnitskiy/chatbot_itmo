@@ -36,12 +36,19 @@ let pool  = mysql.createPool({
 let user_id = 0;
 let pair_id = null;
 
+function pool(task, ...input){
+    task(executor, ...arguments)
+}
+function executor(...output){
+    
+}
 
 bot.command('Login', (res) => {
     data.users.user_id = res.user_id;
     console.log(data)
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
+     pool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
+    //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
 })
 bot.command('Search', (res) => {

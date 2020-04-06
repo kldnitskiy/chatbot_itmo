@@ -192,7 +192,7 @@ module.exports = {
             });
         });
     },
-    checkIfRegistered: function (callback, user_id) {
+    checkIfRegistered: function (executor, callback, user_id) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -208,10 +208,11 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    module.exports.createUser(callback, user_id)
+                    //module.exports.createUser(callback, user_id)
                 }else{
-                    callback(true, false, user_id);
+                    //callback(true, false, user_id);
                 }
+                executor()
                 
             });
         });
