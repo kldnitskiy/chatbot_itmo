@@ -40,9 +40,9 @@ module.exports = {
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
       }else if(status && result === false){
-        bot.reply(user_id, 'Вы вошли в чат-рулетку!');
+        bot.reply(user_id, 'Вы вошли в чат-рулетку! Введите команду Search, чтобы найти собеседника.');
     }else if(status && result !== false){
-        bot.reply(user_id, 'Вы были зарегистрированы в рулетке!');
+        bot.reply(user_id, 'Вы были зарегистрированы в рулетке! Введите команду Search, чтобы найти собеседника.');
     }
     },
     joinChat: function (status, result, user_id){
@@ -54,7 +54,7 @@ module.exports = {
         bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
     }else if(status && result){
         pair_id = result[0].pair_id;
-        bot.reply(user_id, 'Добро пожаловать в анонимный чат! Введите команду Join, чтобы войти в него.');
+        bot.reply(user_id, 'Вы вошли в чат. Напишите что-нибудь своему собеседнику.');
     }else if(status && !result){
         bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
