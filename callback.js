@@ -66,9 +66,11 @@ module.exports = {
     if(Object.keys(result).length === 0){
         bot.reply(user_id, '',{"buttons":[],"one_time":true});
         bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду login чтобы зарегистрироваться в чат-рулетке.');
-    }else if(status){
+    }else if(status && result[0].pair_id !== null){
         pair_id = result[0].pair_id;
-        bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.', btnJoin);
+        bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.');
+    }else if(result[0].pair_id === null){
+        bot.reply(user_id, 'Похоже, вы были зарегистрированы в чат рулетке, но у вас пока нет собеседника.');
     }
   },
     createChat: function (status, result, user_id){
