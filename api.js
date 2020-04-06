@@ -216,7 +216,7 @@ module.exports = {
             });
         });
     },
-    checkIfJoined: function (callback, user_id, noticeUser) {
+    checkIfJoined: function (callback, callbackOfCallback, user_id, noticeUser) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
@@ -232,7 +232,7 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    callback()
+                    callback(callbackOfCallback)
                 }else{
                     noticeUser(user_id)
                 }

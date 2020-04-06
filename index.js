@@ -40,20 +40,20 @@ console.log('running')
 
 bot.command('Login', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(checkIfRegistered(callback.loginChat, res.user_id), res.user_id, callback.noticeUser)
+    api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
 bot.command('Search', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(searchFreeChat(callback.createChat, res.user_id), res.user_id, callback.noticeUser)
+    api.checkIfJoined(api.searchFreeChat, callback.createChat, res.user_id, callback.noticeUser)
     //api.checkIfJoined(user_id)
     //api.searchFreeChat(callback.createChat, res.user_id)
     
 })
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(getCurrentUser(callback.joinChat, res.user_id), res.user_id, callback.noticeUser)
+    api.checkIfJoined(api.getCurrentUser, callback.createChat, res.user_id, callback.noticeUser)
 //    api.checkIfJoined(user_id)
 //    api.getCurrentUser(callback.joinChat, res.user_id)
     
