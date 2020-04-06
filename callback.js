@@ -16,7 +16,7 @@ module.exports = {
         bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду login чтобы зарегистрироваться в чат-рулетке.');
     }else if(status && result[0].pair_id !== null){
         pair_id = result[0].pair_id;
-        bot.reply(pair_id, message);
+        bot.reply(pair_id, 'Собеседник: '+message);
 //        bot.reply(user_id, 'У вас есть активный чат. Введите команду Join, чтобы войти в него.');
     }else if(result[0].pair_id === null){
         bot.reply(user_id, 'Похоже, вы были зарегистрированы в чат рулетке, но у вас пока нет собеседника. Введите команду Search, чтобы найти чат.');
