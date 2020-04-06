@@ -64,6 +64,8 @@ bot.command('Exit', (res) => {
 bot.on(function (res){
     if(res.body===''){
         res.reply('Бот: к сожалению, стикеры, фото, видео не поддерживаются.');
+    }else{
+        api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
     }
-    api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
+    
 })
