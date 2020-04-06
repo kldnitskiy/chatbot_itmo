@@ -55,7 +55,7 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    callback(status, result, user_id);
+                    callback(true, result, user_id);
                 }else if(Object.keys(result).length !== 0){
                     module.exports.insertPair(callback, user_id, result);
                 }
