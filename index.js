@@ -40,7 +40,7 @@ console.log('running')
 
 bot.command('Login', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(user_id)
+    api.checkIfJoined(res.user_id)
     api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
