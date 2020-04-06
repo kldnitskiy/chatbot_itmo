@@ -216,5 +216,30 @@ module.exports = {
             });
         });
     },
+    checkIfJoined: function (user_id) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "SELECT vk_id FROM chatbot_data WHERE vk_id = "+user_id+" AND joined = 1 ";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                if(Object.keys(result).length === 0){
+                    
+                }else{
+                    bot.reply(user_id, 'Команды Login, Join и Search недоступны в чате с собеседником.');
+                }
+                
+            });
+        });
+    }
+    
     
 };
