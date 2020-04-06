@@ -17,7 +17,7 @@ module.exports = {
     }else if(status && result[0].pair_id !== null){
         //ЧАТ
         pair_id = result[0].pair_id;
-        console.log(result[0].vk_id + ' написал пользователю ' + result[0].pair_id)
+        console.log(result[0].vk_id + ' написал пользователю ' + result[0].pair_id + ':"' + message +'"')
         bot.reply(pair_id, 'Собеседник: '+message);
 //        bot.reply(user_id, 'У вас есть активный чат. Введите команду Join, чтобы войти в него.');
     }else if(result[0].pair_id === null){
