@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 80
 const api = require('./api')
 const callback = require('./callback')
 
-console.log(1);
+
 //BOT SETUP
 const bot = new Botact({
     token: '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2',
@@ -35,7 +35,6 @@ let pool  = mysql.createPool({
 //Global vars
 let user_id = 0;
 let pair_id = null;
-console.log('running')
 
 bot.command('Login', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
