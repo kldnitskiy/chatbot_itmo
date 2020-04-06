@@ -143,7 +143,8 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                if(callback.name==='loginChat'){
+                console.log(callback.name)
+                if(callback.name === 'loginChat'){
                     callback(true, result, user_id);
                 }else if(callback.name === 'joinChat'){
                     module.exports.joinPair(callback, user_id, result);
