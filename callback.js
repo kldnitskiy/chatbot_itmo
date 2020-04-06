@@ -28,7 +28,7 @@ module.exports = {
       }
     if(Object.keys(result).length === 0){
         bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
-    }else if(status){
+    }else if(status && result){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.');
     }

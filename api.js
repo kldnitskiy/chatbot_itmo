@@ -46,7 +46,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id IS NULL AND vk_id != "+user_id+";UPDATE chatbot_data SET pair_id = "+user_id+" WHERE (pair_id IS NULL AND vk_id != "+user_id+");";
+            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id IS NULL AND vk_id != "+user_id+"";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
@@ -54,7 +54,51 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback(true, result, user_id);
+                if(Object.keys(result).length === 0){
+                    callback(status, result, user_id);
+                }else if(Object.keys(result).length !== 0){
+                    module.exports.insertPair(callback, user_id, result);
+                }
+            });
+        });
+    },
+    insertPair: function (callback, user_id, result) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "UPDATE chatbot_data SET pair_id = "+user_id+" WHERE vk_id = "+result[0].vk_id+"";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                module.exports.savePair(callback, user_id, result);
+                
+            });
+        });
+    },
+    savePair: function (callback, user_id, result) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "UPDATE chatbot_data SET pair_id = "+result[0].vk_id+" WHERE vk_id = "+user_id+"";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                callback(true, result);
+                
             });
         });
     },
