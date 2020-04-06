@@ -26,7 +26,7 @@ module.exports = {
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
       }
-    if(Object.keys(result).length === 0 && !result){
+    if(Object.keys(result).length === 0 && typeof(result)==='object'){
         bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
     }else if(status && result){
         pair_id = result[0].pair_id;
