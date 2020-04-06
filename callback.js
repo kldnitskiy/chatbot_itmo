@@ -34,6 +34,7 @@ module.exports = {
     }else if(status && result){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Введите команду Join, чтобы войти в него.');
+        bot.reply(pair_id, 'С вами хотят связаться! Введите Join, чтобы начать войти в чат.');
     }else if(status && !result){
         bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
