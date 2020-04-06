@@ -32,10 +32,10 @@ module.exports = {
     if(Object.keys(result).length === 0 && typeof(result)==='object'){
         bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
     }else if(status && result){
-        pair_id = result[0].pair_id;
+        pair_id = result[0].vk_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Введите команду Join, чтобы войти в него.');
         console.log(result);
-//        bot.reply(pair_id, 'С вами хотят связаться! Введите Join, чтобы начать войти в чат.');
+        bot.reply(pair_id, 'С вами хотят связаться! Введите Join, чтобы начать войти в чат.');
     }else if(status && !result){
         bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
