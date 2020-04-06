@@ -54,6 +54,9 @@ bot.command('Join', (res) => {
     
 })
 bot.on(function (res){
+    if(res.body===''){
+        res.reply('Бот: к сожалению, стикеры, фото, видео не поддерживаются.');
+    }
     api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
 })
 //Начать беседу + найти пару
