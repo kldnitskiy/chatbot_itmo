@@ -216,7 +216,7 @@ module.exports = {
             });
         });
     },
-    checkIfJoined: function (callback, callbackOfCallback, user_id, noticeUser,noticeChat) {
+    checkIfJoined: function (callback, callbackOfCallback, user_id, noticeUser, noticeChat) {
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);

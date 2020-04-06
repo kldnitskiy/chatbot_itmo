@@ -40,7 +40,7 @@ console.log('running')
 
 bot.command('Login', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser, callback.noticeChat)
+    api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
@@ -59,7 +59,7 @@ bot.command('Join', (res) => {
 })
 bot.command('Exit', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser)
+    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser, callback.noticeChat)
 //    api.checkIfJoined(user_id)
 //    api.getCurrentUser(callback.joinChat, res.user_id)
 })
