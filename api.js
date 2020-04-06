@@ -155,7 +155,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "INSERT INTO chatbot_data (vk_id, joined) VALUES("+user_id+", false)";
+            let sql = "INSERT INTO chatbot_data (vk_id, joined) VALUES("+user_id+")";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
