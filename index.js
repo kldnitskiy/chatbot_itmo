@@ -38,13 +38,16 @@ let user_id = 0;
 let pair_id = null;
 console.log('running')
 
-
+bot.command('Login', (res) => {
+    api.checkIfRegistered(callback.loginChat, res.user_id)
+    
+})
 bot.command('Search', (res) => {
     api.searchFreeChat(callback.createChat, res.user_id)
     
 })
-bot.command('Login', (res) => {
-    api.checkIfRegistered(callback.loginChat, res.user_id)
+bot.command('Join', (res) => {
+    api.searchFreeChat(callback.joinChat, res.user_id)
     
 })
 bot.on(function (res){

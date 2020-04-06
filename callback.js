@@ -16,7 +16,7 @@ module.exports = {
         bot.reply(user_id, 'Вижу, тебя нет в базе. Введите команду login чтобы зарегистрироваться в чат-рулетке.');
     }else if(status && result[0].pair_id !== null){
         pair_id = result[0].pair_id;
-        bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.');
+        bot.reply(user_id, 'У вас есть активный чат. Введите команду Join, чтобы войти в него.');
     }else if(result[0].pair_id === null){
         bot.reply(user_id, 'Похоже, вы были зарегистрированы в чат рулетке, но у вас пока нет собеседника. Введите команду Search, чтобы найти чат.');
     }
@@ -30,7 +30,7 @@ module.exports = {
         bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
     }else if(status && result){
         pair_id = result[0].pair_id;
-        bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.');
+        bot.reply(user_id, 'Добро пожаловать в анонимный чат! Введите команду Join, чтобы войти в него.');
     }else if(status && !result){
         bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
@@ -44,5 +44,10 @@ module.exports = {
     }else if(status && result !== false){
         bot.reply(user_id, 'Вы были зарегистрированы в рулетке!');
     }
+    },
+    joinChat: function (status, result, user_id){
+        //Проверяем статус запроса
+      console.log(status)
+        console.log(result)
     }
 };
