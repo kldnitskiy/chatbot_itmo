@@ -82,6 +82,13 @@ module.exports = {
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.', btnJoin);
     }
-        is_search_busy = false;
-}
+},
+    loginChat: function (status, result, user_id){
+        //Проверяем статус запроса
+      if(!status){
+          bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
+      }}else if(status){
+        bot.reply(user_id, 'Вы были зарегистрированы в чат-рулетке!');
+    }
+    }
 };

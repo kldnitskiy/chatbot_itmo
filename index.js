@@ -40,23 +40,11 @@ console.log('running')
 
 
 bot.command('search', (res) => {
-    let is_search_busy = false;
-    if(!is_search_busy){
-        is_search_busy = true;
-        api.searchFreeChat(callback.createChat, res.user_id)
-    }else{
-         bot.reply(res.user_id, 'В данный момент этот запрос используется кем-то другим. Подождите немного.')
-    }
+    api.searchFreeChat(callback.createChat, res.user_id)
     
 })
 bot.command('login', (res) => {
-    let is_login_busy = false;
-    if(!is_login_busy){
-        is_login_busy = true;
-        api.createUser(callback.loginChat, res.user_id)
-    }else{
-         bot.reply(res.user_id, 'В данный момент этот запрос используется кем-то другим. Подождите немного.')
-    }
+    api.createUser(callback.loginChat, res.user_id)
     
 })
 bot.on(function (res){
