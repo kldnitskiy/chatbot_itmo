@@ -35,9 +35,18 @@ let pool  = mysql.createPool({
 //Global vars
 let user_id = 0;
 let pair_id = null;
+let data = {
+  "all_users":0,
+  "pairs":0,
+  "users": {
+    "user_id":"Ford",
+  }
+ }
 
 
 bot.command('Login', (res) => {
+    data.users.user_id = res.user_id;
+    console.log(data)
     console.log(res.user_id + ' написал: ' + res.body)
     api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
