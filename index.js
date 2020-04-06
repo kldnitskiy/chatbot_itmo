@@ -37,7 +37,6 @@ let user_id = 0;
 let pair_id = null;
 
 function taskPool(task, ...input){
-    console.log(1);
     task(executor, ...input)
 }
 function executor(...output){
