@@ -46,8 +46,9 @@ bot.command('Login', (res) => {
 })
 bot.command('Search', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(user_id)
-    api.searchFreeChat(callback.createChat, res.user_id)
+    api.checkIfJoined(callback.createChat, res.user_id, callback.noticeUser)
+    //api.checkIfJoined(user_id)
+    //api.searchFreeChat(callback.createChat, res.user_id)
     
 })
 bot.command('Join', (res) => {
