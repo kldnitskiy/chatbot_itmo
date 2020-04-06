@@ -31,6 +31,8 @@ module.exports = {
     }else if(status && result){
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'Добро пожаловать в анонимный чат! Напишите сообщение своему собеседнику.');
+    }else if(status && !result){
+        bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
 },
     loginChat: function (status, result, user_id){
