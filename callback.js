@@ -60,5 +60,8 @@ module.exports = {
         bot.reply(user_id, 'Соединение установлено. Напишите что-нибудь своему собеседнику.');
         bot.reply(result[0].pair_id, 'Соединение установлено. Напишите что-нибудь своему собеседнику.');
     }
+    },
+    noticeUser: function (user_id){
+        bot.reply(user_id, 'Команды Login, Join и Search недоступны во время чата.')
     }
 };
