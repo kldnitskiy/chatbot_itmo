@@ -303,7 +303,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                 module.exports.destroyPair(callback, user_id, result[0].vk_id)
+                 callback(true, user_id, pair_id)
                 
             });
         });
