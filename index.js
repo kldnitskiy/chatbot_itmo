@@ -39,22 +39,22 @@ let pair_id = null;
 console.log('running')
 
 bot.command('Login', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
     api.checkIfRegistered(callback.loginChat, res.user_id)
     
 })
 bot.command('Search', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
     api.searchFreeChat(callback.createChat, res.user_id)
     
 })
 bot.command('Join', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
     api.getCurrentUser(callback.joinChat, res.user_id)
     
 })
 bot.on(function (res){
-    user_id = res.user_id;
-    console.log(user_id + ' Написал: ' + res.body)
-    //Убираем клавиатуру
-    
+    console.log(res.user_id + ' написал: ' + res.body)
     api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
 })
 //Начать беседу + найти пару
