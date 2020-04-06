@@ -58,7 +58,5 @@ module.exports = {
     }else if(status && !result){
         bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
     }
-      console.log(status)
-        console.log(result)
     }
 };

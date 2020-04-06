@@ -163,6 +163,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
+                console.log(callback.name);
                 callback(true, result, user_id);
             });
         });
@@ -190,5 +191,6 @@ module.exports = {
                 
             });
         });
-    }
+    },
+    
 };
