@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const callback = require('./callback')
 let pool = mysql.createPool({
     host: "localhost",
     user: "root",
@@ -233,7 +234,7 @@ module.exports = {
                 }
                 if(callback.name === 'destroyUser'){
                     if(Object.keys(result).length === 0){
-                    noticeChat(user_id)                   
+                    callback.noticeChat(user_id)                   
                 }else{
                     callback(callbackOfCallback, user_id)
                 }
