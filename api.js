@@ -97,7 +97,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback(true, result);
+                callback(true, result, user_id);
                 
             });
         });
