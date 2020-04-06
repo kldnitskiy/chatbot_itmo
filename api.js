@@ -57,7 +57,7 @@ module.exports = {
                 if(Object.keys(result).length === 0){
                    module.exports.checkIfWasRegistered(callback, user_id);
                 }else if(Object.keys(result).length !== 0){
-                    callback(true, result, user_id);
+                    callback(true, result, user_id, result[0].pair_id);
                 }
             });
         });
