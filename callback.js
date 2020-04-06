@@ -70,7 +70,7 @@ module.exports = {
         pair_id = result[0].pair_id;
         bot.reply(user_id, 'У вас есть активный чат. Напишите join, чтобы войти в него.');
     }else if(result[0].pair_id === null){
-        bot.reply(user_id, 'Похоже, вы были зарегистрированы в чат рулетке, но у вас пока нет собеседника.');
+        bot.reply(user_id, 'Похоже, вы были зарегистрированы в чат рулетке, но у вас пока нет собеседника. Введите команду Search, чтобы найти чат.');
     }
   },
     createChat: function (status, result, user_id){
