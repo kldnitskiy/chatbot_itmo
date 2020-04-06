@@ -47,6 +47,17 @@ module.exports = {
     },
     joinChat: function (status, result, user_id){
         //Проверяем статус запроса
+      if(!status){
+          bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
+      }
+    if(Object.keys(result).length === 0 && typeof(result)==='object'){
+        bot.reply(user_id, 'К сожалению, нет свободных чатов. Попробуйте чуть позже.');
+    }else if(status && result){
+        pair_id = result[0].pair_id;
+        bot.reply(user_id, 'Добро пожаловать в анонимный чат! Введите команду Join, чтобы войти в него.');
+    }else if(status && !result){
+        bot.reply(user_id, 'Вы ещё не зарегистрированы в чат-рулетке. Введите команду Login, чтобы войти в систему.');
+    }
       console.log(status)
         console.log(result)
     }
