@@ -232,7 +232,7 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length === 0){
-                    callback(callbackOfCallback)
+                    callback(callbackOfCallback, user_id)
                 }else{
                     noticeUser(user_id)
                 }
