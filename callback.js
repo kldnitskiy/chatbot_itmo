@@ -63,5 +63,11 @@ module.exports = {
     },
     noticeUser: function (user_id){
         bot.reply(user_id, 'Команды Login, Join и Search недоступны во время чата.')
+    },
+    noticeChat: function (user_id){
+        bot.reply(user_id, 'Вы пока не находитесь ни в одном чате, так что нет смысла использовать команду Exit.')
+    }
+    removeUser: function (user_id){
+        bot.reply(user_id, 'Вы покинули чат.')
     }
 };

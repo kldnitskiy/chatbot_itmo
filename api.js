@@ -231,11 +231,59 @@ module.exports = {
                     callback(false);
                     return;
                 }
+                if(callback.name === 'destroyUser'){
+                    if(Object.keys(result).length === 0){
+                    noticeChat(user_id)                   
+                }else{
+                    callback(callbackOfCallback, user_id)
+                }
+                }
                 if(Object.keys(result).length === 0){
                     callback(callbackOfCallback, user_id)
                 }else{
                     noticeUser(user_id)
                 }
+                
+            });
+        });
+    },
+    destroyUser: function(callback, user_id){
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "DELETE FROM chatbot_data WHERE vk_id = "+user_id+"";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                module.exports.destroyPair(callback, user_id)
+                
+                
+            });
+        });
+    },
+    destroyPair: function(callback, user_id){
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "UPDATE chatbot_data SET pair_id IS NULL WHERE pair_id = "+user_id+"";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                callback(true, user_id)
                 
             });
         });

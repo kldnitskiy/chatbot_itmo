@@ -56,7 +56,12 @@ bot.command('Join', (res) => {
     api.checkIfJoined(api.getCurrentUser, callback.joinChat, res.user_id, callback.noticeUser)
 //    api.checkIfJoined(user_id)
 //    api.getCurrentUser(callback.joinChat, res.user_id)
-    
+})
+bot.command('Exit', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
+    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser)
+//    api.checkIfJoined(user_id)
+//    api.getCurrentUser(callback.joinChat, res.user_id)
 })
 bot.on(function (res){
     if(res.body===''){
