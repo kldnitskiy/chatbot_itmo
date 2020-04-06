@@ -40,7 +40,7 @@ module.exports = {
       if(!status){
           bot.reply(user_id, 'Произошла ошибка на сервере. Попробуйте позже.');
       }else if(status && result === false){
-        bot.reply(user_id, 'Вы уже были зарегистрированы в рулетке!');
+        bot.reply(user_id, 'Вы вошли в чат-рулетку!');
     }else if(status && result !== false){
         bot.reply(user_id, 'Вы были зарегистрированы в рулетке!');
     }
