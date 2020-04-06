@@ -39,7 +39,7 @@ let users_data = {
 console.log('running')
 
 bot.on(function (res){
-    console.log(users_data)
+    console.log(users_data['users'])
     console.log(res.user_id + ' Написал: ' + res.body)
     //Убираем клавиатуру
 })
