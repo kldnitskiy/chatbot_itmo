@@ -45,7 +45,7 @@ bot.command('Login', (res) => {
 })
 bot.command('Search', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser)
+    api.checkIfRegistered(callback.createChat, res.user_id, callback.noticeUser)
     api.showUsersCount(callback.renderUsers, res.user_id);
     //api.checkIfJoined(user_id)
     //api.searchFreeChat(callback.createChat, res.user_id)
