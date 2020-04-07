@@ -29,7 +29,7 @@ bot.command('Join', (res) => {
 })
 bot.command('Exit', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-     api.noticeExit(callback.requestManager, res.user_id, res.body, null);
+     api.noticeExit(callback.requestManager, res.user_id, null);
 })
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
