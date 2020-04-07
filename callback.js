@@ -8,7 +8,7 @@ const bot = new Botact({
 })
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(msg !== null && status !== 'removedPair' && status !== 'noPair'){
+        if(msg !== null){
             bot.reply(pair_id, msg);
         }else if(msg === ''){
             bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
@@ -23,6 +23,8 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.')
         }else if(status === 'removedPair'){
             bot.reply(user_id, 'Мегабот: Вы покинули чат.')
+        }else if(status === 'noticeExit'){
+            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат.')
         }
         }
     }
