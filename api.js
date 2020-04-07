@@ -21,7 +21,6 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                if(msg==='operation::code=exit')
                 if(Object.keys(result).length !== 0){
                     module.exports.checkIfHadPair(callback, user_id, msg);
                 }else{
