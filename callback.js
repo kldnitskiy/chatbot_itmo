@@ -34,7 +34,7 @@ module.exports = {
             bot.reply(pair_id, msg.body);
         }else if(msg.body === ''){
             
-            bot.reply(pair_id, '', msg.attachments[0], buttons);
+            bot.reply(pair_id, '', {"key": "sticker_id","value": msg.attachments[0].sticker.id}, buttons);
         }else{
            if(status === 'createdPair'){
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.', null, buttons)
