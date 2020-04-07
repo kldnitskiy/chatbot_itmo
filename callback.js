@@ -43,15 +43,15 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.', null, buttons)
             bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.', null, buttons)
         }else if(status === 'noPair'){
-            bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.', null, buttons)
+            bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам свободного собеседника. Либо повторите попытку, либо подождите, пока мы подберём для Вас освободившейся чат.', null, buttons)
         }else if(status === 'noPairJustMessage'){
             bot.reply(user_id, 'Мегабот: Введите команду Join, чтобы найти собеседника.', null, buttons)
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttons)
         }else if(status === 'removedPair'){
-            bot.reply(user_id, 'Мегабот: Вы покинули чат.', null, buttons)
+            bot.reply(user_id, 'Мегабот: Вы покинули чат. Используйте команду Join, чтобы найти новый.', null, buttons)
         }else if(status === 'noticeExit'){
-            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат.', null, buttons)
+            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат. Используйте команду Join, чтобы найти новый.', null, buttons)
         }
         }
     }
