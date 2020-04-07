@@ -36,7 +36,7 @@ module.exports = {
             }else{
                 let attachments = msg.attachments[0];
                 console.log(attachments.sticker.id)
-                bot.reply(pair_id,'', {'sticker_id': attachments.sticker.id}, buttons);
+                bot.reply(pair_id,'', {"key": "sticker_id","value": "51"}, buttons);
             }
             
         }else{
