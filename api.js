@@ -184,6 +184,7 @@ module.exports = {
         });
     },
     leaveChat: function (callback, user_id, msg) {
+        module.exports.noticeExit(callback, user_id, msg)
         pool.getConnection(function (err, connection) {
             if (err) {
                 console.log(err);
