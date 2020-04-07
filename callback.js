@@ -64,7 +64,7 @@ module.exports = {
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttonsInChat)
         }else if(status === 'removedPair'){
-            bot.reply(user_id, 'Мегабот: Вы покинули чат. Введите Join, чтобы найти собеседника, либо Leave, если хотите выйти из чат-рулетки.', null, buttonsInLobby)
+            bot.reply(user_id, 'Мегабот: Вы покинули чат.', null, buttonsInLobby)
         }else if(status === 'noticeExit'){
             bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат. Введите Join, чтобы найти свободный чат, либо Leave, если хотите выйти из чат-рулетки.', null, buttonsInLobby)
         }else if(status === 'leaveChat'){
