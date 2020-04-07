@@ -177,7 +177,7 @@ module.exports = {
                     module.exports.createPair(callback, user_id, result[0].vk_id, msg)
                 }else{
                     msg.body = null
-                    callback('noPairJustMessage', user_id, msg.body)
+                    callback('noPairJustMessage', user_id, msg)
                 }
                 
             });
