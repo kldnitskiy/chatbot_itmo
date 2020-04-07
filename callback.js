@@ -30,7 +30,7 @@ let buttons = {
 }
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(msg !== null ){
+        if(msg.body !== null ){
             
             bot.reply(pair_id, msg.body);
         }else if(msg.body === ''){
