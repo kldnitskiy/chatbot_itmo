@@ -64,10 +64,6 @@ bot.command('Join', (res) => {
 ////    api.getCurrentUser(callback.joinChat, res.user_id)
 //})
 bot.on(function (res){
-    if(res.body===''){
-        res.reply('Бот: к сожалению, стикеры, фото, видео не поддерживаются.');
-    }else{
-        api.checkIfWasRegistered(callback.requestManager, res.user_id, res.body);
-    }
+    api.checkIfWasRegistered(callback.requestManager, res.user_id, res.body);
     
 })

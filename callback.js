@@ -8,8 +8,13 @@ const bot = new Botact({
 })
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(msg !== null){
+        if(status !== ''){
+            if(msg !== null){
             bot.reply(pair_id, msg);
+        }else if(msg === ''){
+            bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
+            bot.reply(user_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
+        }
         }else{
            if(status === 'createdPair'){
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.')
@@ -18,6 +23,7 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.')
         } 
         }
+        
         
         
     }
