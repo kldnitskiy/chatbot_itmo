@@ -30,7 +30,7 @@ let buttons = {
 }
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(msg.body !== null ){
+        if(msg.body !== null && status !== 'noPairJustMessage'){
             if(msg.body !== ''){
                 if(msg.body.length > 140){
                     bot.reply(user_id, 'Сообщение не должно превышать больше 140 символов');
