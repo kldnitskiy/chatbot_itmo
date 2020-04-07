@@ -2,10 +2,7 @@ const express = require('express')
 const {Botact} = require('botact')
 const bodyParser = require('body-parser')
 const server = express()
-const bot = new Botact({
-    token: '90d67689d33c7adb2c824014c240df5c28797dc1460865ebcc8d840fe6218ca5cd09442654eb103c69e3c',
-    confirmation: '1e2b3c66'
-})
+
 let buttons = {
     "one_time": false,
     "buttons": [
