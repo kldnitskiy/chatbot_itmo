@@ -25,13 +25,13 @@ server.get('/', (request, response) => {
 })
 server.listen(PORT)
 bot.command('Join', (res) => {
-    res.body = null
     console.log(res.user_id + ' написал: ' + res.body)
+    res.body = null
     api.checkIfWasRegistered(callback.requestManager, res.user_id, res);
 })
 bot.command('Exit', (res) => {
-    res.body = null
     console.log(res.user_id + ' написал: ' + res.body)
+    res.body = null
      api.noticeExit(callback.requestManager, res.user_id, res);
 })
 bot.on(function (res){
