@@ -19,6 +19,8 @@ module.exports = {
             bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.')
         }else if(status === 'noPair'){
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.')
+        }else if(status ==== 'createdPairRepeat'){
+            bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.')
         } 
         }
         

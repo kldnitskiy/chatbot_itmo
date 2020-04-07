@@ -45,7 +45,7 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length !== 0){
-                    callback('createdPair', user_id, msg, result[0].vk_id)
+                    callback('createdPairRepeat', user_id, msg, result[0].vk_id)
                 }else{
                    module.exports.findPair(callback, user_id, msg);
                 }
