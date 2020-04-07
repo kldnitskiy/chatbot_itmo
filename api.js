@@ -131,7 +131,10 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback('noticeExit', user_id, msg, result[0].vk_id)
+                if(Object.keys(result).length > 0){
+                    callback('noticeExit', user_id, msg, result[0].vk_id)
+                }
+                
                 module.exports.exitChat(callback, user_id, msg)
             });
         });
