@@ -36,6 +36,11 @@ bot.command('Exit', (res) => {
 })
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
-    api.isInChat(callback.requestManager, res.user_id, res);
+    if(res.body.length > 140){
+        res.reply('Сообщения не должно содержать больше 140 знаков.');
+    }else{
+        api.isInChat(callback.requestManager, res.user_id, res);
+    }
+    
     
 })

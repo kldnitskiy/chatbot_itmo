@@ -32,12 +32,7 @@ module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
         if(msg.body !== null){
             if(msg.body !== ''){
-                if(msg.body.length > 140){
-                    bot.reply(user_id, 'Сообщение не должно превышать больше 140 символов');
-                }else{
                     bot.reply(pair_id, msg.body);
-                }
-                
             }else{
                 bot.reply(user_id,'Мегабот: К сожалению, стикеры пока не поддерживаются.', buttons);
                 bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам стикеры, но они пока не поддерживаются.', buttons);
