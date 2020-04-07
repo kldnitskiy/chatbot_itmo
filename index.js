@@ -35,7 +35,7 @@ bot.command('Exit', (res) => {
      api.noticeExit(callback.requestManager, res.user_id, res);
 })
 bot.on(function (res){
-    console.log(msg)
+    console.log(res)
     console.log(res.user_id + ' написал: ' + res.body)
     api.isInChat(callback.requestManager, res.user_id, res);
     
