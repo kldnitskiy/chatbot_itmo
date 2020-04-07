@@ -31,10 +31,12 @@ let buttons = {
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
         if(msg.body !== null ){
-            bot.reply(pair_id, msg.body);
-        }else if(msg.body === ''){
-            bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.', null, buttons);
-            bot.reply(user_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
+            if(msg.body !== ''){
+                bot.reply(pair_id, msg.body);
+            }else{
+                bot.reply(pair_id, '', {"key": "sticker_id","value": msg.attachments[0].sticker.id}, buttons);
+            }
+            
         }else{
            if(status === 'createdPair'){
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.', null, buttons)
