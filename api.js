@@ -176,6 +176,7 @@ module.exports = {
                 if(Object.keys(result).length !== 0){
                     module.exports.createPair(callback, user_id, result[0].vk_id, msg)
                 }else{
+                    msg.body = null
                     callback('noPairJustMessage', user_id, null)
                 }
                 
