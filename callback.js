@@ -33,6 +33,7 @@ module.exports = {
         if(msg.body !== null ){
             bot.reply(pair_id, msg.body);
         }else if(msg.body === ''){
+            console.log(msg.body.attachments)
             bot.reply(pair_id, '', msg.body.attachments, buttons);
         }else{
            if(status === 'createdPair'){
