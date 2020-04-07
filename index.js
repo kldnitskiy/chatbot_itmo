@@ -23,34 +23,6 @@ server.get('/', (request, response) => {
     response.send('f5f07863')
 })
 server.listen(PORT)
-
-//MYSQL SETUP
-let pool  = mysql.createPool({
-   host     : "localhost",
-   user     : "root",
-   password : "1812danil",
-   database : "chatbot_itmo"
-});
-
-//Global vars
-let user_id = 0;
-let pair_id = null;
-
-
-//bot.command('Login', (res) => {
-//    console.log(res.user_id + ' написал: ' + res.body)
-//     api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser)
-//    //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
-//    //api.checkIfRegistered(callback.loginChat, res.user_id)
-//})
-//bot.command('Search', (res) => {
-//    console.log(res.user_id + ' написал: ' + res.body)
-//    api.checkIfJoined(api.searchFreeChat, callback.createChat, res.user_id, callback.noticeUser)
-//    api.showUsersCount(callback.renderUsers, res.user_id);
-//    //api.checkIfJoined(user_id)
-//    //api.searchFreeChat(callback.createChat, res.user_id)
-//    
-//})
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     api.checkIfWasRegistered(callback.requestManager, res.user_id, null);
