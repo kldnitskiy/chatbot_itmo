@@ -21,7 +21,9 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.')
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.')
-        } 
+        }else if(status === 'removedPair'){
+            bot.reply(user_id, 'Мегабот: Вы покинули чат.')
+        }
         }
     }
 };

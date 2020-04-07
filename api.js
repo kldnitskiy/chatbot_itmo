@@ -132,7 +132,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
-                callback('removedPair', user_id, msg)
+                callback('removedPair', user_id, msg, null)
             });
         });
     }
