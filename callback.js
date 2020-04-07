@@ -8,12 +8,17 @@ const bot = new Botact({
 })
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(status === 'createdPair'){
+        if(msg !== null){
+            bot.reply(pair_id, msg);
+        }else{
+           if(status === 'createdPair'){
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.')
             bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.')
         }else if(status === 'noPair'){
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.')
+        } 
         }
+        
         
     }
 };

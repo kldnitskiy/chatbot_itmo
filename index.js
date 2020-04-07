@@ -53,7 +53,7 @@ let pair_id = null;
 //})
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfWasRegistered(callback.requestManager, res.user_id);
+    api.checkIfWasRegistered(callback.requestManager, res.user_id, null);
 //    api.checkIfJoined(user_id)
 //    api.getCurrentUser(callback.joinChat, res.user_id)
 })
