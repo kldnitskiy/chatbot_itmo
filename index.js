@@ -32,6 +32,7 @@ bot.command('Exit', (res) => {
      api.exitChat(callback.requestManager, res.user_id, res.body);
 })
 bot.on(function (res){
-    api.checkIfWasRegistered(callback.requestManager, res.user_id, res.body);
+    console.log(res.user_id + ' написал: ' + res.body)
+    api.checkIfHadPair(callback.requestManager, res.user_id, res.body);
     
 })
