@@ -36,7 +36,7 @@ module.exports = {
             }else{
                 let attachments = msg.attachments[0];
                 console.log(msg)
-                bot.reply(pair_id,'', {"sticker_id": attachments.sticker.id} , buttons);
+                bot.reply(pair_id,'', 'photo-123456_654231', buttons);
             }
             
         }else{
