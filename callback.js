@@ -42,6 +42,8 @@ module.exports = {
             bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.', null, buttons)
         }else if(status === 'noPair'){
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.', null, buttons)
+        }else if(status === 'noPairJustMessage'){
+            bot.reply(user_id, 'Мегабот: Введите команду Join, чтобы найти собеседника.', null, buttons)
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttons)
         }else if(status === 'removedPair'){
