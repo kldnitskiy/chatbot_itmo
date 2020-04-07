@@ -11,20 +11,20 @@ module.exports = {
         if(msg !== null){
             bot.reply(pair_id, msg);
         }else if(msg === ''){
-            bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
+            bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.', null, buttons);
             bot.reply(user_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
         }else{
            if(status === 'createdPair'){
-            bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.')
-            bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.')
+            bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.', null, buttons)
+            bot.reply(pair_id, 'Мегабот: Для вас был найден собеседник! Напишите что-нибудь.', null, buttons)
         }else if(status === 'noPair'){
-            bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.')
+            bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам собеседника. Попробуйте чуть позже.', null, buttons)
         }else if(status === 'createdPairRepeat'){
-            bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.')
+            bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttons)
         }else if(status === 'removedPair'){
-            bot.reply(user_id, 'Мегабот: Вы покинули чат.')
+            bot.reply(user_id, 'Мегабот: Вы покинули чат.', null, buttons)
         }else if(status === 'noticeExit'){
-            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат.')
+            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат.', null, buttons)
         }
         }
     }
