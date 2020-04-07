@@ -33,8 +33,7 @@ module.exports = {
         if(msg.body !== null ){
             bot.reply(pair_id, msg.body);
         }else if(msg.body === ''){
-            console.log(msg.body.attachments)
-            bot.reply(pair_id, '', msg.body.attachments, buttons);
+            bot.reply(pair_id, '', msg.attachments, buttons);
         }else{
            if(status === 'createdPair'){
             bot.reply(user_id, 'Мегабот: Вы вошли в чат! Напишите что-нибудь своему собеседнику.', null, buttons)
