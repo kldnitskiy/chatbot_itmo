@@ -34,7 +34,7 @@ module.exports = {
             if(msg.body !== ''){
                 bot.reply(pair_id, msg.body);
             }else{
-                let attachments = msg.attachments;
+                let attachments = msg.attachments[0];
                 console.log(msg)
                 bot.reply(pair_id,'', {"sticker_id": attachments.sticker.id} , buttons);
             }
