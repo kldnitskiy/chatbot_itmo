@@ -26,15 +26,11 @@ server.listen(PORT)
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     api.checkIfWasRegistered(callback.requestManager, res.user_id, null);
-//    api.checkIfJoined(user_id)
-//    api.getCurrentUser(callback.joinChat, res.user_id)
 })
-//bot.command('Exit', (res) => {
-//    console.log(res.user_id + ' написал: ' + res.body)
-//    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser, callback.noticeChat)
-////    api.checkIfJoined(user_id)
-////    api.getCurrentUser(callback.joinChat, res.user_id)
-//})
+bot.command('Exit', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
+     api.exitChat(callback.requestManager, res.user_id, res.body);
+})
 bot.on(function (res){
     api.checkIfWasRegistered(callback.requestManager, res.user_id, res.body);
     

@@ -21,6 +21,7 @@ module.exports = {
                     callback(false);
                     return;
                 }
+                if(msg==='operation::code=exit')
                 if(Object.keys(result).length !== 0){
                     module.exports.checkIfHadPair(callback, user_id, msg);
                 }else{
@@ -113,6 +114,25 @@ module.exports = {
                     return;
                 }
                 callback('createdPair', user_id, msg, pair_id)
+            });
+        });
+    },
+    exitChat: function (callback, user_id, msg){
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "UPDATE chatbot_data SET joined = 0, pair_id = NULL WHERE pair_id = "user_id" OR vk_id = "user_id" ;";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                callback('removedPair', user_id, msg, pair_id)
             });
         });
     }
