@@ -25,16 +25,15 @@ server.get('/', (request, response) => {
 })
 server.listen(PORT)
 bot.command('Join', (res) => {
-    console.log(res.user_id + ' написал: ' + res.body)
+    console.log(res.user_id + ' написал: ' + res)
     api.checkIfWasRegistered(callback.requestManager, res.user_id, null);
 })
 bot.command('Exit', (res) => {
-    console.log(res.user_id + ' написал: ' + res.body)
+    console.log(res.user_id + ' написал: ' + res)
      api.noticeExit(callback.requestManager, res.user_id, null);
 })
 bot.on(function (res){
-    console.log(res.attachments[0].sticker.id)
-    console.log(res.user_id + ' написал: ' + res.body)
-    api.isInChat(callback.requestManager, res.user_id, res.body);
+    console.log(res.user_id + ' написал: ' + res)
+    api.isInChat(callback.requestManager, res.user_id, res.);
     
 })
