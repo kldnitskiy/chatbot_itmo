@@ -257,7 +257,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "DELETE FROM chatbot_data WHERE vk_id = "+user_id+"";
+            let sql = "UPDATE chatbot_data SET pair_id = NULL, joined = 0 WHERE vk_id = "+user_id+"";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
