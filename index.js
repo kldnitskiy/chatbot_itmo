@@ -37,37 +37,37 @@ let user_id = 0;
 let pair_id = null;
 
 
-bot.command('Login', (res) => {
-    console.log(res.user_id + ' написал: ' + res.body)
-     api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser)
-    //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
-    //api.checkIfRegistered(callback.loginChat, res.user_id)
-})
-bot.command('Search', (res) => {
-    console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.searchFreeChat, callback.createChat, res.user_id, callback.noticeUser)
-    api.showUsersCount(callback.renderUsers, res.user_id);
-    //api.checkIfJoined(user_id)
-    //api.searchFreeChat(callback.createChat, res.user_id)
-    
-})
+//bot.command('Login', (res) => {
+//    console.log(res.user_id + ' написал: ' + res.body)
+//     api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser)
+//    //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
+//    //api.checkIfRegistered(callback.loginChat, res.user_id)
+//})
+//bot.command('Search', (res) => {
+//    console.log(res.user_id + ' написал: ' + res.body)
+//    api.checkIfJoined(api.searchFreeChat, callback.createChat, res.user_id, callback.noticeUser)
+//    api.showUsersCount(callback.renderUsers, res.user_id);
+//    //api.checkIfJoined(user_id)
+//    //api.searchFreeChat(callback.createChat, res.user_id)
+//    
+//})
 bot.command('Join', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.getCurrentUser, callback.joinChat, res.user_id, callback.noticeUser)
+    api.checkIfWasRegistered(callback.requestManager, res.user_id, null);
 //    api.checkIfJoined(user_id)
 //    api.getCurrentUser(callback.joinChat, res.user_id)
 })
-bot.command('Exit', (res) => {
-    console.log(res.user_id + ' написал: ' + res.body)
-    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser, callback.noticeChat)
-//    api.checkIfJoined(user_id)
-//    api.getCurrentUser(callback.joinChat, res.user_id)
-})
+//bot.command('Exit', (res) => {
+//    console.log(res.user_id + ' написал: ' + res.body)
+//    api.checkIfJoined(api.destroyUser, callback.removeUser, res.user_id, callback.noticeUser, callback.noticeChat)
+////    api.checkIfJoined(user_id)
+////    api.getCurrentUser(callback.joinChat, res.user_id)
+//})
 bot.on(function (res){
     if(res.body===''){
         res.reply('Бот: к сожалению, стикеры, фото, видео не поддерживаются.');
     }else{
-        api.getCurrentUser(callback.updateUserInfo, res.user_id, res.body);
+        api.checkIfWasRegistered(callback.requestManager, res.user_id, res.body);
     }
     
 })
