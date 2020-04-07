@@ -34,9 +34,8 @@ module.exports = {
             if(msg.body !== ''){
                 bot.reply(pair_id, msg.body);
             }else{
-                let attachments = msg.attachments[0];
-                console.log(attachments.sticker.id)
-                bot.reply(pair_id,'', {"key": "sticker_id","value": attachments.sticker.id}, buttons);
+                bot.reply(user_id,'Мегабот: К сожалению, стикеры пока не поддерживаются.', buttons);
+                bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам стикеры, но они пока не поддерживаются.', buttons);
             }
             
         }else{
