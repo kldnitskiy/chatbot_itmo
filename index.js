@@ -38,6 +38,11 @@ bot.command('Exit', (res) => {
     res.body = null
      api.noticeExit(callback.requestManager, res.user_id, res);
 })
+bot.command('Leave', (res) => {
+    console.log(res.user_id + ' написал: ' + res.body)
+    res.body = null
+     api.leaveChat(callback.requestManager, res.user_id, res);
+})
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
     if(res.body.length > 140){

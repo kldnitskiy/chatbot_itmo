@@ -13,7 +13,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "SELECT * FROM chatbot_data WHERE vk_id = " + user_id + " ";
+            let sql = "SELECT * FROM chatbot_data WHERE vk_id = " + user_id + " AND joined = 2 ";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
@@ -36,7 +36,7 @@ module.exports = {
                 callback(false);
                 return;
             }
-            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = "+user_id+" AND joined != 0";
+            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = "+user_id+" AND joined = 1";
             connection.query(sql, [], function (err, result) {
                 connection.release(); // always put connection back in pool after last query
                 if (err) {
@@ -179,6 +179,27 @@ module.exports = {
                     msg.body = null
                     callback('noPairJustMessage', user_id, msg)
                 }
+                
+            });
+        });
+    },
+    leaveChat: function (callback, user_id, msg) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "DELETE FROM chatbot_data WHERE vk_id = "+user_id+" ";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                    msg.body = null
+                    callback('leaveChat', user_id, msg)
                 
             });
         });
