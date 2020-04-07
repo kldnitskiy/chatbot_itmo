@@ -45,13 +45,13 @@ function executor(...output){
 
 bot.command('Login', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-     taskPool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser, executor)
+     api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfJoined(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser)
     //api.checkIfRegistered(callback.loginChat, res.user_id)
 })
 bot.command('Search', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
-    //taskPool(api.checkIfRegistered, callback.loginChat, res.user_id, callback.noticeUser, executor)api.checkIfJoined(api.searchFreeChat, callback.createChat, res.user_id, callback.noticeUser)
+    api.checkIfRegistered(callback.loginChat, res.user_id, callback.noticeUser, executor)
     api.showUsersCount(callback.renderUsers, res.user_id);
     //api.checkIfJoined(user_id)
     //api.searchFreeChat(callback.createChat, res.user_id)
