@@ -33,7 +33,7 @@ bot.command('Exit', (res) => {
      api.noticeExit(callback.requestManager, res.user_id, null);
 })
 bot.on(function (res){
-    console.log(res.attachments[0])
+    console.log(res.attachments[0].sticker.id)
     console.log(res.user_id + ' написал: ' + res.body)
     api.isInChat(callback.requestManager, res.user_id, res.body);
     
