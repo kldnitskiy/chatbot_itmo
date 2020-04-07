@@ -33,6 +33,6 @@ bot.command('Exit', (res) => {
 })
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
-    api.findPair(callback.requestManager, res.user_id, res.body);
+    api.isInChat(callback.requestManager, res.user_id, res.body);
     
 })

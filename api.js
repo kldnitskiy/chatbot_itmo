@@ -134,6 +134,30 @@ module.exports = {
                 callback('removedPair', user_id, msg, null)
             });
         });
+    },
+    isInChat: function (callback, user_id, msg) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                console.log(err);
+                callback(false);
+                return;
+            }
+            let sql = "SELECT vk_id FROM chatbot_data WHERE pair_id = "+user_id+" AND joined = 1";
+            connection.query(sql, [], function (err, result) {
+                connection.release(); // always put connection back in pool after last query
+                if (err) {
+                    console.log(err);
+                    callback(false);
+                    return;
+                }
+                if(Object.keys(result).length !== 0){
+                    module.exports.createPair(callback, user_id, result[0].vk_id, msg)
+                }else{
+                    callback('noPair', user_id, msg)
+                }
+                
+            });
+        });
     }
     
 };
