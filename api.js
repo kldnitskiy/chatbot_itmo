@@ -89,7 +89,7 @@ module.exports = {
                     return;
                 }
                 if(Object.keys(result).length !== 0){
-                    module.exports.createPair(callback, user_id, result[0].vk_id, msg)
+                    module.exports.createPair(callback, user_id, msg, result[0].vk_id)
                 }else{
                     callback('noPair', user_id, msg)
                 }
