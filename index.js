@@ -11,8 +11,8 @@ const callback = require('./callback')
 
 //BOT SETUP
 const bot = new Botact({
-    token: '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2',
-    confirmation: '9ebed8d2'
+    token: '90d67689d33c7adb2c824014c240df5c28797dc1460865ebcc8d840fe6218ca5cd09442654eb103c69e3c',
+    confirmation: '1e2b3c66'
 })
 
 
