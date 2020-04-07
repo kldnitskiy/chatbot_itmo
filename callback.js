@@ -36,7 +36,7 @@ module.exports = {
             }else{
                 let attachments = msg.attachments;
                 console.log(attachments)
-                bot.reply(pair_id,'', {peer_id: msg.peerId, sticker_id: attachments[0].sticker.id} , buttons);
+                bot.reply({peer_id: pair_id, sticker_id: attachments[0].sticker.id} , buttons);
             }
             
         }else{
