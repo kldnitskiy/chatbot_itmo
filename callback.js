@@ -8,7 +8,7 @@ const bot = new Botact({
 })
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
-        if(msg !== null){
+        if(msg !== null && status !== 'removedPair'){
             bot.reply(pair_id, msg);
         }else if(msg === ''){
             bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.');
