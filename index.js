@@ -15,28 +15,7 @@ const bot = new Botact({
     confirmation: '9ebed8d2'
 })
 
-let buttons = {
-    "one_time": false,
-    "buttons": [
-        [{
-                "action": {
-                    "type": "text",
-                    "payload": "{\"Join\": \"1\"}",
-                    "label": "Join"
-                },
-                "color": "positive"
-            },
-            {
-                "action": {
-                    "type": "text",
-                    "payload": "{\"Exit\": \"2\"}",
-                    "label": "Exit"
-                },
-                "color": "negative"
-            }
-        ]
-    ]
-}
+
 //SERVER SETUP
 server.use(bodyParser.json())
 server.post('/', bot.listen)

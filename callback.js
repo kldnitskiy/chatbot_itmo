@@ -6,9 +6,32 @@ const bot = new Botact({
     token: '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2',
     confirmation: '9ebed8d2'
 })
+let buttons = {
+    "one_time": false,
+    "buttons": [
+        [{
+                "action": {
+                    "type": "text",
+                    "payload": "{\"Join\": \"1\"}",
+                    "label": "Join"
+                },
+                "color": "positive"
+            },
+            {
+                "action": {
+                    "type": "text",
+                    "payload": "{\"Exit\": \"2\"}",
+                    "label": "Exit"
+                },
+                "color": "negative"
+            }
+        ]
+    ]
+}
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
         if(msg !== null){
+            
             bot.reply(pair_id, msg);
         }else if(msg === ''){
             bot.reply(pair_id, 'Мегабот: к сожалению, стикеры, фото, видео не поддерживаются.', null, buttons);
