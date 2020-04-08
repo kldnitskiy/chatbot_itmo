@@ -98,15 +98,15 @@ module.exports = {
         }else if(status === 'noPair'){
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам свободного собеседника. Либо повторите попытку, либо подождите, пока мы подберём для Вас освободившейся чат.', null, buttonsInLobby)
         }else if(status === 'noPairJustMessage'){
-            bot.reply(user_id, 'Мегабот: Введите команду Join, чтобы найти собеседника.', null, buttonsInLobby)
+            bot.reply(user_id, 'Мегабот: Введите команду Найти чат, чтобы найти собеседника.', null, buttonsInLobby)
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttonsInChat)
         }else if(status === 'removedPair'){
             bot.reply(user_id, 'Мегабот: Вы покинули чат.', null, buttonsInLobby)
         }else if(status === 'noticeExit'){
-            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат. Введите Join, чтобы найти свободный чат, либо Leave, если хотите выйти из чат-рулетки.', null, buttonsInLobby)
+            bot.reply(pair_id, 'Мегабот: Ваш собеседник покинул чат. Введите Найти чат, чтобы найти свободный чат, либо Выйти из рулетки, если хотите выйти из чат-рулетки.', null, buttonsInLobby)
         }else if(status === 'leaveChat'){
-            bot.reply(user_id, 'Мегабот: Вы вышли из чат-рулетки. Поиск собеседников приостановлен. Введите Join, чтобы найти свободный чат.', null, buttonsInLobby)
+            bot.reply(user_id, 'Мегабот: Вы вышли из чат-рулетки. Поиск собеседников приостановлен. Введите Найти чат, чтобы найти свободный чат.', null, buttonsInLobby)
         }
         }
     }
