@@ -21,7 +21,7 @@ let buttonsInChat = {
         ]
     ]
 }
-let buttonsInLobby = {
+let buttonsInLobbyOld = {
     "one_time": false,
     "buttons": [
         [{
@@ -51,6 +51,36 @@ let buttonsInLobby = {
         ]
     ]
 }
+let buttonsInLobby = {
+    "one_time": false,
+    "buttons": [
+        [{
+            "action": {
+                    "type": "text",
+                    "payload": "{\"Join\": \"1\"}",
+                    "label": "Найти чат"
+                },
+                "color": "positive"
+        }],
+        [{
+            "action": {
+                    "type": "text",
+                    "payload": "{\"Leave\": \"3\"}",
+                    "label": "Выйти из рулетки"
+                },
+                "color": "negative"
+        }],
+        [{
+            "action": {
+                    "type": "text",
+                    "payload": "{\"Info\": \"4\"}",
+                    "label": "Помощь"
+                },
+                "color": "primary"
+        }]
+    ]
+}
+
 module.exports = {
     requestManager: function(status, user_id, msg, pair_id){
         if(msg.body !== null){
