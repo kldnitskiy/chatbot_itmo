@@ -47,7 +47,7 @@ bot.command('Выйти из рулетки', (res) => {
     res.body = null
      api.leaveChat(callback.requestManager, res.user_id, res);
 })
-bot.command('Info', (res) => {
+bot.command('Помощь', (res) => {
     res.reply('Найти чат - найти присоединиться к чат-рулетке\n\nПокинуть чат - покинуть чат\n\nВыйти из рулетки - выйти из чат-рулетки (автоматический подбор собеседников будет отключен)');
 })
 bot.on(function (res){
