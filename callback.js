@@ -14,7 +14,7 @@ let buttonsInChat = {
                 "action": {
                     "type": "text",
                     "payload": "{\"Exit\": \"2\"}",
-                    "label": "Exit"
+                    "label": "Покинуть чат"
                 },
                 "color": "negative"
             }
@@ -28,7 +28,7 @@ let buttonsInLobby = {
                 "action": {
                     "type": "text",
                     "payload": "{\"Join\": \"1\"}",
-                    "label": "Join"
+                    "label": "Найти чат"
                 },
                 "color": "positive"
             },
@@ -36,7 +36,7 @@ let buttonsInLobby = {
                 "action": {
                     "type": "text",
                     "payload": "{\"Leave\": \"3\"}",
-                    "label": "Leave"
+                    "label": "Выйти из рулетки"
                 },
                 "color": "negative"
             },
@@ -44,7 +44,7 @@ let buttonsInLobby = {
                 "action": {
                     "type": "text",
                     "payload": "{\"Info\": \"4\"}",
-                    "label": "Info"
+                    "label": "Помощь"
                 },
                 "color": "primary"
             }
