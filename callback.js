@@ -44,7 +44,7 @@ let buttonsInLobby = {
                 "action": {
                     "type": "text",
                     "payload": "{\"Info\": \"4\"}",
-                    "label": "Leave"
+                    "label": "Info"
                 },
                 "color": "primary"
             }
