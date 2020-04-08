@@ -43,6 +43,9 @@ bot.command('Leave', (res) => {
     res.body = null
      api.leaveChat(callback.requestManager, res.user_id, res);
 })
+bot.command('Info', (res) => {
+    res.reply('Join - найти присоединиться к чат-рулетке\n\nExit - покинуть чат\n\nLeave - выйти из чат-рулетки (автоматический подбор собеседников будет отключен)');
+})
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
     if(res.body.length > 140){
