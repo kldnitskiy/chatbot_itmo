@@ -18,6 +18,8 @@ const bot = new Botact({
     confirmation: confirmation_deploy 
 })
 
+let admin_id = 215059409;
+let stopForService = true;
 
 //SERVER SETUP
 server.use(bodyParser.json())
@@ -36,16 +38,19 @@ bot.event('group_join', ({ reply }) => {
 bot.command('Найти чат', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
+    if(checkIfServicing)
     api.checkIfWasRegistered(callback.requestManager, res.user_id, res);
 })
 bot.command('Покинуть чат', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
+    if(checkIfServicing)
      api.noticeExit(callback.requestManager, res.user_id, res);
 })
 bot.command('Выйти из рулетки', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
+    if(checkIfServicing)
      api.leaveChat(callback.requestManager, res.user_id, res);
 })
 bot.command('Помощь', (res) => {
@@ -54,10 +59,20 @@ bot.command('Помощь', (res) => {
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
     if(res.body.length > 140){
+        if(checkIfServicing)
         res.reply('Сообщения не должно содержать больше 140 знаков.');
     }else{
+        if(checkIfServicing)
         api.isInChat(callback.requestManager, res.user_id, res);
     }
-    
-    
 })
+
+
+function checkIfServicing(res){
+    if(res.user_id !== admin_id && stopForService){
+        res.reply(res.user_id, 'Мегабот: в данный момент проводятся технические работы. Повторите ваш запрос позже.')
+        return false
+    }else{
+        return true
+    }
+}

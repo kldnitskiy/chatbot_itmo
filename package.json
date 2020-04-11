@@ -15,7 +15,8 @@
     "botact": "^2.4.2",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "tape": "^4.7.0"
