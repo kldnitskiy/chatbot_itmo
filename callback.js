@@ -93,7 +93,6 @@ module.exports = {
             if(msg.body !== ''){
                     bot.reply(pair_id, msg.body);    
             }else{
-                console.log(msg.attachments);
                 if (typeof msg.attachments[0].sticker.id !== 'undefined') {
                     //sendSticker(pair_id, msg.attachments[0].sticker.id)
                 } else {
