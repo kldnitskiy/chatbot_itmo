@@ -149,10 +149,11 @@ function sendAttachments(id, file){
         bot.reply(id, '', 'attachment=audio' + file.audio.owner_id + '_' + file.audio.id);
     }else if(file.type === 'wall'){
         console.log(id + ' - ему отправили репост')
-        bot.reply(id, '', 'attachment=wall' + file.wall.id + '_' + file.wall.from_id);
+        //bot.reply(id, '', 'attachment=wall' + file.wall.id + '_' + file.wall.from_id);
+        bot.reply(id, '', [{sticker_id: file.sticker.id}]);
     }else if(file.type === 'sticker'){
         console.log(id + ' - ему отправили стикер')
-        bot.reply(id, '', [{sticker_id: file.sticker.id}]);
+        bot.reply(id, '', [{sticker_id+'='+file.sticker.id}]);
     }
     
 }
