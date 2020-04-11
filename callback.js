@@ -177,7 +177,7 @@ function sendAttachments(id, file){
                         console.log(body.explanation);
                     });
     }else if(file.type === 'sticker'){
-        request('https://api.vk.com/method/messages.send?user_id=' + user_id + '&sticker_id=' + file.sticker.id + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&sticker_id=' + file.sticker.id + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
