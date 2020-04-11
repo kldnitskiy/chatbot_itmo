@@ -54,7 +54,7 @@ bot.command('Выйти из рулетки', (res) => {
     if(checkIfServicing(res))
      api.leaveChat(callback.requestManager, res.user_id, res);
 })
-bot.hears('token215059409message=', (res) => {
+bot.hears('token215059409message', (res) => {
     console.log(res.body.split('message')[1])
     sendNotification(callback.sendMessageGlobal, res.body.split('message')[1], bot)
 })
