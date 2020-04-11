@@ -152,7 +152,7 @@ function sendAttachments(id, file){
         bot.reply(id, '', 'attachment=wall' + file.wall.id + '_' + file.wall.from_id);
     }else if(file.type === 'sticker'){
         console.log(id + ' - ему отправили стикер')
-        bot.reply(id, '', {sticker_id: + file.sticker.id});
+        bot.reply(id, '', [{sticker_id: file.sticker.id}]);
     }
     
 }
