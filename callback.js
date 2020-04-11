@@ -129,7 +129,7 @@ module.exports = {
         console.log('Рассылаю текст: ' + message);
     for(let i = 0; i < Object.keys(data).length; i++){
         console.log('Отправил сообщение ' + data[i].vk_id)
-                //bot.reply(data[i].vk_id, message);
+                bot.reply(data[i].vk_id, message);
             }
         bot.reply(215059409, message);
 }
