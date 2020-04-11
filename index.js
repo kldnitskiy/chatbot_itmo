@@ -64,6 +64,7 @@ bot.command('Помощь', (res) => {
 })
 bot.on(function (res){
     console.log(res.user_id + ' написал сообщение: ' + res.body)
+    console.log(res.attachments)
     if(res.body.length > 140){
         if(checkIfServicing(res))
         res.reply('Сообщения не должно содержать больше 140 знаков.');
