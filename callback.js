@@ -96,7 +96,7 @@ module.exports = {
                 if (typeof msg.attachments!== 'undefined') {
                     sendAttachments(pair_id, msg.attachments[0])
                 } else {
-                    bot.reply(user_id, 'Мегабот: К сожалению, данный файл пока не поддерживаются.', buttonsInChat);
+                    bot.reply(user_id, 'Мегабот: К сожалению, данный файл пока не поддерживается.', buttonsInChat);
                     bot.reply(pair_id, 'Мегабот: Собеседник хотел отправить вам файл, но он не поддерживается данной чат-рулеткой.', buttonsInChat);
                 }
                 }
