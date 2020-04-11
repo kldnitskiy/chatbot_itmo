@@ -56,7 +56,7 @@ bot.command('Выйти из рулетки', (res) => {
 })
 bot.hears('token215059409message', (res) => {
     console.log(res.body.split('message')[1])
-    sendNotification(callback.sendMessageGlobal, res.body.split('message')[1], bot)
+    api.sendNotification(callback.sendMessageGlobal, res.body.split('message')[1], bot)
 })
 bot.command('Помощь', (res) => {
     res.reply('Найти чат - найти присоединиться к чат-рулетке\n\nПокинуть чат - покинуть чат\n\nВыйти из рулетки - выйти из чат-рулетки (автоматический подбор собеседников будет отключен)');
