@@ -138,75 +138,21 @@ function sendAttachments(id, file){
     if(file.type === 'photo'){
         console.log(id + ' отправил фото')
         bot.reply(id, '', 'attachment=photo' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=photo' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }else if(file.type === 'video'){
         console.log(id + ' - ему отправили видео')
         bot.reply(id, '', 'attachment=video' + file.video.owner_id + '_' + file.video.id + '_' + file.video.access_key);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=video' + file.video.owner_id + '_' + file.video.id + '_' + file.video.access_key + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }else if(file.type === 'doc'){
         console.log(id + ' - ему отправили док')
          bot.reply(id, '', 'attachment=doc' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=doc' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }else if(file.type === 'audio'){
         console.log(id + ' - ему отправили аудио')
         bot.reply(id, '', 'attachment=audio' + file.audio.owner_id + '_' + file.audio.id);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=audio' + file.audio.owner_id + '_' + file.audio.id + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }else if(file.type === 'wall'){
         console.log(id + ' - ему отправили репост')
         bot.reply(id, '', 'attachment=wall' + file.wall.id + '_' + file.wall.from_id);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=wall' + file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }else if(file.type === 'sticker'){
         console.log(id + ' - ему отправили стикер')
         bot.reply(id, '', 'sticker_id=' + file.sticker.id);
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&sticker_id=' + file.sticker.id + '&v=5.69&access_token=' + token_deploy, {
-                        json: true
-                    }, (err, res, body) => {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log(body.url);
-                        console.log(body.explanation);
-                    });
     }
     
 }
