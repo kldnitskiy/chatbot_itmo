@@ -94,7 +94,7 @@ module.exports = {
         if(msg.body !== null){
             if(msg.body !== ''){
                     bot.reply(pair_id, msg.body);
-                setTimeout(timer, 5000);
+                
             }else{
                 bot.reply(user_id,'Мегабот: К сожалению, стикеры и медиафайлы пока не поддерживаются.', buttonsInChat);
                 bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам стикеры или медиавложение, но они пока не поддерживаются.', buttonsInChat);
@@ -108,6 +108,7 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: К сожалению, пока не удалось найти вам свободного собеседника. Либо повторите попытку, либо подождите, пока мы подберём для Вас освободившейся чат.', null, buttonsInLobby)
         }else if(status === 'noPairJustMessage'){
             bot.reply(user_id, 'Мегабот: Введите команду Найти чат, чтобы найти собеседника.', null, buttonsInLobby)
+            setTimeout(timer, 5000);
         }else if(status === 'createdPairRepeat'){
             bot.reply(user_id, 'Мегабот: В данный момент вы находитесь в чате.', null, buttonsInChat)
         }else if(status === 'removedPair'){
