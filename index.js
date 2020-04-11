@@ -38,19 +38,19 @@ bot.event('group_join', ({ reply }) => {
 bot.command('Найти чат', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
-    if(checkIfServicing)
+    if(checkIfServicing(res))
     api.checkIfWasRegistered(callback.requestManager, res.user_id, res);
 })
 bot.command('Покинуть чат', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
-    if(checkIfServicing)
+    if(checkIfServicing(res))
      api.noticeExit(callback.requestManager, res.user_id, res);
 })
 bot.command('Выйти из рулетки', (res) => {
     console.log(res.user_id + ' написал: ' + res.body)
     res.body = null
-    if(checkIfServicing)
+    if(checkIfServicing(res))
      api.leaveChat(callback.requestManager, res.user_id, res);
 })
 bot.command('Помощь', (res) => {
@@ -59,10 +59,10 @@ bot.command('Помощь', (res) => {
 bot.on(function (res){
     console.log(res.user_id + ' написал: ' + res.body)
     if(res.body.length > 140){
-        if(checkIfServicing)
+        if(checkIfServicing(res))
         res.reply('Сообщения не должно содержать больше 140 знаков.');
     }else{
-        if(checkIfServicing)
+        if(checkIfServicing(res))
         api.isInChat(callback.requestManager, res.user_id, res);
     }
 })
