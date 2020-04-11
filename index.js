@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 80
 const api = require('./api')
 const callback = require('./callback')
 
-let token_deploy = '90d67689d33c7adb2c824014c240df5c28797dc1460865ebcc8d840fe6218ca5cd09442654eb103c69e3c';
+let token_deploy = '1ae80f78c6976d08401d5177759c2f4c0b3caf10a543cd3494e447627b6900715806171df2e27935d95d5';
 let confirmation_deploy = '1e2b3c66';
 let token_test = '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2';
 let confirmation_test = 'f5f07863';
