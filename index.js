@@ -19,7 +19,7 @@ const bot = new Botact({
 })
 
 let admin_id = 215059409;
-let stopForService = true;
+let stopForService = false;
 
 //SERVER SETUP
 server.use(bodyParser.json())
@@ -72,7 +72,7 @@ function checkIfServicing(res){
     if(res.user_id !== admin_id && stopForService){
         res.reply('Мегабот: в данный момент проводятся технические работы. Повторите ваш запрос позже.')
         return false
-    }else{
+    }else if(!stopForService){
         return true
     }
 }
