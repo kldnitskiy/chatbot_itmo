@@ -153,7 +153,7 @@ function sendAttachments(id, file){
         bot.reply(id, '', [{sticker_id: file.sticker.id}]);
     }else if(file.type === 'sticker'){
         console.log(id + ' - ему отправили стикер')
-        bot.reply(id, '', ['sticker_id='+file.sticker.id]);
+        bot.reply(id, '', [file]);
     }
     
 }
