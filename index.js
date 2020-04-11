@@ -20,7 +20,7 @@ const bot = new Botact({
 
 let admin_id = 215059409;
 let brother_id = 314857134;
-let stopForService = true;
+let stopForService = false;
 
 //SERVER SETUP
 server.use(bodyParser.json())
