@@ -125,7 +125,6 @@ module.exports = {
         }
     }
 };
-d
 function sendAttachments(id, file){
     if(file.type === 'photo'){
         request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key + '&v=5.69&access_token=' + token_deploy, {
