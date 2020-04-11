@@ -150,7 +150,7 @@ function sendAttachments(id, file){
                     });
     }else if(file.type === 'doc'){
         console.log(id + ' - ему отправили док')
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=doc' + -file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=doc' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -172,7 +172,7 @@ function sendAttachments(id, file){
                     });
     }else if(file.type === 'wall'){
         console.log(id + ' - ему отправили репост')
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=wall' + -file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=wall' + file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
