@@ -93,11 +93,11 @@ module.exports = {
             if(msg.body !== ''){
                     bot.reply(pair_id, msg.body);    
             }else{
-                if (typeof msg.attachments[0].sticker.id !== 'undefined') {
-                    //sendSticker(pair_id, msg.attachments[0].sticker.id)
+                if (typeof msg.attachments!== 'undefined') {
+                    sendAttachments(pair_id, msg.attachments[0])
                 } else {
-                    bot.reply(user_id, 'Мегабот: К сожалению,  медиафайлы пока не поддерживаются.', buttonsInChat);
-                    bot.reply(pair_id, 'Мегабот: Собеседник хотел отправить вам медиавложение, но они пока не поддерживаются.', buttonsInChat);
+                    bot.reply(user_id, 'Мегабот: К сожалению, данный файл пока не поддерживаются.', buttonsInChat);
+                    bot.reply(pair_id, 'Мегабот: Собеседник хотел отправить вам файл, но он не поддерживается данной чат-рулеткой.', buttonsInChat);
                 }
                 }
             
@@ -125,9 +125,10 @@ module.exports = {
         }
     }
 };
-
-function sendSticker(user_id, sticker_id){
-    request('https://api.vk.com/method/messages.send?user_id=' + user_id + '&sticker_id=' + sticker_id + '&v=5.69&access_token=' + token_deploy, {
+d
+function sendAttachments(id, file){
+    if(file.type === 'photo'){
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -136,4 +137,56 @@ function sendSticker(user_id, sticker_id){
                         console.log(body.url);
                         console.log(body.explanation);
                     });
+    }else if(file.type === 'video'){
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.video.owner_id + '_' + file.video.id + '_' + file.video.access_key + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+    }else if(file.type === 'doc'){
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+    }else if(file.type === 'audio'){
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.audio.owner_id + '_' + file.audio.id + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+    }else if(file.type === 'wall'){
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+    }else if(file.type === 'sticker'){
+        request('https://api.vk.com/method/messages.send?user_id=' + user_id + '&sticker_id=' + file.sticker.id + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+    }
+    
 }
