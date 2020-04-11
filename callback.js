@@ -100,8 +100,8 @@ request('https://api.vk.com/method/messages.send?user_id='+pair_id+'&sticker_id=
   console.log(body.explanation);
 });
 }else{
-    bot.reply(user_id,'Мегабот: К сожалению, стикеры и медиафайлы пока не поддерживаются.', buttonsInChat);
-bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам стикеры или медиавложение, но они пока не поддерживаются.', buttonsInChat);
+    bot.reply(user_id,'Мегабот: К сожалению,  медиафайлы пока не поддерживаются.', buttonsInChat);
+bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам медиавложение, но они пока не поддерживаются.', buttonsInChat);
 }
 
                 
