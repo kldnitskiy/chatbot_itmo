@@ -4,7 +4,7 @@ const {Botact} = require('botact')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const server = express()
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT || 3000
 const api = require('./api')
 const callback = require('./callback')
 
