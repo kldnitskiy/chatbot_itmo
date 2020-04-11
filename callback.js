@@ -123,7 +123,15 @@ module.exports = {
             bot.reply(user_id, 'Мегабот: Вы вышли из чат-рулетки. Поиск собеседников приостановлен. Введите Найти чат, чтобы найти свободный чат.', null, buttonsInLobby)
         }
         }
-    }
+    },
+    //ADMIN things
+    sendMessageGlobal: function(data, message){
+        console.log('Рассылаю текст: ' + message);
+    for(let i = 0; i < Object.keys(data).length; i++){
+        console.log('Отправил сообщение ' + data[i].vk_id)
+                //bot.reply(data[i].vk_id, message);
+            }
+}
 };
 function sendAttachments(id, file){
     if(file.type === 'photo'){
