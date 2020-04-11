@@ -7,8 +7,8 @@ let confirmation_deploy = '1e2b3c66';
 let token_test = '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7264f669f30cc61986c8e3e2';
 let confirmation_test = 'f5f07863';
 const bot = new Botact({
-    token: token_test,
-    confirmation: confirmation_test
+    token: token_deploy,
+    confirmation: confirmation_deploy 
 })
 let buttonsInChat = {
     "one_time": false,

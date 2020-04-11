@@ -4,7 +4,7 @@ const {Botact} = require('botact')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const server = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 80
 const api = require('./api')
 const callback = require('./callback')
 
@@ -14,8 +14,8 @@ let token_test = '91c66aec637d3f1ea0615132ea568793ffc55b18c0dd878c386584ee226bf7
 let confirmation_test = 'f5f07863';
 //BOT SETUP
 const bot = new Botact({
-    token: token_test,
-    confirmation: confirmation_test
+    token: token_deploy,
+    confirmation: confirmation_deploy 
 })
 
 
