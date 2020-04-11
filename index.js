@@ -57,7 +57,7 @@ bot.command('Помощь', (res) => {
     res.reply('Найти чат - найти присоединиться к чат-рулетке\n\nПокинуть чат - покинуть чат\n\nВыйти из рулетки - выйти из чат-рулетки (автоматический подбор собеседников будет отключен)');
 })
 bot.on(function (res){
-    console.log(res.user_id + ' написал: ' + res.body)
+    console.log(res.user_id + ' написал сообщение: ')
     if(res.body.length > 140){
         if(checkIfServicing(res))
         res.reply('Сообщения не должно содержать больше 140 знаков.');
