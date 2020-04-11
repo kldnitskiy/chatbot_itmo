@@ -24,7 +24,7 @@ server.use(bodyParser.json())
 server.post('/', bot.listen)
 server.get('/', (request, response) => {
     request.header('Content-Type', 'application/json')
-    response.send('1e2b3c66')
+    response.send(confirmation_test)
 })
 server.listen(PORT)
 bot.event('group_join', ({ reply }) => {
