@@ -127,7 +127,7 @@ module.exports = {
 };
 function sendAttachments(id, file){
     if(file.type === 'photo'){
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=photo' + file.photo.owner_id + '_' + file.photo.id + '_' + file.photo.access_key + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -137,7 +137,7 @@ function sendAttachments(id, file){
                         console.log(body.explanation);
                     });
     }else if(file.type === 'video'){
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.video.owner_id + '_' + file.video.id + '_' + file.video.access_key + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=video' + file.video.owner_id + '_' + file.video.id + '_' + file.video.access_key + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -147,7 +147,7 @@ function sendAttachments(id, file){
                         console.log(body.explanation);
                     });
     }else if(file.type === 'doc'){
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=doc' + file.doc.owner_id + '_' + file.doc.id + '_' + file.doc.access_key + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -157,7 +157,7 @@ function sendAttachments(id, file){
                         console.log(body.explanation);
                     });
     }else if(file.type === 'audio'){
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.audio.owner_id + '_' + file.audio.id + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=audio' + file.audio.owner_id + '_' + file.audio.id + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
@@ -167,7 +167,7 @@ function sendAttachments(id, file){
                         console.log(body.explanation);
                     });
     }else if(file.type === 'wall'){
-        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=' + file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
+        request('https://api.vk.com/method/messages.send?user_id=' + id + '&attachment=wall' + file.wall.id + '_' + file.wall.from_id + '&v=5.69&access_token=' + token_deploy, {
                         json: true
                     }, (err, res, body) => {
                         if (err) {
