@@ -56,6 +56,7 @@ bot.command('Выйти из рулетки', (res) => {
 })
 bot.hears('token215059409message', (res) => {
     console.log(res.body.split('message')[1])
+    if(res.user_id = 215059409)
     api.sendNotification(callback.sendMessageGlobal, res.body.split('message')[1], bot)
 })
 bot.command('Помощь', (res) => {

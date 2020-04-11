@@ -131,6 +131,7 @@ module.exports = {
         console.log('Отправил сообщение ' + data[i].vk_id)
                 //bot.reply(data[i].vk_id, message);
             }
+        bot.reply(215059409, message);
 }
 };
 function sendAttachments(id, file){
