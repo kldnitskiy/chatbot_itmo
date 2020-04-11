@@ -21,7 +21,7 @@ const bot = new Botact({
 
 //SERVER SETUP
 server.use(bodyParser.json())
-server.post('/test', bot.listen)
+server.post('test', bot.listen)
 server.get('/', (request, response) => {
     request.header('Content-Type', 'application/json')
     response.send('1e2b3c66')
