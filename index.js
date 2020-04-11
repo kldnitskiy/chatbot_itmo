@@ -69,7 +69,7 @@ bot.on(function (res){
 
 
 function checkIfServicing(res){
-    if(res.user_id !== admin_id && !stopForService){
+    if(res.user_id !== admin_id && stopForService){
         res.reply(res.user_id, 'Мегабот: в данный момент проводятся технические работы. Повторите ваш запрос позже.')
         return false
     }else{
