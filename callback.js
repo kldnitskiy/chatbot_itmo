@@ -10,6 +10,10 @@ const bot = new Botact({
     token: token_deploy,
     confirmation: confirmation_deploy 
 })
+
+function timer(){
+    console.log('end')
+}
 let buttonsInChat = {
     "one_time": false,
     "buttons": [
@@ -90,6 +94,7 @@ module.exports = {
         if(msg.body !== null){
             if(msg.body !== ''){
                     bot.reply(pair_id, msg.body);
+                setTimeout(timer, 5000);
             }else{
                 bot.reply(user_id,'Мегабот: К сожалению, стикеры и медиафайлы пока не поддерживаются.', buttonsInChat);
                 bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам стикеры или медиавложение, но они пока не поддерживаются.', buttonsInChat);
