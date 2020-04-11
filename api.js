@@ -220,8 +220,9 @@ module.exports = {
                     callback(false);
                     return;
                 }
+                callback(result, text)
             });
-            callback(result, text)
+            
             
         });
     }
