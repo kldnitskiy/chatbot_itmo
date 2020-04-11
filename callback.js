@@ -93,19 +93,14 @@ module.exports = {
             if(msg.body !== ''){
                     bot.reply(pair_id, msg.body);    
             }else{
+                console.log(msg.attachments);
                 if (typeof msg.attachments[0].sticker.id !== 'undefined') {
-request('https://api.vk.com/method/messages.send?user_id='+pair_id+'&sticker_id='+msg.attachments[0].sticker.id+'&v=5.69&access_token='+token_deploy, { json: true }, (err, res, body) => {
-  if (err) { return console.log(err); }
-  console.log(body.url);
-  console.log(body.explanation);
-});
-}else{
-    bot.reply(user_id,'Мегабот: К сожалению,  медиафайлы пока не поддерживаются.', buttonsInChat);
-bot.reply(pair_id,'Мегабот: Собеседник хотел отправить вам медиавложение, но они пока не поддерживаются.', buttonsInChat);
-}
-
-                
-            }
+                    //sendSticker(pair_id, msg.attachments[0].sticker.id)
+                } else {
+                    bot.reply(user_id, 'Мегабот: К сожалению,  медиафайлы пока не поддерживаются.', buttonsInChat);
+                    bot.reply(pair_id, 'Мегабот: Собеседник хотел отправить вам медиавложение, но они пока не поддерживаются.', buttonsInChat);
+                }
+                }
             
         }else{
            if(status === 'createdPair'){
@@ -131,3 +126,15 @@ bot.reply(pair_id,'Мегабот: Собеседник хотел отправ�
         }
     }
 };
+
+function sendSticker(user_id, sticker_id){
+    request('https://api.vk.com/method/messages.send?user_id=' + user_id + '&sticker_id=' + sticker_id + '&v=5.69&access_token=' + token_deploy, {
+                        json: true
+                    }, (err, res, body) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(body.url);
+                        console.log(body.explanation);
+                    });
+}
